@@ -1,0 +1,643 @@
+{
+  "users": [
+    {
+      "id": "usr_1790583725378_z7hhf",
+      "name": "Learner Student",
+      "email": "demo@edulinga.ai",
+      "preferred_language": "Telugu",
+      "password": "$2a$10$xU9rzjMU6bgCrwl30u0Sfe0hxp3TrirNnjuvaOUDfUGYOGEB.yo6a",
+      "created_at": "2026-09-28T08:22:05.378Z"
+    }
+  ],
+  "conversations": [
+    {
+      "id": "conv_1790583746373_ersqi",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "Science & Physics",
+      "title": "Explain Quantum Physics simply",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Explain Quantum Physics simply",
+          "raw": "Explain Quantum Physics simply",
+          "language": "Telugu",
+          "at": "2026-09-28T08:22:26.373Z"
+        },
+        {
+          "role": "assistant",
+          "content": "1. **విషయం అవగాహన (Science & Physics)**: Explain Quantum Physics simply గురించి సులభంగా అర్థం చేసుకుందాం. [Concept Definition]\n2. **ముఖ్యమైన సూత్రాలు**: \n   • మొదటి నియమం: ఆలోచన క్రమం [Logical Order]\n   • రెండవ నియమం: ఉదాహరణ ద్వారా అధ్యయనం [Practical Example]\n3. **ఉదాహరణ**: దైనందిన జీవితంలో దీనిని మనం స్పష్టంగా పరిశీలించవచ్చు.\n\nమీకు ఈ వివరణ అర్థమైందా? ఏ విషయంలో మరిన్ని వివరాలు కావాలో చెప్పగలరా?",
+          "raw": "1. **విషయం అవగాహన (Science & Physics)**: Explain Quantum Physics simply గురించి సులభంగా అర్థం చేసుకుందాం. [Concept Definition]\n2. **ముఖ్యమైన సూత్రాలు**: \n   • మొదటి నియమం: ఆలోచన క్రమం [Logical Order]\n   • రెండవ నియమం: ఉదాహరణ ద్వారా అధ్యయనం [Practical Example]\n3. **ఉదాహరణ**: దైనందిన జీవితంలో దీనిని మనం స్పష్టంగా పరిశీలించవచ్చు.\n\nమీకు ఈ వివరణ అర్థమైందా? ఏ విషయంలో మరిన్ని వివరాలు కావాలో చెప్పగలరా?",
+          "language": "Telugu",
+          "at": "2026-09-28T08:22:26.373Z"
+        }
+      ],
+      "created_at": "2026-09-28T08:22:26.373Z"
+    },
+    {
+      "id": "conv_1790589924160_c60jd",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General Knowledge",
+      "title": "hlo",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hlo",
+          "raw": "hlo",
+          "language": "Telugu",
+          "at": "2026-09-28T10:05:24.160Z"
+        },
+        {
+          "role": "assistant",
+          "content": "1. **విషయం అవగాహన (General Knowledge)**: hlo గురించి సులభంగా అర్థం చేసుకుందాం. [Concept Definition]\n2. **ముఖ్యమైన సూత్రాలు**: \n   • మొదటి నియమం: ఆలోచన క్రమం [Logical Order]\n   • రెండవ నియమం: ఉదాహరణ ద్వారా అధ్యయనం [Practical Example]\n3. **ఉదాహరణ**: దైనందిన జీవితంలో దీనిని మనం స్పష్టంగా పరిశీలించవచ్చు.\n\nమీకు ఈ వివరణ అర్థమైందా? ఏ విషయంలో మరిన్ని వివరాలు కావాలో చెప్పగలరా?",
+          "raw": "1. **విషయం అవగాహన (General Knowledge)**: hlo గురించి సులభంగా అర్థం చేసుకుందాం. [Concept Definition]\n2. **ముఖ్యమైన సూత్రాలు**: \n   • మొదటి నియమం: ఆలోచన క్రమం [Logical Order]\n   • రెండవ నియమం: ఉదాహరణ ద్వారా అధ్యయనం [Practical Example]\n3. **ఉదాహరణ**: దైనందిన జీవితంలో దీనిని మనం స్పష్టంగా పరిశీలించవచ్చు.\n\nమీకు ఈ వివరణ అర్థమైందా? ఏ విషయంలో మరిన్ని వివరాలు కావాలో చెప్పగలరా?",
+          "language": "Telugu",
+          "at": "2026-09-28T10:05:24.160Z"
+        },
+        {
+          "role": "user",
+          "content": "naku ai gurinchi full ga explain chei",
+          "raw": "naku ai gurinchi full ga explain chei",
+          "language": "English",
+          "at": "2026-09-28T10:05:45.917Z"
+        },
+        {
+          "role": "assistant",
+          "content": "1. **Understanding General Knowledge (Intermediate Level)**: Let's break down \"naku ai gurinchi full ga explain chei\" clearly.\n2. **Key Concepts**:\n   • Step 1: Core definition and background principles.\n   • Step 2: Practical implementation and application.\n3. **Real-World Example**: Consider how this principle functions in everyday practical scenarios.\n\nDoes this explanation help clear things up? What specific part would you like to explore further?",
+          "raw": "1. **Understanding General Knowledge (Intermediate Level)**: Let's break down \"naku ai gurinchi full ga explain chei\" clearly.\n2. **Key Concepts**:\n   • Step 1: Core definition and background principles.\n   • Step 2: Practical implementation and application.\n3. **Real-World Example**: Consider how this principle functions in everyday practical scenarios.\n\nDoes this explanation help clear things up? What specific part would you like to explore further?",
+          "language": "English",
+          "at": "2026-09-28T10:05:45.917Z"
+        }
+      ],
+      "created_at": "2026-09-28T10:05:24.160Z"
+    },
+    {
+      "id": "conv_1790590656915_apxoh",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General Knowledge",
+      "title": "naku ai gurinchi full ga explain chei",
+      "messages": [
+        {
+          "role": "user",
+          "content": "naku ai gurinchi full ga explain chei",
+          "raw": "naku ai gurinchi full ga explain chei",
+          "language": "Telugu",
+          "at": "2026-09-28T10:17:36.916Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరణ\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ మేధస్సు అవసరమయ్యే ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు మరియు యంత్రాలు స్వయంచాలకంగా నిర్వహించేలా చేసే ఒక అత్యాధునిక సాంకేతికత.\n\n**2. AI లోని ముఖ్యమైన విభాగాలు (Key Components):**\n• **Machine Learning (ML):** డేటా నుండి కంప్యూటర్లు స్వయంచాలకంగా నేర్చుకునేలా చేసే ప్రక్రియ.\n• **Deep Learning & Neural Networks:** మానవ మెదడు న్యూరాన్ల నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవులు మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**3. నిత్యజీవితంలో AI ఉదాహరణలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n• **స్వయం డ్రైవింగ్ కార్లు:** Tesla మరియు Waymo ఆటోమేటెడ్ వాహనాలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న (Follow-up Question):**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా? లేదా AI పై ఒక చిన్న క్విజ్ ప్లే చేద్దామా?",
+          "raw": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరణ\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ మేధస్సు అవసరమయ్యే ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు మరియు యంత్రాలు స్వయంచాలకంగా నిర్వహించేలా చేసే ఒక అత్యాధునిక సాంకేతికత.\n\n**2. AI లోని ముఖ్యమైన విభాగాలు (Key Components):**\n• **Machine Learning (ML):** డేటా నుండి కంప్యూటర్లు స్వయంచాలకంగా నేర్చుకునేలా చేసే ప్రక్రియ.\n• **Deep Learning & Neural Networks:** మానవ మెదడు న్యూరాన్ల నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవులు మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**3. నిత్యజీవితంలో AI ఉదాహరణలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n• **స్వయం డ్రైవింగ్ కార్లు:** Tesla మరియు Waymo ఆటోమేటెడ్ వాహనాలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న (Follow-up Question):**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా? లేదా AI పై ఒక చిన్న క్విజ్ ప్లే చేద్దామా?",
+          "language": "Telugu",
+          "at": "2026-09-28T10:17:36.916Z"
+        },
+        {
+          "role": "user",
+          "content": "hlo ",
+          "raw": "hlo ",
+          "language": "English",
+          "at": "2026-09-28T10:17:51.988Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 📘 In-Depth Breakdown: **hlo **\n\n**1. Executive Overview:**\nLet's explore \"hlo \" within the domain of **General Knowledge** (Intermediate Level). Here is a clear, structured breakdown of the core principles.\n\n**2. Key Learning Pillars:**\n• **Foundational Principle:** Systematic logical decomposition of the core mechanism.\n• **Practical Implementation:** Real-world usage in industry and academic research.\n• **Analytical Insight:** Evaluating baseline assumptions through step-by-step reasoning.\n\n**3. Why This Topic Matters:**\nMastering this concept enhances problem-solving clarity and provides a solid foundation for advanced studies.\n\n---\n**❓ Interactive Next Steps:**\nWould you like me to:\n1. Provide a **real-world practical example**?\n2. Generate a **4-question quiz on this topic**?\n3. Explain a **specific sub-component** in more detail?",
+          "raw": "### 📘 In-Depth Breakdown: **hlo **\n\n**1. Executive Overview:**\nLet's explore \"hlo \" within the domain of **General Knowledge** (Intermediate Level). Here is a clear, structured breakdown of the core principles.\n\n**2. Key Learning Pillars:**\n• **Foundational Principle:** Systematic logical decomposition of the core mechanism.\n• **Practical Implementation:** Real-world usage in industry and academic research.\n• **Analytical Insight:** Evaluating baseline assumptions through step-by-step reasoning.\n\n**3. Why This Topic Matters:**\nMastering this concept enhances problem-solving clarity and provides a solid foundation for advanced studies.\n\n---\n**❓ Interactive Next Steps:**\nWould you like me to:\n1. Provide a **real-world practical example**?\n2. Generate a **4-question quiz on this topic**?\n3. Explain a **specific sub-component** in more detail?",
+          "language": "English",
+          "at": "2026-09-28T10:17:51.988Z"
+        },
+        {
+          "role": "user",
+          "content": "naku ai gurinchi motham explain chei",
+          "raw": "naku ai gurinchi motham explain chei",
+          "language": "English",
+          "at": "2026-09-28T10:18:02.887Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 Comprehensive Guide to Artificial Intelligence (AI)\n\n**1. Core Concept & Definition:**\nArtificial Intelligence (AI) refers to the capability of computer systems to perform complex cognitive tasks that traditionally require human intelligence — such as learning, logical reasoning, problem-solving, and decision-making.\n\n**2. Key Pillars of Modern AI:**\n• **Machine Learning (ML):** Algorithms that analyze large datasets to recognize patterns and improve performance automatically without explicit programming.\n• **Neural Networks & Deep Learning:** Multi-layered computational models inspired by the human brain that excel at complex pattern recognition (e.g. image & speech recognition).\n• **Natural Language Processing (NLP):** Technology enabling computers to understand, translate, and generate human natural language (e.g., ChatGPT, Claude).\n• **Computer Vision:** Automated analysis of visual media for object detection and navigation.\n\n**3. Real-World Everyday Applications:**\n• **Virtual Assistants:** Apple Siri, Google Assistant, Amazon Alexa\n• **Recommendation Engines:** Netflix movie recommendations, Spotify playlists, Amazon product suggestions\n• **Autonomous Systems:** Self-driving cars, automated fraud detection in banking\n\n---\n**❓ Interactive Follow-Up Question:**\nWould you like to explore **Machine Learning algorithms**, see how **ChatGPT operates**, or take a **quick interactive quiz** to test your AI knowledge?",
+          "raw": "### 🤖 Comprehensive Guide to Artificial Intelligence (AI)\n\n**1. Core Concept & Definition:**\nArtificial Intelligence (AI) refers to the capability of computer systems to perform complex cognitive tasks that traditionally require human intelligence — such as learning, logical reasoning, problem-solving, and decision-making.\n\n**2. Key Pillars of Modern AI:**\n• **Machine Learning (ML):** Algorithms that analyze large datasets to recognize patterns and improve performance automatically without explicit programming.\n• **Neural Networks & Deep Learning:** Multi-layered computational models inspired by the human brain that excel at complex pattern recognition (e.g. image & speech recognition).\n• **Natural Language Processing (NLP):** Technology enabling computers to understand, translate, and generate human natural language (e.g., ChatGPT, Claude).\n• **Computer Vision:** Automated analysis of visual media for object detection and navigation.\n\n**3. Real-World Everyday Applications:**\n• **Virtual Assistants:** Apple Siri, Google Assistant, Amazon Alexa\n• **Recommendation Engines:** Netflix movie recommendations, Spotify playlists, Amazon product suggestions\n• **Autonomous Systems:** Self-driving cars, automated fraud detection in banking\n\n---\n**❓ Interactive Follow-Up Question:**\nWould you like to explore **Machine Learning algorithms**, see how **ChatGPT operates**, or take a **quick interactive quiz** to test your AI knowledge?",
+          "language": "English",
+          "at": "2026-09-28T10:18:02.887Z"
+        },
+        {
+          "role": "user",
+          "content": "what is data base",
+          "raw": "what is data base",
+          "language": "Telugu",
+          "at": "2026-09-28T10:21:56.635Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 📘 **what is data base** గురించి సమగ్ర వివరణ\n\n**1. ప్రాథమిక భావన (Overview):**\n\"what is data base\" అనే అంశం **General Knowledge** రంగానికి చెందినది. ఈ అంశం యొక్క ప్రాథమిక సూత్రాలు మరియు విశేషాలను కింద వివరంగా తెలుసుకుందాం.\n\n**2. ముఖ్యమైన ముఖ్యాంశాలు (Key Highlights):**\n• **ప్రధాన సూత్రం (Core Principle):** లోతైన తార్కిక ఆలోచన మరియు అంచనాల ఆధారంగా అధ్యయనం చేయడం.\n• **ప్రయోగాత్మక అప్లికేషన్:** ఈ అంశాన్ని నిత్యజీవితంలో మరియు సాంకేతిక రంగాలలో విస్తృతంగా ఉపయోగిస్తారు.\n• **విశ్లేషణాత్మక నైపుణ్యం:** సమస్యలను దశలవారీగా అర్థం చేసుకుని పరిష్కారాన్ని కనుగొనడం.\n\n**3. ప్రాముఖ్యత (Importance & Real-world Impact):**\nఈ విధానం విద్యార్థులకు, పరిశోధకులకు మరియు నిపుణులకు భావనాత్మక స్పష్టతను అందిస్తుంది.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని మరింత లోతుగా తెలుసుకోవాలనుకుంటున్నారు? ఉదాహరణలు లేదా క్విజ్ కోరుకుంటున్నారా?",
+          "raw": "### 📘 **what is data base** గురించి సమగ్ర వివరణ\n\n**1. ప్రాథమిక భావన (Overview):**\n\"what is data base\" అనే అంశం **General Knowledge** రంగానికి చెందినది. ఈ అంశం యొక్క ప్రాథమిక సూత్రాలు మరియు విశేషాలను కింద వివరంగా తెలుసుకుందాం.\n\n**2. ముఖ్యమైన ముఖ్యాంశాలు (Key Highlights):**\n• **ప్రధాన సూత్రం (Core Principle):** లోతైన తార్కిక ఆలోచన మరియు అంచనాల ఆధారంగా అధ్యయనం చేయడం.\n• **ప్రయోగాత్మక అప్లికేషన్:** ఈ అంశాన్ని నిత్యజీవితంలో మరియు సాంకేతిక రంగాలలో విస్తృతంగా ఉపయోగిస్తారు.\n• **విశ్లేషణాత్మక నైపుణ్యం:** సమస్యలను దశలవారీగా అర్థం చేసుకుని పరిష్కారాన్ని కనుగొనడం.\n\n**3. ప్రాముఖ్యత (Importance & Real-world Impact):**\nఈ విధానం విద్యార్థులకు, పరిశోధకులకు మరియు నిపుణులకు భావనాత్మక స్పష్టతను అందిస్తుంది.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని మరింత లోతుగా తెలుసుకోవాలనుకుంటున్నారు? ఉదాహరణలు లేదా క్విజ్ కోరుకుంటున్నారా?",
+          "language": "Telugu",
+          "at": "2026-09-28T10:21:56.635Z"
+        },
+        {
+          "role": "user",
+          "content": "hi",
+          "raw": "hi",
+          "language": "Tamil",
+          "at": "2026-09-28T10:22:13.075Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 📘 In-Depth Breakdown: **hi**\n\n**1. Executive Overview:**\nLet's explore \"hi\" within the domain of **General Knowledge** (Intermediate Level). Here is a clear, structured breakdown of the core principles.\n\n**2. Key Learning Pillars:**\n• **Foundational Principle:** Systematic logical decomposition of the core mechanism.\n• **Practical Implementation:** Real-world usage in industry and academic research.\n• **Analytical Insight:** Evaluating baseline assumptions through step-by-step reasoning.\n\n**3. Why This Topic Matters:**\nMastering this concept enhances problem-solving clarity and provides a solid foundation for advanced studies.\n\n---\n**❓ Interactive Next Steps:**\nWould you like me to:\n1. Provide a **real-world practical example**?\n2. Generate a **4-question quiz on this topic**?\n3. Explain a **specific sub-component** in more detail?",
+          "raw": "### 📘 In-Depth Breakdown: **hi**\n\n**1. Executive Overview:**\nLet's explore \"hi\" within the domain of **General Knowledge** (Intermediate Level). Here is a clear, structured breakdown of the core principles.\n\n**2. Key Learning Pillars:**\n• **Foundational Principle:** Systematic logical decomposition of the core mechanism.\n• **Practical Implementation:** Real-world usage in industry and academic research.\n• **Analytical Insight:** Evaluating baseline assumptions through step-by-step reasoning.\n\n**3. Why This Topic Matters:**\nMastering this concept enhances problem-solving clarity and provides a solid foundation for advanced studies.\n\n---\n**❓ Interactive Next Steps:**\nWould you like me to:\n1. Provide a **real-world practical example**?\n2. Generate a **4-question quiz on this topic**?\n3. Explain a **specific sub-component** in more detail?",
+          "language": "Tamil",
+          "at": "2026-09-28T10:22:13.075Z"
+        }
+      ],
+      "created_at": "2026-09-28T10:17:36.915Z"
+    },
+    {
+      "id": "conv_1790590890422_g7s7u",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General Knowledge",
+      "title": "ml;lk",
+      "messages": [
+        {
+          "role": "user",
+          "content": "ml;lk",
+          "raw": "ml;lk",
+          "language": "Telugu",
+          "at": "2026-09-28T10:21:30.422Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 📘 **ml;lk** గురించి సమగ్ర వివరణ\n\n**1. ప్రాథమిక భావన (Overview):**\n\"ml;lk\" అనే అంశం **General Knowledge** రంగానికి చెందినది. ఈ అంశం యొక్క ప్రాథమిక సూత్రాలు మరియు విశేషాలను కింద వివరంగా తెలుసుకుందాం.\n\n**2. ముఖ్యమైన ముఖ్యాంశాలు (Key Highlights):**\n• **ప్రధాన సూత్రం (Core Principle):** లోతైన తార్కిక ఆలోచన మరియు అంచనాల ఆధారంగా అధ్యయనం చేయడం.\n• **ప్రయోగాత్మక అప్లికేషన్:** ఈ అంశాన్ని నిత్యజీవితంలో మరియు సాంకేతిక రంగాలలో విస్తృతంగా ఉపయోగిస్తారు.\n• **విశ్లేషణాత్మక నైపుణ్యం:** సమస్యలను దశలవారీగా అర్థం చేసుకుని పరిష్కారాన్ని కనుగొనడం.\n\n**3. ప్రాముఖ్యత (Importance & Real-world Impact):**\nఈ విధానం విద్యార్థులకు, పరిశోధకులకు మరియు నిపుణులకు భావనాత్మక స్పష్టతను అందిస్తుంది.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని మరింత లోతుగా తెలుసుకోవాలనుకుంటున్నారు? ఉదాహరణలు లేదా క్విజ్ కోరుకుంటున్నారా?",
+          "raw": "### 📘 **ml;lk** గురించి సమగ్ర వివరణ\n\n**1. ప్రాథమిక భావన (Overview):**\n\"ml;lk\" అనే అంశం **General Knowledge** రంగానికి చెందినది. ఈ అంశం యొక్క ప్రాథమిక సూత్రాలు మరియు విశేషాలను కింద వివరంగా తెలుసుకుందాం.\n\n**2. ముఖ్యమైన ముఖ్యాంశాలు (Key Highlights):**\n• **ప్రధాన సూత్రం (Core Principle):** లోతైన తార్కిక ఆలోచన మరియు అంచనాల ఆధారంగా అధ్యయనం చేయడం.\n• **ప్రయోగాత్మక అప్లికేషన్:** ఈ అంశాన్ని నిత్యజీవితంలో మరియు సాంకేతిక రంగాలలో విస్తృతంగా ఉపయోగిస్తారు.\n• **విశ్లేషణాత్మక నైపుణ్యం:** సమస్యలను దశలవారీగా అర్థం చేసుకుని పరిష్కారాన్ని కనుగొనడం.\n\n**3. ప్రాముఖ్యత (Importance & Real-world Impact):**\nఈ విధానం విద్యార్థులకు, పరిశోధకులకు మరియు నిపుణులకు భావనాత్మక స్పష్టతను అందిస్తుంది.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని మరింత లోతుగా తెలుసుకోవాలనుకుంటున్నారు? ఉదాహరణలు లేదా క్విజ్ కోరుకుంటున్నారా?",
+          "language": "Telugu",
+          "at": "2026-09-28T10:21:30.422Z"
+        }
+      ],
+      "created_at": "2026-09-28T10:21:30.422Z"
+    }
+  ],
+  "essays": [
+    {
+      "id": "esy_1790583846350_84lyu",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "The Impact of Artificial Intelligence on Modern Education",
+      "content": "Artificial intelligence is rapidly transforming the landscape of modern education. By providing personalized learning experiences, AI tools empower students to learn at their own pace. Furthermore, intelligent tutoring systems assist teachers in evaluating student progress efficiently while offering targeted feedback and multilingual guidance.",
+      "language": "English",
+      "score": 72,
+      "feedback": {
+        "language": "English",
+        "overall": 72,
+        "grammar": 74,
+        "vocabulary": 68,
+        "coherence": 73,
+        "structure": 75,
+        "originality": 70,
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "Artificial intelligence i...",
+            "fixed": "Artificial intelligence i (refined)",
+            "why": "Improved clarity and tone consistency"
+          }
+        ]
+      },
+      "created_at": "2026-09-28T08:24:06.350Z"
+    },
+    {
+      "id": "esy_1790584023118_jsxga",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "Untitled Essay",
+      "content": "tyuio fghjkjhgf  hbjkjh ghjj  tcghjkj tfghjk  6dtfgyh 4tui sdsfdfb  esdfhgjhkjwer t y hdty d6guv t78yy ttuiigdr ghc gucd dfhvf tsdfhjj iuytr etu  gc tyyf 6rygy ugcf  ir fhcesr   htir bb rf rhjifj uh4ihhjf huihjihf bjbbj ubejbb buhbjvb   igjbbhbv  bjbj vjj gbrjjnzdjjijjf hhjfj b hbi",
+      "language": "English",
+      "score": 72,
+      "feedback": {
+        "language": "English",
+        "overall": 72,
+        "grammar": 74,
+        "vocabulary": 68,
+        "coherence": 73,
+        "structure": 75,
+        "originality": 70,
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "tyuio fghjkjhgf  hbjkjh g...",
+            "fixed": "tyuio fghjkjhgf  hbjkjh g (refined)",
+            "why": "Improved clarity and tone consistency"
+          }
+        ]
+      },
+      "created_at": "2026-09-28T08:27:03.118Z"
+    },
+    {
+      "id": "esy_1790585509939_cn83p",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "Untitled Essay",
+      "content": "EduLingua AI is a multilingual, AI-powered educational platform that bridges the language gap in AI-based learning tools. It combines Large Language Models (LLMs), Natural Language Processing (NLP), and a full-stack web architecture (React, FastAPI, MongoDB) to deliver academic tutoring, automated essay feedback, translation, and quiz generation in English, Telugu, Hindi, and other regional languages.\r\n",
+      "language": "English",
+      "score": 73,
+      "feedback": {
+        "language": "English",
+        "overall": 73,
+        "grammar": 75,
+        "vocabulary": 69,
+        "coherence": 74,
+        "structure": 76,
+        "originality": 71,
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "EduLingua AI is a multili...",
+            "fixed": "EduLingua AI is a multili (refined)",
+            "why": "Improved clarity and tone consistency"
+          }
+        ]
+      },
+      "created_at": "2026-09-28T08:51:49.939Z"
+    },
+    {
+      "id": "esy_1790585514830_eucqp",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "Untitled Essay",
+      "content": "EduLingua AI is a multilingual, AI-powered educational platform that bridges the language gap in AI-based learning tools. It combines Large Language Models (LLMs), Natural Language Processing (NLP), and a full-stack web architecture (React, FastAPI, MongoDB) to deliver academic tutoring, automated essay feedback, translation, and quiz generation in English, Telugu, Hindi, and other regional languages.\r\nEduLingua AI is a multilingual, AI-powered educational platform that bridges the language gap in AI-based learning tools. It combines Large Language Models (LLMs), Natural Language Processing (NLP), and a full-stack web architecture (React, FastAPI, MongoDB) to deliver academic tutoring, automated essay feedback, translation, and quiz generation in English, Telugu, Hindi, and other regional languages.\r\n",
+      "language": "English",
+      "score": 77,
+      "feedback": {
+        "language": "English",
+        "overall": 77,
+        "grammar": 79,
+        "vocabulary": 73,
+        "coherence": 78,
+        "structure": 80,
+        "originality": 75,
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "EduLingua AI is a multili...",
+            "fixed": "EduLingua AI is a multili (refined)",
+            "why": "Improved clarity and tone consistency"
+          }
+        ]
+      },
+      "created_at": "2026-09-28T08:51:54.830Z"
+    },
+    {
+      "id": "esy_1790586466204_3l40r",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "ai ",
+      "content": "rtificial Intelligence (AI) refers to the capability of computer systems and machines to perform tasks that typically require human intelligence, such as learning, reasoning, problem-solving, and decision-making.Instead of relying strictly on rigid, pre-written rules, modern AI uses algorithms and massive amounts of data to spot patterns and make predictions or independent decisions.Here is a comprehensive breakdown of how AI works, its main types, and everyday examples.",
+      "language": "English",
+      "score": 74,
+      "feedback": {
+        "language": "English",
+        "overall": 74,
+        "grammar": 76,
+        "vocabulary": 70,
+        "coherence": 75,
+        "structure": 77,
+        "originality": 72,
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "rtificial Intelligence (A...",
+            "fixed": "rtificial Intelligence (A (refined)",
+            "why": "Improved clarity and tone consistency"
+          }
+        ]
+      },
+      "created_at": "2026-09-28T09:07:46.204Z"
+    },
+    {
+      "id": "esy_1790590733755_o650a",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "Untitled Essay",
+      "content": "by using this reference \"Low-resource and Multilingual Language Modeling via Chain-of-thought Reasoning with Large Language Models, Applied to Educational Tutoring and Automated Essay Feedback\". write a acadamic research paper on this format",
+      "language": "English",
+      "score": 72,
+      "feedback": {
+        "language": "English",
+        "overall": 72,
+        "grammar": 74,
+        "vocabulary": 68,
+        "coherence": 73,
+        "structure": 75,
+        "originality": 70,
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "by using this reference \"...",
+            "fixed": "by using this reference \" (refined)",
+            "why": "Improved clarity and tone consistency"
+          }
+        ]
+      },
+      "created_at": "2026-09-28T10:18:53.756Z"
+    },
+    {
+      "id": "esy_1790591298715_mivzd",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "Untitled Essay",
+      "content": "by using this reference Low-resource and Multilingual Language Modeling via Chain-of-thought Reasoning with Large Language Models. write a academic research paper on natural language processing for low resource languages using chain of thought reasoning in large scale deep learning models for multilingual evaluation and translation tasks.",
+      "language": "English",
+      "score": 73,
+      "feedback": {
+        "language": "English",
+        "overall": 73,
+        "grammar": 75,
+        "vocabulary": 69,
+        "coherence": 74,
+        "structure": 76,
+        "originality": 71,
+        "improvedVersion": "## 📄 Perfect Academic Rewrite (ఎలా సరైన పద్ధతిలో రాయాలి):\n\n**Abstract & Introduction:**\nThis research paper investigates low-resource and multilingual language modeling utilizing Chain-of-Thought (CoT) reasoning with Large Language Models (LLMs), specifically applied to educational tutoring and automated essay evaluation systems.\n\n**Methodology & CoT Pivot:**\nStandard multilingual models often struggle with direct translation in low-resource languages. By implementing a Chain-of-Thought (CoT) pivot architecture, the model first performs intermediate logical reasoning in English before generating student-facing feedback in regional target languages (e.g., Telugu, Hindi, Tamil).\n\n**Results & Educational Impact:**\nEmpirical evaluations demonstrate that CoT-driven feedback provides significantly higher scoring precision across grammar, structure, and coherence, bridging the educational accessibility gap for regional language learners.",
+        "keyTakeaways": [
+          "Multilingual CoT Pivot: Intermediate reasoning in English enhances output accuracy in target languages.",
+          "Dual Application: Integrated framework for both interactive AI tutoring and automated essay grading.",
+          "Empirical Validation: Structured multi-metric feedback improves student learning outcomes."
+        ],
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "by using this reference Low-resourc...",
+            "fixed": "Refined & corrected sentence structure with formal academic grammar.",
+            "why": "Corrected capitalization, academic syntax, and subject-verb agreement."
+          }
+        ]
+      },
+      "created_at": "2026-09-28T10:28:18.715Z"
+    },
+    {
+      "id": "esy_1790591595783_8x6lt",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "ytgrfew",
+      "content": "gtrytujy5t432emrihggyrewjke  3b 4ug4gvthrje f hh fhwqbw hiouihu hiti htuihtuihtuu t gu uug hg   g ghghr hrg g guiuigui gu g  uhrg tuhruihgrugrhiugg   guhguhguhgu    uhu h ug h h uh uhh u hu u uhh uh hu hu u  u u ",
+      "language": "English",
+      "score": 72,
+      "feedback": {
+        "language": "English",
+        "overall": 72,
+        "grammar": 74,
+        "vocabulary": 68,
+        "coherence": 73,
+        "structure": 75,
+        "originality": 70,
+        "improvedVersion": "## 📄 Perfect Academic Rewrite (ఎలా సరైన పద్ధతిలో రాయాలి):\n\ngtrytujy5t432emrihggyrewjke  3b 4ug4gvthrje f hh fhwqbw hiouihu hiti htuihtuihtuu t gu uug hg   g gh... \n\n**Refined & Structure-Enhanced Paragraph:**\ngtrytujy5t432emrihggyrewjke  3b 4ug4gvthrje f hh fhwqbw hiouihu hiti htuihtuihtuu t gu uug hg   g ghghr hrg g guiuigui gu g  uhrg tuhruihgrugrhiugg   guhguhguhgu    uhu h ug h h uh uhh u hu u uhh uh hu hu u  u u\n\n*Academic Polish:* The above submission has been refined with elevated vocabulary transitions, formal passive voice structures, and clear topic sentences to maximize argument coherence and academic impact.",
+        "keyTakeaways": [
+          "Structured Thesis: Ensure each paragraph begins with a strong, focused topic sentence.",
+          "Vocabulary Transitions: Utilize formal connective phrases (e.g., 'Furthermore', 'Consequently').",
+          "Empirical Support: Support core claims with concrete examples and data evidence."
+        ],
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "gtrytujy5t432emrihggyrewjke  3b 4ug...",
+            "fixed": "Refined & corrected sentence structure with formal academic grammar.",
+            "why": "Corrected capitalization, academic syntax, and subject-verb agreement."
+          }
+        ]
+      },
+      "created_at": "2026-09-28T10:33:15.783Z"
+    }
+  ],
+  "progress": [
+    {
+      "id": "prg_1790583746373",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "Science & Physics",
+      "language": "Telugu",
+      "date": "2026-09-28T08:22:26.373Z"
+    },
+    {
+      "id": "prg_1790583846350",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 72,
+      "language": "English",
+      "date": "2026-09-28T08:24:06.350Z"
+    },
+    {
+      "id": "prg_1790584023118",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 72,
+      "language": "English",
+      "date": "2026-09-28T08:27:03.118Z"
+    },
+    {
+      "id": "prg_q_1790584731119",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "quiz",
+      "subject": "Science & Physics",
+      "score": 100,
+      "date": "2026-09-28T08:38:51.119Z"
+    },
+    {
+      "id": "prg_1790585509939",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 73,
+      "language": "English",
+      "date": "2026-09-28T08:51:49.939Z"
+    },
+    {
+      "id": "prg_1790585514830",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 77,
+      "language": "English",
+      "date": "2026-09-28T08:51:54.830Z"
+    },
+    {
+      "id": "prg_1790586466204",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 74,
+      "language": "English",
+      "date": "2026-09-28T09:07:46.204Z"
+    },
+    {
+      "id": "prg_1790589924160",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Telugu",
+      "date": "2026-09-28T10:05:24.160Z"
+    },
+    {
+      "id": "prg_1790589945917",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "English",
+      "date": "2026-09-28T10:05:45.917Z"
+    },
+    {
+      "id": "prg_1790590656916",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Telugu",
+      "date": "2026-09-28T10:17:36.916Z"
+    },
+    {
+      "id": "prg_1790590671988",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "English",
+      "date": "2026-09-28T10:17:51.988Z"
+    },
+    {
+      "id": "prg_1790590682887",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "English",
+      "date": "2026-09-28T10:18:02.887Z"
+    },
+    {
+      "id": "prg_1790590733756",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 72,
+      "language": "English",
+      "date": "2026-09-28T10:18:53.756Z"
+    },
+    {
+      "id": "prg_1790590890422",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Telugu",
+      "date": "2026-09-28T10:21:30.422Z"
+    },
+    {
+      "id": "prg_1790590916635",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Telugu",
+      "date": "2026-09-28T10:21:56.635Z"
+    },
+    {
+      "id": "prg_1790590933075",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Tamil",
+      "date": "2026-09-28T10:22:13.075Z"
+    },
+    {
+      "id": "prg_1790591298715",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 73,
+      "language": "English",
+      "date": "2026-09-28T10:28:18.715Z"
+    },
+    {
+      "id": "prg_1790591595783",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 72,
+      "language": "English",
+      "date": "2026-09-28T10:33:15.783Z"
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc_1790585078163",
+      "user_id": "usr_1790583725378_z7hhf",
+      "term": "Photosynthesis",
+      "definition": "Process of converting light energy into chemical energy",
+      "subject": "General Knowledge",
+      "language": "Telugu",
+      "created_at": "2026-09-28T08:44:38.163Z"
+    }
+  ]
+}
