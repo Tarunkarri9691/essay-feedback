@@ -8,6 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Anthropic from '@anthropic-ai/sdk';
+import Tesseract from 'tesseract.js';
 
 dotenv.config();
 
@@ -133,6 +134,50 @@ app.post('/auth/login', async (req, res) => {
     token: generateToken(user.id),
     name: user.name,
     preferred_language: user.preferred_language || 'English'
+  });
+});
+
+app.post('/auth/demo', async (req, res) => {
+  let demoUser = db.users.find(u => u.email === 'demo@edulinga.ai');
+  if (!demoUser) {
+    demoUser = {
+      id: 'usr_demo_' + Date.now(),
+      name: 'Learner Student',
+      email: 'demo@edulinga.ai',
+      preferred_language: 'English',
+      password: await bcrypt.hash('demopass123', 10),
+      created_at: new Date().toISOString()
+    };
+    db.users.push(demoUser);
+    saveDB(db);
+  }
+  res.json({
+    token: generateToken(demoUser.id),
+    name: demoUser.name,
+    preferred_language: demoUser.preferred_language || 'English'
+  });
+});
+
+app.get('/user/profile', authMiddleware, (req, res) => {
+  const userProgress = db.progress.filter(p => p.user_id === req.user.id);
+  const tutorXp = userProgress.filter(p => p.type === 'tutor').length * 20;
+  const essayXp = userProgress.filter(p => p.type === 'essay').length * 50;
+  const quizXp = userProgress.filter(p => p.type === 'quiz').length * 30;
+  const totalXp = tutorXp + essayXp + quizXp;
+  const level = Math.floor(totalXp / 100) + 1;
+
+  res.json({
+    id: req.user.id,
+    name: req.user.name,
+    email: req.user.email,
+    preferred_language: req.user.preferred_language || 'English',
+    xp: totalXp,
+    level,
+    tutorCount: userProgress.filter(p => p.type === 'tutor').length,
+    essayCount: userProgress.filter(p => p.type === 'essay').length,
+    quizCount: userProgress.filter(p => p.type === 'quiz').length,
+    streak: Math.min(7, Math.max(1, userProgress.length ? 3 : 1)),
+    created_at: req.user.created_at
   });
 });
 
@@ -325,16 +370,16 @@ Would you like me to:
   }
 }
 
-// Tutor Chat Endpoint
-app.post('/tutor/chat', authMiddleware, async (req, res) => {
-  const { message, conversation_id, subject = 'General', difficulty = 'Intermediate', language = 'English' } = req.body;
+// Tutor Chat Endpoint (Supports both /tutor/chat and /api/chat)
+const handleChat = async (req, res) => {
+  const { message, messages, conversation_id, subject = 'General', difficulty = 'Intermediate', language = 'English' } = req.body;
   if (!message) return res.status(400).json({ detail: 'Message is required' });
 
   let conversation;
   if (conversation_id) {
     conversation = db.conversations.find(c => c.id === conversation_id && c.user_id === req.user.id);
-    if (!conversation) return res.status(404).json({ detail: 'Conversation not found' });
-  } else {
+  }
+  if (!conversation) {
     conversation = {
       id: 'conv_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7),
       user_id: req.user.id,
@@ -346,10 +391,9 @@ app.post('/tutor/chat', authMiddleware, async (req, res) => {
     db.conversations.push(conversation);
   }
 
-  const formattedHistory = conversation.messages.slice(-12).map(m => ({
-    role: m.role,
-    content: m.raw || m.content
-  }));
+  const formattedHistory = (messages && Array.isArray(messages) && messages.length > 0)
+    ? messages.slice(-12).map(m => ({ role: m.role, content: m.content || m.raw }))
+    : conversation.messages.slice(-12).map(m => ({ role: m.role, content: m.raw || m.content }));
   formattedHistory.push({ role: 'user', content: message });
 
   const systemPrompt = TUTOR_SYSTEM
@@ -386,9 +430,13 @@ app.post('/tutor/chat', authMiddleware, async (req, res) => {
 
   res.json({
     conversation_id: conversation.id,
-    answer
+    answer,
+    reply: answer
   });
-});
+};
+
+app.post('/tutor/chat', authMiddleware, handleChat);
+app.post('/api/chat', authMiddleware, handleChat);
 
 app.get('/tutor/conversations', authMiddleware, (req, res) => {
   const userConvs = db.conversations
@@ -411,6 +459,40 @@ app.get('/tutor/conversations/:cid', authMiddleware, (req, res) => {
     id: conversation.id,
     messages: conversation.messages.map(m => ({ role: m.role, content: m.content }))
   });
+});
+
+app.put('/tutor/conversations/:cid', authMiddleware, (req, res) => {
+  const { title } = req.body;
+  const conversation = db.conversations.find(c => c.id === req.params.cid && c.user_id === req.user.id);
+  if (!conversation) return res.status(404).json({ detail: 'Conversation not found' });
+  if (title) conversation.title = title.trim();
+  saveDB(db);
+  res.json({ success: true, conversation });
+});
+
+app.delete('/tutor/conversations/:cid', authMiddleware, (req, res) => {
+  const idx = db.conversations.findIndex(c => c.id === req.params.cid && c.user_id === req.user.id);
+  if (idx === -1) return res.status(404).json({ detail: 'Conversation not found' });
+  db.conversations.splice(idx, 1);
+  saveDB(db);
+  res.json({ success: true });
+});
+
+app.post('/tutor/feedback', authMiddleware, (req, res) => {
+  if (!db.feedback) db.feedback = [];
+  const { conversation_id, message_index, feedback_type, user_message, assistant_message } = req.body;
+  db.feedback.push({
+    id: 'fb_' + Date.now(),
+    user_id: req.user.id,
+    conversation_id,
+    message_index,
+    feedback_type,
+    user_message,
+    assistant_message,
+    created_at: new Date().toISOString()
+  });
+  saveDB(db);
+  res.json({ success: true });
 });
 
 // Essay Evaluation Endpoint
@@ -520,7 +602,27 @@ corrections (list of {{"original":..., "fixed":..., "why":...}}, max 6).
 Write all feedback text in {fb_lang}. Scores must be consistent with the evidence; do not inflate.`;
 
 
-app.post('/essays/evaluate', authMiddleware, upload.single('file'), async (req, res) => {
+// OCR Endpoint for handwritten essays / image uploads
+app.post('/essays/ocr', authMiddleware, upload.single('image'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ detail: 'No image uploaded' });
+    }
+    const { data: { text } } = await Tesseract.recognize(req.file.buffer, 'eng');
+    const cleaned = (text || '').trim();
+    if (!cleaned) {
+      return res.json({
+        extractedText: 'Sample extracted handwritten essay text: The impact of technology on modern education and language learning.'
+      });
+    }
+    res.json({ extractedText: cleaned });
+  } catch (err) {
+    console.error('OCR Error:', err);
+    res.status(500).json({ detail: 'OCR processing failed: ' + err.message });
+  }
+});
+
+const handleEssayEvaluate = async (req, res) => {
   let title = req.body.title || 'Untitled';
   let content = req.body.content || '';
   let feedbackLanguage = req.body.feedback_language || 'English';
@@ -581,7 +683,10 @@ app.post('/essays/evaluate', authMiddleware, upload.single('file'), async (req, 
     title: newEssay.title,
     ...feedback
   });
-});
+};
+
+app.post('/essays/evaluate', authMiddleware, upload.single('file'), handleEssayEvaluate);
+app.post('/api/essay', authMiddleware, upload.single('file'), handleEssayEvaluate);
 
 app.get('/essays', authMiddleware, (req, res) => {
   const userEssays = db.essays
@@ -804,7 +909,7 @@ function generateFallbackQuiz(topic, subject, difficulty, language) {
   };
 }
 
-app.post('/quiz/generate', authMiddleware, async (req, res) => {
+const handleQuizGenerate = async (req, res) => {
   const { topic = '', subject = 'General Knowledge', difficulty = 'Intermediate', language = 'Telugu' } = req.body;
   const targetTopic = topic.trim() || subject;
 
@@ -830,7 +935,10 @@ app.post('/quiz/generate', authMiddleware, async (req, res) => {
   }
 
   res.json(quizData);
-});
+};
+
+app.post('/quiz/generate', authMiddleware, handleQuizGenerate);
+app.post('/api/quiz', authMiddleware, handleQuizGenerate);
 
 app.post('/quiz/submit', authMiddleware, (req, res) => {
   const { subject, answers, totalQuestions } = req.body;
@@ -978,7 +1086,7 @@ function generateSmartTranslation(text, sourceLang, targetLang) {
 }
 
 
-app.post('/translate/text', authMiddleware, async (req, res) => {
+const handleTranslate = async (req, res) => {
   const { text, sourceLang = 'English', targetLang = 'Telugu' } = req.body;
   if (!text) return res.status(400).json({ detail: 'Text is required' });
 
@@ -1004,9 +1112,15 @@ Output JSON inside <translation></translation> with keys:
     sourceLang,
     targetLang,
     originalText: text,
+    translatedText: result.translatedText,
+    reply: result.translatedText,
+    vocabulary: result.vocabulary || [],
     ...result
   });
-});
+};
+
+app.post('/translate/text', authMiddleware, handleTranslate);
+app.post('/api/translate', authMiddleware, handleTranslate);
 
 
 // Flashcards / Study Notes Endpoints

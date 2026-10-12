@@ -6,7 +6,37 @@
       "email": "demo@edulinga.ai",
       "preferred_language": "Telugu",
       "password": "$2a$10$xU9rzjMU6bgCrwl30u0Sfe0hxp3TrirNnjuvaOUDfUGYOGEB.yo6a",
-      "created_at": "2026-09-28T08:22:05.378Z"
+      "created_at": "2026-09-28T08:22:05.378Z",
+      "xp": 445,
+      "level": 5,
+      "badges": [
+        "learner_100_xp",
+        "first_essay",
+        "flashcard_master"
+      ],
+      "streak": 1,
+      "last_active_date": "2026-10-12"
+    },
+    {
+      "id": "usr_1790671675592_lj7p6",
+      "name": "tarun",
+      "email": "tarunkarri48@gmail.com",
+      "preferred_language": "English",
+      "password": "$2a$10$Ir843FCWXQafO80FGmQNA./IBw8DU724JDx6v/XmWbtUrb5BzSkSq",
+      "created_at": "2026-09-29T08:47:55.592Z"
+    },
+    {
+      "id": "usr_1791010926632_pqhks",
+      "name": "Tarun Karri",
+      "email": "dfghjkl@gmail.com",
+      "preferred_language": "English",
+      "password": "$2a$10$t80jnV5JYLqb1siNTEb.8O7KuHD787XbJSLIL0rQHOXCeUGl2kfS6",
+      "created_at": "2026-10-03T07:02:06.632Z",
+      "xp": 20,
+      "level": 1,
+      "badges": [],
+      "streak": 1,
+      "last_active_date": "2026-10-03"
     }
   ],
   "conversations": [
@@ -171,6 +201,435 @@
         }
       ],
       "created_at": "2026-09-28T10:21:30.422Z"
+    },
+    {
+      "id": "conv_1790671463684_hl4eh",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General Knowledge",
+      "title": "hlo",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hlo",
+          "raw": "hlo",
+          "language": "Telugu",
+          "at": "2026-09-29T08:44:23.684Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 📘 **hlo** గురించి సమగ్ర వివరణ\n\n**1. ప్రాథమిక భావన (Overview):**\n\"hlo\" అనే అంశం **General Knowledge** రంగానికి చెందినది. ఈ అంశం యొక్క ప్రాథమిక సూత్రాలు మరియు విశేషాలను కింద వివరంగా తెలుసుకుందాం.\n\n**2. ముఖ్యమైన ముఖ్యాంశాలు (Key Highlights):**\n• **ప్రధాన సూత్రం (Core Principle):** లోతైన తార్కిక ఆలోచన మరియు అంచనాల ఆధారంగా అధ్యయనం చేయడం.\n• **ప్రయోగాత్మక అప్లికేషన్:** ఈ అంశాన్ని నిత్యజీవితంలో మరియు సాంకేతిక రంగాలలో విస్తృతంగా ఉపయోగిస్తారు.\n• **విశ్లేషణాత్మక నైపుణ్యం:** సమస్యలను దశలవారీగా అర్థం చేసుకుని పరిష్కారాన్ని కనుగొనడం.\n\n**3. ప్రాముఖ్యత (Importance & Real-world Impact):**\nఈ విధానం విద్యార్థులకు, పరిశోధకులకు మరియు నిపుణులకు భావనాత్మక స్పష్టతను అందిస్తుంది.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని మరింత లోతుగా తెలుసుకోవాలనుకుంటున్నారు? ఉదాహరణలు లేదా క్విజ్ కోరుకుంటున్నారా?",
+          "raw": "### 📘 **hlo** గురించి సమగ్ర వివరణ\n\n**1. ప్రాథమిక భావన (Overview):**\n\"hlo\" అనే అంశం **General Knowledge** రంగానికి చెందినది. ఈ అంశం యొక్క ప్రాథమిక సూత్రాలు మరియు విశేషాలను కింద వివరంగా తెలుసుకుందాం.\n\n**2. ముఖ్యమైన ముఖ్యాంశాలు (Key Highlights):**\n• **ప్రధాన సూత్రం (Core Principle):** లోతైన తార్కిక ఆలోచన మరియు అంచనాల ఆధారంగా అధ్యయనం చేయడం.\n• **ప్రయోగాత్మక అప్లికేషన్:** ఈ అంశాన్ని నిత్యజీవితంలో మరియు సాంకేతిక రంగాలలో విస్తృతంగా ఉపయోగిస్తారు.\n• **విశ్లేషణాత్మక నైపుణ్యం:** సమస్యలను దశలవారీగా అర్థం చేసుకుని పరిష్కారాన్ని కనుగొనడం.\n\n**3. ప్రాముఖ్యత (Importance & Real-world Impact):**\nఈ విధానం విద్యార్థులకు, పరిశోధకులకు మరియు నిపుణులకు భావనాత్మక స్పష్టతను అందిస్తుంది.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని మరింత లోతుగా తెలుసుకోవాలనుకుంటున్నారు? ఉదాహరణలు లేదా క్విజ్ కోరుకుంటున్నారా?",
+          "language": "Telugu",
+          "at": "2026-09-29T08:44:23.684Z"
+        }
+      ],
+      "created_at": "2026-09-29T08:44:23.684Z"
+    },
+    {
+      "id": "conv_1791008334278_qgj7y",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General Knowledge",
+      "title": "hlo",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hlo",
+          "raw": "hlo",
+          "language": "Telugu",
+          "at": "2026-10-03T06:18:54.279Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 📘 **hlo** గురించి సమగ్ర వివరణ\n\n**1. ప్రాథమిక భావన (Overview):**\n\"hlo\" అనే అంశం **General Knowledge** రంగానికి చెందినది. ఈ అంశం యొక్క ప్రాథమిక సూత్రాలు మరియు విశేషాలను కింద వివరంగా తెలుసుకుందాం.\n\n**2. ముఖ్యమైన ముఖ్యాంశాలు (Key Highlights):**\n• **ప్రధాన సూత్రం (Core Principle):** లోతైన తార్కిక ఆలోచన మరియు అంచనాల ఆధారంగా అధ్యయనం చేయడం.\n• **ప్రయోగాత్మక అప్లికేషన్:** ఈ అంశాన్ని నిత్యజీవితంలో మరియు సాంకేతిక రంగాలలో విస్తృతంగా ఉపయోగిస్తారు.\n• **విశ్లేషణాత్మక నైపుణ్యం:** సమస్యలను దశలవారీగా అర్థం చేసుకుని పరిష్కారాన్ని కనుగొనడం.\n\n**3. ప్రాముఖ్యత (Importance & Real-world Impact):**\nఈ విధానం విద్యార్థులకు, పరిశోధకులకు మరియు నిపుణులకు భావనాత్మక స్పష్టతను అందిస్తుంది.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని మరింత లోతుగా తెలుసుకోవాలనుకుంటున్నారు? ఉదాహరణలు లేదా క్విజ్ కోరుకుంటున్నారా?",
+          "raw": "### 📘 **hlo** గురించి సమగ్ర వివరణ\n\n**1. ప్రాథమిక భావన (Overview):**\n\"hlo\" అనే అంశం **General Knowledge** రంగానికి చెందినది. ఈ అంశం యొక్క ప్రాథమిక సూత్రాలు మరియు విశేషాలను కింద వివరంగా తెలుసుకుందాం.\n\n**2. ముఖ్యమైన ముఖ్యాంశాలు (Key Highlights):**\n• **ప్రధాన సూత్రం (Core Principle):** లోతైన తార్కిక ఆలోచన మరియు అంచనాల ఆధారంగా అధ్యయనం చేయడం.\n• **ప్రయోగాత్మక అప్లికేషన్:** ఈ అంశాన్ని నిత్యజీవితంలో మరియు సాంకేతిక రంగాలలో విస్తృతంగా ఉపయోగిస్తారు.\n• **విశ్లేషణాత్మక నైపుణ్యం:** సమస్యలను దశలవారీగా అర్థం చేసుకుని పరిష్కారాన్ని కనుగొనడం.\n\n**3. ప్రాముఖ్యత (Importance & Real-world Impact):**\nఈ విధానం విద్యార్థులకు, పరిశోధకులకు మరియు నిపుణులకు భావనాత్మక స్పష్టతను అందిస్తుంది.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని మరింత లోతుగా తెలుసుకోవాలనుకుంటున్నారు? ఉదాహరణలు లేదా క్విజ్ కోరుకుంటున్నారా?",
+          "language": "Telugu",
+          "at": "2026-10-03T06:18:54.279Z"
+        }
+      ],
+      "created_at": "2026-10-03T06:18:54.278Z"
+    },
+    {
+      "id": "conv_1791010955877_qxdid",
+      "user_id": "usr_1791010926632_pqhks",
+      "subject": "General Knowledge",
+      "title": "naku ai gurinchi full ga explain chei",
+      "messages": [
+        {
+          "role": "user",
+          "content": "naku ai gurinchi full ga explain chei",
+          "raw": "naku ai gurinchi full ga explain chei",
+          "language": "Telugu",
+          "at": "2026-10-03T07:02:35.878Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరణ\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ మేధస్సు అవసరమయ్యే ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు మరియు యంత్రాలు స్వయంచాలకంగా నిర్వహించేలా చేసే ఒక అత్యాధునిక సాంకేతికత.\n\n**2. AI లోని ముఖ్యమైన విభాగాలు (Key Components):**\n• **Machine Learning (ML):** డేటా నుండి కంప్యూటర్లు స్వయంచాలకంగా నేర్చుకునేలా చేసే ప్రక్రియ.\n• **Deep Learning & Neural Networks:** మానవ మెదడు న్యూరాన్ల నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవులు మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**3. నిత్యజీవితంలో AI ఉదాహరణలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n• **స్వయం డ్రైవింగ్ కార్లు:** Tesla మరియు Waymo ఆటోమేటెడ్ వాహనాలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న (Follow-up Question):**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా? లేదా AI పై ఒక చిన్న క్విజ్ ప్లే చేద్దామా?",
+          "raw": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరణ\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ మేధస్సు అవసరమయ్యే ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు మరియు యంత్రాలు స్వయంచాలకంగా నిర్వహించేలా చేసే ఒక అత్యాధునిక సాంకేతికత.\n\n**2. AI లోని ముఖ్యమైన విభాగాలు (Key Components):**\n• **Machine Learning (ML):** డేటా నుండి కంప్యూటర్లు స్వయంచాలకంగా నేర్చుకునేలా చేసే ప్రక్రియ.\n• **Deep Learning & Neural Networks:** మానవ మెదడు న్యూరాన్ల నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవులు మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**3. నిత్యజీవితంలో AI ఉదాహరణలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n• **స్వయం డ్రైవింగ్ కార్లు:** Tesla మరియు Waymo ఆటోమేటెడ్ వాహనాలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న (Follow-up Question):**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా? లేదా AI పై ఒక చిన్న క్విజ్ ప్లే చేద్దామా?",
+          "language": "Telugu",
+          "at": "2026-10-03T07:02:35.878Z"
+        },
+        {
+          "role": "user",
+          "content": "what is ai",
+          "raw": "what is ai",
+          "language": "Telugu",
+          "at": "2026-10-03T07:02:43.693Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరణ\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ మేధస్సు అవసరమయ్యే ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు మరియు యంత్రాలు స్వయంచాలకంగా నిర్వహించేలా చేసే ఒక అత్యాధునిక సాంకేతికత.\n\n**2. AI లోని ముఖ్యమైన విభాగాలు (Key Components):**\n• **Machine Learning (ML):** డేటా నుండి కంప్యూటర్లు స్వయంచాలకంగా నేర్చుకునేలా చేసే ప్రక్రియ.\n• **Deep Learning & Neural Networks:** మానవ మెదడు న్యూరాన్ల నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవులు మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**3. నిత్యజీవితంలో AI ఉదాహరణలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n• **స్వయం డ్రైవింగ్ కార్లు:** Tesla మరియు Waymo ఆటోమేటెడ్ వాహనాలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న (Follow-up Question):**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా? లేదా AI పై ఒక చిన్న క్విజ్ ప్లే చేద్దామా?",
+          "raw": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరణ\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ మేధస్సు అవసరమయ్యే ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు మరియు యంత్రాలు స్వయంచాలకంగా నిర్వహించేలా చేసే ఒక అత్యాధునిక సాంకేతికత.\n\n**2. AI లోని ముఖ్యమైన విభాగాలు (Key Components):**\n• **Machine Learning (ML):** డేటా నుండి కంప్యూటర్లు స్వయంచాలకంగా నేర్చుకునేలా చేసే ప్రక్రియ.\n• **Deep Learning & Neural Networks:** మానవ మెదడు న్యూరాన్ల నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవులు మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**3. నిత్యజీవితంలో AI ఉదాహరణలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n• **స్వయం డ్రైవింగ్ కార్లు:** Tesla మరియు Waymo ఆటోమేటెడ్ వాహనాలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న (Follow-up Question):**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా? లేదా AI పై ఒక చిన్న క్విజ్ ప్లే చేద్దామా?",
+          "language": "Telugu",
+          "at": "2026-10-03T07:02:43.693Z"
+        }
+      ],
+      "created_at": "2026-10-03T07:02:35.877Z"
+    },
+    {
+      "id": "conv_1791011688763_s4q25",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General Knowledge",
+      "title": "naku ai gurinchi full ga explain chei",
+      "messages": [
+        {
+          "role": "user",
+          "content": "naku ai gurinchi full ga explain chei",
+          "raw": "naku ai gurinchi full ga explain chei",
+          "language": "Telugu",
+          "at": "2026-10-03T07:14:48.764Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరాలు\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు స్వయంచాలకంగా నిర్వహించేలా చేసే అత్యాధునిక సాంకేతికత.\n\n**2. ప్రధాన ముఖ్యాంశాలు మరియు విభాగాలు (Main Points & Components):**\n• **Machine Learning (ML):** కంప్యూటర్లు డేటా ఆధారంగా స్వయంచాలకంగా నేర్చుకునే విధానం.\n• **Deep Learning & Neural Networks:** మానవ మెదడు నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవుల మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**3. నిత్యజీవితంలో AI ఉపయోగాలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n• **స్వయం డ్రైవింగ్ కార్లు:** Tesla ఆటోమేటెడ్ వాహనాలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న (Follow-up Question):**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా?",
+          "raw": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరాలు\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు స్వయంచాలకంగా నిర్వహించేలా చేసే అత్యాధునిక సాంకేతికత.\n\n**2. ప్రధాన ముఖ్యాంశాలు మరియు విభాగాలు (Main Points & Components):**\n• **Machine Learning (ML):** కంప్యూటర్లు డేటా ఆధారంగా స్వయంచాలకంగా నేర్చుకునే విధానం.\n• **Deep Learning & Neural Networks:** మానవ మెదడు నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవుల మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**3. నిత్యజీవితంలో AI ఉపయోగాలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n• **స్వయం డ్రైవింగ్ కార్లు:** Tesla ఆటోమేటెడ్ వాహనాలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న (Follow-up Question):**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా?",
+          "language": "Telugu",
+          "at": "2026-10-03T07:14:48.764Z"
+        },
+        {
+          "role": "user",
+          "content": "hlo",
+          "raw": "hlo",
+          "language": "Telugu",
+          "at": "2026-10-03T07:15:48.374Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 📘 **hlo** గురించి సమగ్ర వివరణ\n\n**1. ప్రాథమిక అవగాహన (Core Overview):**\nమీరు అడిగిన **\"hlo\"** అనే ప్రశ్నకు సంబంధించిన ముఖ్యమైన విశ్లేషణ మరియు భావనాత్మక వివరణ కింద ఇవ్వబడింది.\n\n**2. ప్రధాన ముఖ్యాంశాలు (Main Points & Key Takeaways):**\n• **ప్రధాన సిద్ధాంతం (Foundational Principle):** ఏ విషయమైనా లోతైన తార్కిక ఆలోచన మరియు నిర్మాణాత్మక విశ్లేషణ ద్వారా అధ్యయనం చేయడం ముఖ్యం.\n• **ప్రయోగాత్మక వినియోగం (Practical Application):** ఈ అంశం నిత్యజీవితంలో మరియు అకాడెమిక్ రంగాలలో విస్తృతంగా ఉపయోగపడుతుంది.\n• **దశలవారీ ఆలోచన (Step-by-Step Logic):** సమస్యలను చిన్న చిన్న భాగాలుగా విభజించి స్పష్టమైన పరిష్కారాన్ని పొందడం.\n\n**3. ముఖ్యమైన ఉదాహరణ (Real-World Insight):**\nఈ పద్ధతి విద్యార్థులకు సమస్య పరిష్కార నైపుణ్యాలను (Problem Solving Skills) మరియు తార్కిక ఆలోచనను (Logical Reasoning) పెంచుతుంది.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న (Follow-up Question):**\nఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని లేదా ఉదాహరణను మరింత లోతుగా వివరించమంటారు?",
+          "raw": "### 📘 **hlo** గురించి సమగ్ర వివరణ\n\n**1. ప్రాథమిక అవగాహన (Core Overview):**\nమీరు అడిగిన **\"hlo\"** అనే ప్రశ్నకు సంబంధించిన ముఖ్యమైన విశ్లేషణ మరియు భావనాత్మక వివరణ కింద ఇవ్వబడింది.\n\n**2. ప్రధాన ముఖ్యాంశాలు (Main Points & Key Takeaways):**\n• **ప్రధాన సిద్ధాంతం (Foundational Principle):** ఏ విషయమైనా లోతైన తార్కిక ఆలోచన మరియు నిర్మాణాత్మక విశ్లేషణ ద్వారా అధ్యయనం చేయడం ముఖ్యం.\n• **ప్రయోగాత్మక వినియోగం (Practical Application):** ఈ అంశం నిత్యజీవితంలో మరియు అకాడెమిక్ రంగాలలో విస్తృతంగా ఉపయోగపడుతుంది.\n• **దశలవారీ ఆలోచన (Step-by-Step Logic):** సమస్యలను చిన్న చిన్న భాగాలుగా విభజించి స్పష్టమైన పరిష్కారాన్ని పొందడం.\n\n**3. ముఖ్యమైన ఉదాహరణ (Real-World Insight):**\nఈ పద్ధతి విద్యార్థులకు సమస్య పరిష్కార నైపుణ్యాలను (Problem Solving Skills) మరియు తార్కిక ఆలోచనను (Logical Reasoning) పెంచుతుంది.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న (Follow-up Question):**\nఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని లేదా ఉదాహరణను మరింత లోతుగా వివరించమంటారు?",
+          "language": "Telugu",
+          "at": "2026-10-03T07:15:48.374Z"
+        },
+        {
+          "role": "user",
+          "content": "hlo",
+          "raw": "hlo",
+          "language": "English",
+          "at": "2026-10-03T07:15:56.793Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 📘 In-Depth Breakdown: **hlo**\n\n**1. Overview:**\nHere is a structured explanation answering your prompt: **\"hlo\"**.\n\n**2. Main Points & Key Highlights:**\n• **Core Principle:** Systematic breakdown of the underlying logic and concepts.\n• **Practical Application:** Real-world usage in industry and academic contexts.\n• **Analytical Logic:** Evaluating assumptions step-by-step to arrive at verified conclusions.\n\n**3. Key Takeaway:**\nMastering this concept enhances structured problem-solving and analytical reasoning.\n\n---\n**❓ Follow-Up Question:**\nWould you like me to elaborate on a specific sub-topic or provide a real-world example?",
+          "raw": "### 📘 In-Depth Breakdown: **hlo**\n\n**1. Overview:**\nHere is a structured explanation answering your prompt: **\"hlo\"**.\n\n**2. Main Points & Key Highlights:**\n• **Core Principle:** Systematic breakdown of the underlying logic and concepts.\n• **Practical Application:** Real-world usage in industry and academic contexts.\n• **Analytical Logic:** Evaluating assumptions step-by-step to arrive at verified conclusions.\n\n**3. Key Takeaway:**\nMastering this concept enhances structured problem-solving and analytical reasoning.\n\n---\n**❓ Follow-Up Question:**\nWould you like me to elaborate on a specific sub-topic or provide a real-world example?",
+          "language": "English",
+          "at": "2026-10-03T07:15:56.793Z"
+        }
+      ],
+      "created_at": "2026-10-03T07:14:48.763Z"
+    },
+    {
+      "id": "conv_1791012239402_q2tr7",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General Knowledge",
+      "title": "naku ai gurinchi full ga explain chei",
+      "messages": [
+        {
+          "role": "user",
+          "content": "naku ai gurinchi full ga explain chei",
+          "raw": "naku ai gurinchi full ga explain chei",
+          "language": "Telugu",
+          "at": "2026-10-03T07:23:59.403Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) — సులభమైన వివరణ (Beginner Level)\n\n**1. సులువైన అవగాహన (Simple Story Concept):**\nAI అంటే ఒక రోబోట్ లేదా కంప్యూటర్‌కి మనుషుల లాగా ఆలోచించే తెలివితేటలు ఇవ్వడం. ఉదాహరణకి, మీ స్మార్ట్‌ఫోన్‌లో మీరు మాట్లాడితే అర్థం చేసుకునే Google Assistant లేదా Siri కూడా AI నే!\n\n**2. నమూనా చిత్రం (Visual Flowchart Diagram):**\n```mermaid\ngraph TD\n    A[👨‍💻 మానవుడి ఆదేశం / ఇన్‌పుట్] --> B[🧠 AI మెదడు / కంప్యూటర్ ప్రోగ్రామ్]\n    B --> C[📊 డేటా విశ్లేషణ]\n    C --> D[🤖 సరియైన సమాధానం / అవుట్‌పుట్]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు (Key Points):**\n• **మనుషుల లాగా ఆలోచించడం:** రోబోట్‌లు మరియు కంప్యూటర్లు నేర్చుకుంటాయి.\n• **నిత్యజీవిత ఉదాహరణలు:** YouTube చూస్తున్నప్పుడు మీకిష్టమైన పాటలు చూపించడం, Google Translate.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nAI గురించి మరింత సులభంగా తెలుసుకోవడానికి ఒక చిన్న కథ వినాలనుకుంటున్నారా?",
+          "raw": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) — సులభమైన వివరణ (Beginner Level)\n\n**1. సులువైన అవగాహన (Simple Story Concept):**\nAI అంటే ఒక రోబోట్ లేదా కంప్యూటర్‌కి మనుషుల లాగా ఆలోచించే తెలివితేటలు ఇవ్వడం. ఉదాహరణకి, మీ స్మార్ట్‌ఫోన్‌లో మీరు మాట్లాడితే అర్థం చేసుకునే Google Assistant లేదా Siri కూడా AI నే!\n\n**2. నమూనా చిత్రం (Visual Flowchart Diagram):**\n```mermaid\ngraph TD\n    A[👨‍💻 మానవుడి ఆదేశం / ఇన్‌పుట్] --> B[🧠 AI మెదడు / కంప్యూటర్ ప్రోగ్రామ్]\n    B --> C[📊 డేటా విశ్లేషణ]\n    C --> D[🤖 సరియైన సమాధానం / అవుట్‌పుట్]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు (Key Points):**\n• **మనుషుల లాగా ఆలోచించడం:** రోబోట్‌లు మరియు కంప్యూటర్లు నేర్చుకుంటాయి.\n• **నిత్యజీవిత ఉదాహరణలు:** YouTube చూస్తున్నప్పుడు మీకిష్టమైన పాటలు చూపించడం, Google Translate.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nAI గురించి మరింత సులభంగా తెలుసుకోవడానికి ఒక చిన్న కథ వినాలనుకుంటున్నారా?",
+          "language": "Telugu",
+          "at": "2026-10-03T07:23:59.403Z"
+        }
+      ],
+      "created_at": "2026-10-03T07:23:59.402Z"
+    },
+    {
+      "id": "conv_1791012541487_u31es",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General Knowledge",
+      "title": "naku ai gurinchi full ga explain chei",
+      "messages": [
+        {
+          "role": "user",
+          "content": "naku ai gurinchi full ga explain chei",
+          "raw": "naku ai gurinchi full ga explain chei",
+          "language": "Telugu",
+          "at": "2026-10-03T07:29:01.488Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 Artificial Intelligence & Deep Learning — Advanced Technical Architecture\n\n**1. న్యూరల్ నెట్‌వర్క్ నిర్మాణం (Mathematical & Technical Foundations):**\nModern AI systems utilize multi-layered Deep Neural Networks (DNNs) with Backpropagation gradient descent optimization to learn complex non-linear feature maps.\n\n**2. అడ్వాన్స్డ్ ఆర్కిటెక్చర్ ఫ్లోచార్ట్ (Technical Architecture Diagram):**\n```mermaid\ngraph LR\n    Input[📥 Input Data Tensor] --> Embedding[🔤 Feature Embeddings]\n    Embedding --> Transformer[⚡ Multi-Head Attention & Transformer Layers]\n    Transformer --> Dense[🧮 Softmax Output Layer]\n    Dense --> Prediction[🎯 Probability Vector & Output]\n```\n\n**3. ముఖ్యమైన అడ్వాన్స్డ్ సాంకేతికతలు (Advanced Components):**\n• **Transformers & Self-Attention:** Self-attention mechanisms $Attention(Q,K,V) = softmax(\\frac{QK^T}{\\sqrt{d_k}})V$ powering LLMs like ChatGPT.\n• **Loss Optimization:** Stochastic Gradient Descent (SGD) with Adam Optimizer to minimize Cross-Entropy Loss function.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nTransformer Attention weights లేదా Backpropagation గణితం గురించి లోతుగా తెలుసుకుందామా?",
+          "raw": "### 🤖 Artificial Intelligence & Deep Learning — Advanced Technical Architecture\n\n**1. న్యూరల్ నెట్‌వర్క్ నిర్మాణం (Mathematical & Technical Foundations):**\nModern AI systems utilize multi-layered Deep Neural Networks (DNNs) with Backpropagation gradient descent optimization to learn complex non-linear feature maps.\n\n**2. అడ్వాన్స్డ్ ఆర్కిటెక్చర్ ఫ్లోచార్ట్ (Technical Architecture Diagram):**\n```mermaid\ngraph LR\n    Input[📥 Input Data Tensor] --> Embedding[🔤 Feature Embeddings]\n    Embedding --> Transformer[⚡ Multi-Head Attention & Transformer Layers]\n    Transformer --> Dense[🧮 Softmax Output Layer]\n    Dense --> Prediction[🎯 Probability Vector & Output]\n```\n\n**3. ముఖ్యమైన అడ్వాన్స్డ్ సాంకేతికతలు (Advanced Components):**\n• **Transformers & Self-Attention:** Self-attention mechanisms $Attention(Q,K,V) = softmax(\\frac{QK^T}{\\sqrt{d_k}})V$ powering LLMs like ChatGPT.\n• **Loss Optimization:** Stochastic Gradient Descent (SGD) with Adam Optimizer to minimize Cross-Entropy Loss function.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nTransformer Attention weights లేదా Backpropagation గణితం గురించి లోతుగా తెలుసుకుందామా?",
+          "language": "Telugu",
+          "at": "2026-10-03T07:29:01.488Z"
+        }
+      ],
+      "created_at": "2026-10-03T07:29:01.487Z"
+    },
+    {
+      "id": "conv_1791013472151_quhd7",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General Knowledge",
+      "title": "what is ai",
+      "messages": [
+        {
+          "role": "user",
+          "content": "what is ai",
+          "raw": "what is ai",
+          "language": "Telugu",
+          "at": "2026-10-03T07:44:32.152Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరాలు (Intermediate Level)\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు స్వయంచాలకంగా నిర్వహించేలా చేసే అత్యాధునిక సాంకేతికత.\n\n**2. ప్రాసెస్ ఫ్లోచార్ట్ (Visual Diagram):**\n```mermaid\ngraph TD\n    Data[💾 Raw Data / ఇన్‌పుట్] --> ML[🤖 Machine Learning Model]\n    ML --> Training[🏋️‍♂️ Neural Network Training]\n    Training --> Intelligence[⚡ Automated Decision Making]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు మరియు విభాగాలు (Main Components):**\n• **Machine Learning (ML):** కంప్యూటర్లు డేటా ఆధారంగా స్వయంచాలకంగా నేర్చుకునే విధానం.\n• **Deep Learning & Neural Networks:** మానవ మెదడు నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవుల మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**4. నిత్యజీవితంలో AI ఉపయోగాలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా?",
+          "raw": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరాలు (Intermediate Level)\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు స్వయంచాలకంగా నిర్వహించేలా చేసే అత్యాధునిక సాంకేతికత.\n\n**2. ప్రాసెస్ ఫ్లోచార్ట్ (Visual Diagram):**\n```mermaid\ngraph TD\n    Data[💾 Raw Data / ఇన్‌పుట్] --> ML[🤖 Machine Learning Model]\n    ML --> Training[🏋️‍♂️ Neural Network Training]\n    Training --> Intelligence[⚡ Automated Decision Making]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు మరియు విభాగాలు (Main Components):**\n• **Machine Learning (ML):** కంప్యూటర్లు డేటా ఆధారంగా స్వయంచాలకంగా నేర్చుకునే విధానం.\n• **Deep Learning & Neural Networks:** మానవ మెదడు నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవుల మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**4. నిత్యజీవితంలో AI ఉపయోగాలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా?",
+          "language": "Telugu",
+          "at": "2026-10-03T07:44:32.152Z"
+        },
+        {
+          "role": "user",
+          "content": "what is deep learning",
+          "raw": "what is deep learning",
+          "language": "Hindi",
+          "at": "2026-10-03T07:45:03.320Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 📘 In-Depth Breakdown: **what is deep learning** (Advanced Level)\n\n**1. Overview:**\nHere is a structured explanation answering your prompt: **\"what is deep learning\"**.\n\n**2. Visual Diagram:**\n```mermaid\ngraph TD\n    A[Input Question] --> B[Core Logic Decomposition]\n    B --> C[Practical Implementation]\n    C --> D[Final Key Solution]\n```\n\n**3. Main Points:**\n• **Core Principle:** Systematic breakdown tailored to Advanced difficulty.\n• **Practical Application:** Real-world usage and implementation steps.\n\n---\n**❓ Follow-Up Question:**\nWould you like to explore a specific sub-topic or practical code/formula?",
+          "raw": "### 📘 In-Depth Breakdown: **what is deep learning** (Advanced Level)\n\n**1. Overview:**\nHere is a structured explanation answering your prompt: **\"what is deep learning\"**.\n\n**2. Visual Diagram:**\n```mermaid\ngraph TD\n    A[Input Question] --> B[Core Logic Decomposition]\n    B --> C[Practical Implementation]\n    C --> D[Final Key Solution]\n```\n\n**3. Main Points:**\n• **Core Principle:** Systematic breakdown tailored to Advanced difficulty.\n• **Practical Application:** Real-world usage and implementation steps.\n\n---\n**❓ Follow-Up Question:**\nWould you like to explore a specific sub-topic or practical code/formula?",
+          "language": "Hindi",
+          "at": "2026-10-03T07:45:03.320Z"
+        }
+      ],
+      "created_at": "2026-10-03T07:44:32.151Z"
+    },
+    {
+      "id": "conv_1791017268375_vvk61",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General",
+      "title": "hyukk",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hyukk",
+          "raw": "hyukk",
+          "language": "Telugu",
+          "at": "2026-10-03T08:47:48.375Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 📘 **hyukk** గురించి సమగ్ర వివరణ (Intermediate Level)\n\n**1. ప్రాథమిక అవగాహన (Core Overview):**\nమీరు అడిగిన **\"hyukk\"** అనే ప్రశ్నకు సంబంధించిన ముఖ్యమైన విశ్లేషణ మరియు భావనాత్మక వివరణ కింద ఇవ్వబడింది.\n\n**2. ప్రాసెస్ ఫ్లోచార్ట్ (Visual Diagram):**\n```mermaid\ngraph LR\n    Input[🎯 ఇన్‌పుట్ / భావన] --> Analysis[🔍 విశ్లేషణ & తార్కిక ఆలోచన]\n    Analysis --> Action[⚙️ ఆచరణాత్మక అప్లికేషన్]\n    Action --> Output[🏆 ఉత్తమ ఫలితం]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు (Main Points & Key Takeaways):**\n• **ప్రధాన సిద్ధాంతం (Foundational Principle):** నిర్మాణాత్మక విశ్లేషణ ద్వారా ఏ అంశాన్ని అయినా సులభంగా అధ్యయనం చేయడం.\n• **ప్రయోగాత్మక వినియోగం (Practical Application):** నిత్యజీవితంలో మరియు అకాడెమిక్ రంగాలలో విస్తృతంగా ఉపయోగపడుతుంది.\n• **దశలవారీ ఆలోచన (Step-by-Step Logic):** సమస్యలను చిన్న భాగాలుగా విభజించి పరిష్కారాన్ని పొందడం.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని మరింత లోతుగా వివరించమంటారు?",
+          "raw": "### 📘 **hyukk** గురించి సమగ్ర వివరణ (Intermediate Level)\n\n**1. ప్రాథమిక అవగాహన (Core Overview):**\nమీరు అడిగిన **\"hyukk\"** అనే ప్రశ్నకు సంబంధించిన ముఖ్యమైన విశ్లేషణ మరియు భావనాత్మక వివరణ కింద ఇవ్వబడింది.\n\n**2. ప్రాసెస్ ఫ్లోచార్ట్ (Visual Diagram):**\n```mermaid\ngraph LR\n    Input[🎯 ఇన్‌పుట్ / భావన] --> Analysis[🔍 విశ్లేషణ & తార్కిక ఆలోచన]\n    Analysis --> Action[⚙️ ఆచరణాత్మక అప్లికేషన్]\n    Action --> Output[🏆 ఉత్తమ ఫలితం]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు (Main Points & Key Takeaways):**\n• **ప్రధాన సిద్ధాంతం (Foundational Principle):** నిర్మాణాత్మక విశ్లేషణ ద్వారా ఏ అంశాన్ని అయినా సులభంగా అధ్యయనం చేయడం.\n• **ప్రయోగాత్మక వినియోగం (Practical Application):** నిత్యజీవితంలో మరియు అకాడెమిక్ రంగాలలో విస్తృతంగా ఉపయోగపడుతుంది.\n• **దశలవారీ ఆలోచన (Step-by-Step Logic):** సమస్యలను చిన్న భాగాలుగా విభజించి పరిష్కారాన్ని పొందడం.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని మరింత లోతుగా వివరించమంటారు?",
+          "language": "Telugu",
+          "at": "2026-10-03T08:47:48.375Z"
+        }
+      ],
+      "created_at": "2026-10-03T08:47:48.375Z"
+    },
+    {
+      "id": "conv_1791017996265_tqk4f",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General",
+      "title": "Explain Photosynthesis step-by-step",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Explain Photosynthesis step-by-step",
+          "raw": "Explain Photosynthesis step-by-step",
+          "language": "Telugu",
+          "at": "2026-10-03T08:59:56.265Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరాలు (Intermediate Level)\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు స్వయంచాలకంగా నిర్వహించేలా చేసే అత్యాధునిక సాంకేతికత.\n\n**2. ప్రాసెస్ ఫ్లోచార్ట్ (Visual Diagram):**\n```mermaid\ngraph TD\n    Data[💾 Raw Data / ఇన్‌పుట్] --> ML[🤖 Machine Learning Model]\n    ML --> Training[🏋️‍♂️ Neural Network Training]\n    Training --> Intelligence[⚡ Automated Decision Making]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు మరియు విభాగాలు (Main Components):**\n• **Machine Learning (ML):** కంప్యూటర్లు డేటా ఆధారంగా స్వయంచాలకంగా నేర్చుకునే విధానం.\n• **Deep Learning & Neural Networks:** మానవ మెదడు నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవుల మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**4. నిత్యజీవితంలో AI ఉపయోగాలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా?",
+          "raw": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరాలు (Intermediate Level)\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు స్వయంచాలకంగా నిర్వహించేలా చేసే అత్యాధునిక సాంకేతికత.\n\n**2. ప్రాసెస్ ఫ్లోచార్ట్ (Visual Diagram):**\n```mermaid\ngraph TD\n    Data[💾 Raw Data / ఇన్‌పుట్] --> ML[🤖 Machine Learning Model]\n    ML --> Training[🏋️‍♂️ Neural Network Training]\n    Training --> Intelligence[⚡ Automated Decision Making]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు మరియు విభాగాలు (Main Components):**\n• **Machine Learning (ML):** కంప్యూటర్లు డేటా ఆధారంగా స్వయంచాలకంగా నేర్చుకునే విధానం.\n• **Deep Learning & Neural Networks:** మానవ మెదడు నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవుల మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**4. నిత్యజీవితంలో AI ఉపయోగాలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా?",
+          "language": "Telugu",
+          "at": "2026-10-03T08:59:56.265Z"
+        }
+      ],
+      "created_at": "2026-10-03T08:59:56.265Z"
+    },
+    {
+      "id": "conv_1791096344698_2jfrl",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General",
+      "title": "How does Machine Learning work?",
+      "messages": [
+        {
+          "role": "user",
+          "content": "How does Machine Learning work?",
+          "raw": "How does Machine Learning work?",
+          "language": "Telugu",
+          "at": "2026-10-04T06:45:44.698Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరాలు (Intermediate Level)\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు స్వయంచాలకంగా నిర్వహించేలా చేసే అత్యాధునిక సాంకేతికత.\n\n**2. ప్రాసెస్ ఫ్లోచార్ట్ (Visual Diagram):**\n```mermaid\ngraph TD\n    Data[💾 Raw Data / ఇన్‌పుట్] --> ML[🤖 Machine Learning Model]\n    ML --> Training[🏋️‍♂️ Neural Network Training]\n    Training --> Intelligence[⚡ Automated Decision Making]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు మరియు విభాగాలు (Main Components):**\n• **Machine Learning (ML):** కంప్యూటర్లు డేటా ఆధారంగా స్వయంచాలకంగా నేర్చుకునే విధానం.\n• **Deep Learning & Neural Networks:** మానవ మెదడు నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవుల మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**4. నిత్యజీవితంలో AI ఉపయోగాలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా?",
+          "raw": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరాలు (Intermediate Level)\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు స్వయంచాలకంగా నిర్వహించేలా చేసే అత్యాధునిక సాంకేతికత.\n\n**2. ప్రాసెస్ ఫ్లోచార్ట్ (Visual Diagram):**\n```mermaid\ngraph TD\n    Data[💾 Raw Data / ఇన్‌పుట్] --> ML[🤖 Machine Learning Model]\n    ML --> Training[🏋️‍♂️ Neural Network Training]\n    Training --> Intelligence[⚡ Automated Decision Making]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు మరియు విభాగాలు (Main Components):**\n• **Machine Learning (ML):** కంప్యూటర్లు డేటా ఆధారంగా స్వయంచాలకంగా నేర్చుకునే విధానం.\n• **Deep Learning & Neural Networks:** మానవ మెదడు నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవుల మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**4. నిత్యజీవితంలో AI ఉపయోగాలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా?",
+          "language": "Telugu",
+          "at": "2026-10-04T06:45:44.698Z"
+        }
+      ],
+      "created_at": "2026-10-04T06:45:44.698Z"
+    },
+    {
+      "id": "conv_1791096361306_db64w",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General",
+      "title": "Explain Pythagoras Theorem with example",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Explain Pythagoras Theorem with example",
+          "raw": "Explain Pythagoras Theorem with example",
+          "language": "Telugu",
+          "at": "2026-10-04T06:46:01.306Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరాలు (Intermediate Level)\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు స్వయంచాలకంగా నిర్వహించేలా చేసే అత్యాధునిక సాంకేతికత.\n\n**2. ప్రాసెస్ ఫ్లోచార్ట్ (Visual Diagram):**\n```mermaid\ngraph TD\n    Data[💾 Raw Data / ఇన్‌పుట్] --> ML[🤖 Machine Learning Model]\n    ML --> Training[🏋️‍♂️ Neural Network Training]\n    Training --> Intelligence[⚡ Automated Decision Making]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు మరియు విభాగాలు (Main Components):**\n• **Machine Learning (ML):** కంప్యూటర్లు డేటా ఆధారంగా స్వయంచాలకంగా నేర్చుకునే విధానం.\n• **Deep Learning & Neural Networks:** మానవ మెదడు నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవుల మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**4. నిత్యజీవితంలో AI ఉపయోగాలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా?",
+          "raw": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరాలు (Intermediate Level)\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు స్వయంచాలకంగా నిర్వహించేలా చేసే అత్యాధునిక సాంకేతికత.\n\n**2. ప్రాసెస్ ఫ్లోచార్ట్ (Visual Diagram):**\n```mermaid\ngraph TD\n    Data[💾 Raw Data / ఇన్‌పుట్] --> ML[🤖 Machine Learning Model]\n    ML --> Training[🏋️‍♂️ Neural Network Training]\n    Training --> Intelligence[⚡ Automated Decision Making]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు మరియు విభాగాలు (Main Components):**\n• **Machine Learning (ML):** కంప్యూటర్లు డేటా ఆధారంగా స్వయంచాలకంగా నేర్చుకునే విధానం.\n• **Deep Learning & Neural Networks:** మానవ మెదడు నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవుల మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**4. నిత్యజీవితంలో AI ఉపయోగాలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా?",
+          "language": "Telugu",
+          "at": "2026-10-04T06:46:01.306Z"
+        }
+      ],
+      "created_at": "2026-10-04T06:46:01.306Z"
+    },
+    {
+      "id": "conv_1791779040738_e41mc",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General",
+      "title": "hello",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hello",
+          "raw": "hello",
+          "language": "Telugu",
+          "at": "2026-10-12T04:24:00.741Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 📘 **hello** గురించి సమగ్ర వివరణ (Intermediate Level)\n\n**1. ప్రాథమిక అవగాహన (Core Overview):**\nమీరు అడిగిన **\"hello\"** అనే ప్రశ్నకు సంబంధించిన ముఖ్యమైన విశ్లేషణ మరియు భావనాత్మక వివరణ కింద ఇవ్వబడింది.\n\n**2. ప్రాసెస్ ఫ్లోచార్ట్ (Visual Diagram):**\n```mermaid\ngraph LR\n    Input[🎯 ఇన్‌పుట్ / భావన] --> Analysis[🔍 విశ్లేషణ & తార్కిక ఆలోచన]\n    Analysis --> Action[⚙️ ఆచరణాత్మక అప్లికేషన్]\n    Action --> Output[🏆 ఉత్తమ ఫలితం]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు (Main Points & Key Takeaways):**\n• **ప్రధాన సిద్ధాంతం (Foundational Principle):** నిర్మాణాత్మక విశ్లేషణ ద్వారా ఏ అంశాన్ని అయినా సులభంగా అధ్యయనం చేయడం.\n• **ప్రయోగాత్మక వినియోగం (Practical Application):** నిత్యజీవితంలో మరియు అకాడెమిక్ రంగాలలో విస్తృతంగా ఉపయోగపడుతుంది.\n• **దశలవారీ ఆలోచన (Step-by-Step Logic):** సమస్యలను చిన్న భాగాలుగా విభజించి పరిష్కారాన్ని పొందడం.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని మరింత లోతుగా వివరించమంటారు?",
+          "raw": "### 📘 **hello** గురించి సమగ్ర వివరణ (Intermediate Level)\n\n**1. ప్రాథమిక అవగాహన (Core Overview):**\nమీరు అడిగిన **\"hello\"** అనే ప్రశ్నకు సంబంధించిన ముఖ్యమైన విశ్లేషణ మరియు భావనాత్మక వివరణ కింద ఇవ్వబడింది.\n\n**2. ప్రాసెస్ ఫ్లోచార్ట్ (Visual Diagram):**\n```mermaid\ngraph LR\n    Input[🎯 ఇన్‌పుట్ / భావన] --> Analysis[🔍 విశ్లేషణ & తార్కిక ఆలోచన]\n    Analysis --> Action[⚙️ ఆచరణాత్మక అప్లికేషన్]\n    Action --> Output[🏆 ఉత్తమ ఫలితం]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు (Main Points & Key Takeaways):**\n• **ప్రధాన సిద్ధాంతం (Foundational Principle):** నిర్మాణాత్మక విశ్లేషణ ద్వారా ఏ అంశాన్ని అయినా సులభంగా అధ్యయనం చేయడం.\n• **ప్రయోగాత్మక వినియోగం (Practical Application):** నిత్యజీవితంలో మరియు అకాడెమిక్ రంగాలలో విస్తృతంగా ఉపయోగపడుతుంది.\n• **దశలవారీ ఆలోచన (Step-by-Step Logic):** సమస్యలను చిన్న భాగాలుగా విభజించి పరిష్కారాన్ని పొందడం.\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని మరింత లోతుగా వివరించమంటారు?",
+          "language": "Telugu",
+          "at": "2026-10-12T04:24:00.741Z"
+        }
+      ],
+      "created_at": "2026-10-12T04:24:00.738Z"
+    },
+    {
+      "id": "conv_1791779842037_2x97t",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General",
+      "title": "Explain Pythagoras Theorem with example",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Explain Pythagoras Theorem with example",
+          "raw": "Explain Pythagoras Theorem with example",
+          "language": "Telugu",
+          "at": "2026-10-12T04:37:22.037Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరాలు (Intermediate Level)\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు స్వయంచాలకంగా నిర్వహించేలా చేసే అత్యాధునిక సాంకేతికత.\n\n**2. ప్రాసెస్ ఫ్లోచార్ట్ (Visual Diagram):**\n```mermaid\ngraph TD\n    Data[💾 Raw Data / ఇన్‌పుట్] --> ML[🤖 Machine Learning Model]\n    ML --> Training[🏋️‍♂️ Neural Network Training]\n    Training --> Intelligence[⚡ Automated Decision Making]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు మరియు విభాగాలు (Main Components):**\n• **Machine Learning (ML):** కంప్యూటర్లు డేటా ఆధారంగా స్వయంచాలకంగా నేర్చుకునే విధానం.\n• **Deep Learning & Neural Networks:** మానవ మెదడు నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవుల మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**4. నిత్యజీవితంలో AI ఉపయోగాలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా?",
+          "raw": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరాలు (Intermediate Level)\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు స్వయంచాలకంగా నిర్వహించేలా చేసే అత్యాధునిక సాంకేతికత.\n\n**2. ప్రాసెస్ ఫ్లోచార్ట్ (Visual Diagram):**\n```mermaid\ngraph TD\n    Data[💾 Raw Data / ఇన్‌పుట్] --> ML[🤖 Machine Learning Model]\n    ML --> Training[🏋️‍♂️ Neural Network Training]\n    Training --> Intelligence[⚡ Automated Decision Making]\n```\n\n**3. ప్రధాన ముఖ్యాంశాలు మరియు విభాగాలు (Main Components):**\n• **Machine Learning (ML):** కంప్యూటర్లు డేటా ఆధారంగా స్వయంచాలకంగా నేర్చుకునే విధానం.\n• **Deep Learning & Neural Networks:** మానవ మెదడు నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవుల మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**4. నిత్యజీవితంలో AI ఉపయోగాలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న:**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా?",
+          "language": "Telugu",
+          "at": "2026-10-12T04:37:22.037Z"
+        }
+      ],
+      "created_at": "2026-10-12T04:37:22.037Z"
+    },
+    {
+      "id": "conv_1791793795548_f6y1f",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "Science & Physics",
+      "title": "Explain Photosynthesis step-by-step",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Explain Photosynthesis step-by-step",
+          "raw": "Explain Photosynthesis step-by-step",
+          "language": "Telugu",
+          "at": "2026-10-12T08:29:55.549Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరణ\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ మేధస్సు అవసరమయ్యే ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు మరియు యంత్రాలు స్వయంచాలకంగా నిర్వహించేలా చేసే ఒక అత్యాధునిక సాంకేతికత.\n\n**2. AI లోని ముఖ్యమైన విభాగాలు (Key Components):**\n• **Machine Learning (ML):** డేటా నుండి కంప్యూటర్లు స్వయంచాలకంగా నేర్చుకునేలా చేసే ప్రక్రియ.\n• **Deep Learning & Neural Networks:** మానవ మెదడు న్యూరాన్ల నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవులు మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**3. నిత్యజీవితంలో AI ఉదాహరణలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n• **స్వయం డ్రైవింగ్ కార్లు:** Tesla మరియు Waymo ఆటోమేటెడ్ వాహనాలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న (Follow-up Question):**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా? లేదా AI పై ఒక చిన్న క్విజ్ ప్లే చేద్దామా?",
+          "raw": "### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరణ\n\n**1. ప్రాథమిక భావన (Core Concept):**\nకృత్రిమ మేధస్సు (AI) అనేది మానవ మేధస్సు అవసరమయ్యే ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు మరియు యంత్రాలు స్వయంచాలకంగా నిర్వహించేలా చేసే ఒక అత్యాధునిక సాంకేతికత.\n\n**2. AI లోని ముఖ్యమైన విభాగాలు (Key Components):**\n• **Machine Learning (ML):** డేటా నుండి కంప్యూటర్లు స్వయంచాలకంగా నేర్చుకునేలా చేసే ప్రక్రియ.\n• **Deep Learning & Neural Networks:** మానవ మెదడు న్యూరాన్ల నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.\n• **Natural Language Processing (NLP):** మానవులు మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).\n• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.\n\n**3. నిత్యజీవితంలో AI ఉదాహరణలు (Real-World Applications):**\n• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant\n• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు\n• **స్వయం డ్రైవింగ్ కార్లు:** Tesla మరియు Waymo ఆటోమేటెడ్ వాహనాలు\n\n---\n**❓ ఇంటరాక్టివ్ ప్రశ్న (Follow-up Question):**\nAI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా? లేదా AI పై ఒక చిన్న క్విజ్ ప్లే చేద్దామా?",
+          "language": "Telugu",
+          "at": "2026-10-12T08:29:55.549Z"
+        }
+      ],
+      "created_at": "2026-10-12T08:29:55.548Z"
+    },
+    {
+      "id": "conv_1791794624834_dj3qi",
+      "user_id": "usr_1790583725378_z7hhf",
+      "subject": "General",
+      "title": "what is ai",
+      "messages": [
+        {
+          "role": "user",
+          "content": "what is ai",
+          "raw": "what is ai",
+          "language": "English",
+          "at": "2026-10-12T08:43:44.834Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 Comprehensive Guide to Artificial Intelligence (AI)\n\n**1. Core Concept & Definition:**\nArtificial Intelligence (AI) refers to the capability of computer systems to perform complex cognitive tasks that traditionally require human intelligence — such as learning, logical reasoning, problem-solving, and decision-making.\n\n**2. Key Pillars of Modern AI:**\n• **Machine Learning (ML):** Algorithms that analyze large datasets to recognize patterns and improve performance automatically without explicit programming.\n• **Neural Networks & Deep Learning:** Multi-layered computational models inspired by the human brain that excel at complex pattern recognition (e.g. image & speech recognition).\n• **Natural Language Processing (NLP):** Technology enabling computers to understand, translate, and generate human natural language (e.g., ChatGPT, Claude).\n• **Computer Vision:** Automated analysis of visual media for object detection and navigation.\n\n**3. Real-World Everyday Applications:**\n• **Virtual Assistants:** Apple Siri, Google Assistant, Amazon Alexa\n• **Recommendation Engines:** Netflix movie recommendations, Spotify playlists, Amazon product suggestions\n• **Autonomous Systems:** Self-driving cars, automated fraud detection in banking\n\n---\n**❓ Interactive Follow-Up Question:**\nWould you like to explore **Machine Learning algorithms**, see how **ChatGPT operates**, or take a **quick interactive quiz** to test your AI knowledge?",
+          "raw": "### 🤖 Comprehensive Guide to Artificial Intelligence (AI)\n\n**1. Core Concept & Definition:**\nArtificial Intelligence (AI) refers to the capability of computer systems to perform complex cognitive tasks that traditionally require human intelligence — such as learning, logical reasoning, problem-solving, and decision-making.\n\n**2. Key Pillars of Modern AI:**\n• **Machine Learning (ML):** Algorithms that analyze large datasets to recognize patterns and improve performance automatically without explicit programming.\n• **Neural Networks & Deep Learning:** Multi-layered computational models inspired by the human brain that excel at complex pattern recognition (e.g. image & speech recognition).\n• **Natural Language Processing (NLP):** Technology enabling computers to understand, translate, and generate human natural language (e.g., ChatGPT, Claude).\n• **Computer Vision:** Automated analysis of visual media for object detection and navigation.\n\n**3. Real-World Everyday Applications:**\n• **Virtual Assistants:** Apple Siri, Google Assistant, Amazon Alexa\n• **Recommendation Engines:** Netflix movie recommendations, Spotify playlists, Amazon product suggestions\n• **Autonomous Systems:** Self-driving cars, automated fraud detection in banking\n\n---\n**❓ Interactive Follow-Up Question:**\nWould you like to explore **Machine Learning algorithms**, see how **ChatGPT operates**, or take a **quick interactive quiz** to test your AI knowledge?",
+          "language": "English",
+          "at": "2026-10-12T08:43:44.834Z"
+        },
+        {
+          "role": "user",
+          "content": "what is ai",
+          "raw": "what is ai",
+          "language": "English",
+          "at": "2026-10-12T08:43:48.276Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 🤖 Comprehensive Guide to Artificial Intelligence (AI)\n\n**1. Core Concept & Definition:**\nArtificial Intelligence (AI) refers to the capability of computer systems to perform complex cognitive tasks that traditionally require human intelligence — such as learning, logical reasoning, problem-solving, and decision-making.\n\n**2. Key Pillars of Modern AI:**\n• **Machine Learning (ML):** Algorithms that analyze large datasets to recognize patterns and improve performance automatically without explicit programming.\n• **Neural Networks & Deep Learning:** Multi-layered computational models inspired by the human brain that excel at complex pattern recognition (e.g. image & speech recognition).\n• **Natural Language Processing (NLP):** Technology enabling computers to understand, translate, and generate human natural language (e.g., ChatGPT, Claude).\n• **Computer Vision:** Automated analysis of visual media for object detection and navigation.\n\n**3. Real-World Everyday Applications:**\n• **Virtual Assistants:** Apple Siri, Google Assistant, Amazon Alexa\n• **Recommendation Engines:** Netflix movie recommendations, Spotify playlists, Amazon product suggestions\n• **Autonomous Systems:** Self-driving cars, automated fraud detection in banking\n\n---\n**❓ Interactive Follow-Up Question:**\nWould you like to explore **Machine Learning algorithms**, see how **ChatGPT operates**, or take a **quick interactive quiz** to test your AI knowledge?",
+          "raw": "### 🤖 Comprehensive Guide to Artificial Intelligence (AI)\n\n**1. Core Concept & Definition:**\nArtificial Intelligence (AI) refers to the capability of computer systems to perform complex cognitive tasks that traditionally require human intelligence — such as learning, logical reasoning, problem-solving, and decision-making.\n\n**2. Key Pillars of Modern AI:**\n• **Machine Learning (ML):** Algorithms that analyze large datasets to recognize patterns and improve performance automatically without explicit programming.\n• **Neural Networks & Deep Learning:** Multi-layered computational models inspired by the human brain that excel at complex pattern recognition (e.g. image & speech recognition).\n• **Natural Language Processing (NLP):** Technology enabling computers to understand, translate, and generate human natural language (e.g., ChatGPT, Claude).\n• **Computer Vision:** Automated analysis of visual media for object detection and navigation.\n\n**3. Real-World Everyday Applications:**\n• **Virtual Assistants:** Apple Siri, Google Assistant, Amazon Alexa\n• **Recommendation Engines:** Netflix movie recommendations, Spotify playlists, Amazon product suggestions\n• **Autonomous Systems:** Self-driving cars, automated fraud detection in banking\n\n---\n**❓ Interactive Follow-Up Question:**\nWould you like to explore **Machine Learning algorithms**, see how **ChatGPT operates**, or take a **quick interactive quiz** to test your AI knowledge?",
+          "language": "English",
+          "at": "2026-10-12T08:43:48.276Z"
+        },
+        {
+          "role": "user",
+          "content": "diagrams and flow",
+          "raw": "diagrams and flow",
+          "language": "English",
+          "at": "2026-10-12T08:43:54.452Z"
+        },
+        {
+          "role": "assistant",
+          "content": "### 📘 In-Depth Breakdown: **diagrams and flow**\n\n**1. Executive Overview:**\nLet's explore \"diagrams and flow\" within the domain of **General** (Intermediate Level). Here is a clear, structured breakdown of the core principles.\n\n**2. Key Learning Pillars:**\n• **Foundational Principle:** Systematic logical decomposition of the core mechanism.\n• **Practical Implementation:** Real-world usage in industry and academic research.\n• **Analytical Insight:** Evaluating baseline assumptions through step-by-step reasoning.\n\n**3. Why This Topic Matters:**\nMastering this concept enhances problem-solving clarity and provides a solid foundation for advanced studies.\n\n---\n**❓ Interactive Next Steps:**\nWould you like me to:\n1. Provide a **real-world practical example**?\n2. Generate a **4-question quiz on this topic**?\n3. Explain a **specific sub-component** in more detail?",
+          "raw": "### 📘 In-Depth Breakdown: **diagrams and flow**\n\n**1. Executive Overview:**\nLet's explore \"diagrams and flow\" within the domain of **General** (Intermediate Level). Here is a clear, structured breakdown of the core principles.\n\n**2. Key Learning Pillars:**\n• **Foundational Principle:** Systematic logical decomposition of the core mechanism.\n• **Practical Implementation:** Real-world usage in industry and academic research.\n• **Analytical Insight:** Evaluating baseline assumptions through step-by-step reasoning.\n\n**3. Why This Topic Matters:**\nMastering this concept enhances problem-solving clarity and provides a solid foundation for advanced studies.\n\n---\n**❓ Interactive Next Steps:**\nWould you like me to:\n1. Provide a **real-world practical example**?\n2. Generate a **4-question quiz on this topic**?\n3. Explain a **specific sub-component** in more detail?",
+          "language": "English",
+          "at": "2026-10-12T08:43:54.452Z"
+        }
+      ],
+      "created_at": "2026-10-12T08:43:44.834Z"
     }
   ],
   "essays": [
@@ -481,6 +940,307 @@
         ]
       },
       "created_at": "2026-09-28T10:33:15.783Z"
+    },
+    {
+      "id": "esy_1790671544041_zvnfg",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "artificial intelligence",
+      "content": "•  Gmail and other email tools block junk messages by spotting common patterns.\r\n• Voice Assistants: Tools like Alexa and Siri respond to spoken questions.\r\n• Recommendation Systems: Apps suggest movies, music, or products based on past choices.\r\n• Self-Driving Cars: Vehicles use sensors and AI to drive safely without a human.",
+      "language": "English",
+      "score": 73,
+      "feedback": {
+        "language": "English",
+        "overall": 73,
+        "grammar": 75,
+        "vocabulary": 69,
+        "coherence": 74,
+        "structure": 76,
+        "originality": 71,
+        "improvedVersion": "## 📄 Perfect Academic Rewrite (ఎలా సరైన పద్ధతిలో రాయాలి):\n\n•  Gmail and other email tools block junk messages by spotting common patterns.\r\n• Voice Assistants:... \n\n**Refined & Structure-Enhanced Paragraph:**\n•  Gmail and other email tools block junk messages by spotting common patterns.\r\n• Voice Assistants: Tools like Alexa and Siri respond to spoken questions.\r\n• Recommendation Systems: Apps suggest movies, music, or products based on past choices.\r\n• Self-Driving Cars: Vehicles use sensors and AI to drive safely without a human.\n\n*Academic Polish:* The above submission has been refined with elevated vocabulary transitions, formal passive voice structures, and clear topic sentences to maximize argument coherence and academic impact.",
+        "keyTakeaways": [
+          "Structured Thesis: Ensure each paragraph begins with a strong, focused topic sentence.",
+          "Vocabulary Transitions: Utilize formal connective phrases (e.g., 'Furthermore', 'Consequently').",
+          "Empirical Support: Support core claims with concrete examples and data evidence."
+        ],
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "•  Gmail and other email tools bloc...",
+            "fixed": "Refined & corrected sentence structure with formal academic grammar.",
+            "why": "Corrected capitalization, academic syntax, and subject-verb agreement."
+          }
+        ]
+      },
+      "created_at": "2026-09-29T08:45:44.041Z"
+    },
+    {
+      "id": "esy_1791012768510_52mtm",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "The Impact of Renewable Energy",
+      "content": "Renewable energy plays a crucial role in reducing global carbon emissions and mitigating climate change. Solar, wind, and hydroelectric power sources offer sustainable alternatives to fossil fuels, ensuring a cleaner environment for future generations worldwide. Harnessing these technologies drives economic growth and energy independence.",
+      "language": "English",
+      "score": 72,
+      "feedback": {
+        "language": "English",
+        "overall": 72,
+        "grammar": 74,
+        "vocabulary": 68,
+        "coherence": 73,
+        "structure": 75,
+        "originality": 70,
+        "improvedVersion": "## 📄 Perfect Academic Rewrite (ఎలా సరైన పద్ధతిలో రాయాలి):\n\nRenewable energy plays a crucial role in reducing global carbon emissions and mitigating climate cha... \n\n**Refined & Structure-Enhanced Paragraph:**\nRenewable energy plays a crucial role in reducing global carbon emissions and mitigating climate change. Solar, wind, and hydroelectric power sources offer sustainable alternatives to fossil fuels, ensuring a cleaner environment for future generations worldwide. Harnessing these technologies drives economic growth and energy independence.\n\n*Academic Polish:* The above submission has been refined with elevated vocabulary transitions, formal passive voice structures, and clear topic sentences to maximize argument coherence and academic impact.",
+        "keyTakeaways": [
+          "Structured Thesis: Ensure each paragraph begins with a strong, focused topic sentence.",
+          "Vocabulary Transitions: Utilize formal connective phrases (e.g., 'Furthermore', 'Consequently').",
+          "Empirical Support: Support core claims with concrete examples and data evidence."
+        ],
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "Renewable energy plays a crucial ro...",
+            "fixed": "Refined & corrected sentence structure with formal academic grammar.",
+            "why": "Corrected capitalization, academic syntax, and subject-verb agreement."
+          }
+        ]
+      },
+      "created_at": "2026-10-03T07:32:48.510Z"
+    },
+    {
+      "id": "esy_1791013546513_5a9l2",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "Untitled Essay",
+      "content": "ef tg g g  dfd gf  td r ff f  y h hv y h  h h h  h  y t h   nn  n nh n  h h h nnh nh  hn n 7",
+      "language": "English",
+      "score": 72,
+      "feedback": {
+        "language": "English",
+        "overall": 72,
+        "grammar": 74,
+        "vocabulary": 68,
+        "coherence": 73,
+        "structure": 75,
+        "originality": 70,
+        "improvedVersion": "## 📄 Perfect Academic Rewrite (ఎలా సరైన పద్ధతిలో రాయాలి):\n\nef tg g g  dfd gf  td r ff f  y h hv y h  h h h  h  y t h   nn  n nh n  h h h nnh nh  hn n 7... \n\n**Refined & Structure-Enhanced Paragraph:**\nef tg g g  dfd gf  td r ff f  y h hv y h  h h h  h  y t h   nn  n nh n  h h h nnh nh  hn n 7\n\n*Academic Polish:* The above submission has been refined with elevated vocabulary transitions, formal passive voice structures, and clear topic sentences to maximize argument coherence and academic impact.",
+        "keyTakeaways": [
+          "Structured Thesis: Ensure each paragraph begins with a strong, focused topic sentence.",
+          "Vocabulary Transitions: Utilize formal connective phrases (e.g., 'Furthermore', 'Consequently').",
+          "Empirical Support: Support core claims with concrete examples and data evidence."
+        ],
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "ef tg g g  dfd gf  td r ff f  y h h...",
+            "fixed": "Refined & corrected sentence structure with formal academic grammar.",
+            "why": "Corrected capitalization, academic syntax, and subject-verb agreement."
+          }
+        ]
+      },
+      "created_at": "2026-10-03T07:45:46.513Z"
+    },
+    {
+      "id": "esy_1791018604517_z4dk4",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "Untitled Essay",
+      "content": "thm tgh hg yg  gffdhgf  t fctv hbhv  vct f  ye5 g h gh ghe f ff yr gery  khfc mn hm     h  vh f  jghvb v h  vv gbv gg hggg",
+      "language": "English",
+      "score": 72,
+      "feedback": {
+        "language": "English",
+        "overall": 72,
+        "grammar": 74,
+        "vocabulary": 68,
+        "coherence": 73,
+        "structure": 75,
+        "originality": 70,
+        "improvedVersion": "## 📄 Perfect Academic Rewrite (ఎలా సరైన పద్ధతిలో రాయాలి):\n\nthm tgh hg yg  gffdhgf  t fctv hbhv  vct f  ye5 g h gh ghe f ff yr gery  khfc mn hm     h  vh f  jgh... \n\n**Refined & Structure-Enhanced Paragraph:**\nthm tgh hg yg  gffdhgf  t fctv hbhv  vct f  ye5 g h gh ghe f ff yr gery  khfc mn hm     h  vh f  jghvb v h  vv gbv gg hggg\n\n*Academic Polish:* The above submission has been refined with elevated vocabulary transitions, formal passive voice structures, and clear topic sentences to maximize argument coherence and academic impact.",
+        "keyTakeaways": [
+          "Structured Thesis: Ensure each paragraph begins with a strong, focused topic sentence.",
+          "Vocabulary Transitions: Utilize formal connective phrases (e.g., 'Furthermore', 'Consequently').",
+          "Empirical Support: Support core claims with concrete examples and data evidence."
+        ],
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "thm tgh hg yg  gffdhgf  t fctv hbhv...",
+            "fixed": "Refined & corrected sentence structure with formal academic grammar.",
+            "why": "Corrected capitalization, academic syntax, and subject-verb agreement."
+          }
+        ]
+      },
+      "created_at": "2026-10-03T09:10:04.517Z"
+    },
+    {
+      "id": "esy_1791779040796_ac6ud",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "My Essay",
+      "content": "This is a sample essay about technology and education. Education is very important for everyone in the world. It provides knowledge and skills to succeed in life and career. Students should learn diligently every day.",
+      "language": "English",
+      "score": 72,
+      "feedback": {
+        "language": "English",
+        "overall": 72,
+        "grammar": 74,
+        "vocabulary": 68,
+        "coherence": 73,
+        "structure": 75,
+        "originality": 70,
+        "improvedVersion": "## 📄 Perfect Academic Rewrite (ఎలా సరైన పద్ధతిలో రాయాలి):\n\nThis is a sample essay about technology and education. Education is very important for everyone in t... \n\n**Refined & Structure-Enhanced Paragraph:**\nThis is a sample essay about technology and education. Education is very important for everyone in the world. It provides knowledge and skills to succeed in life and career. Students should learn diligently every day.\n\n*Academic Polish:* The above submission has been refined with elevated vocabulary transitions, formal passive voice structures, and clear topic sentences to maximize argument coherence and academic impact.",
+        "keyTakeaways": [
+          "Structured Thesis: Ensure each paragraph begins with a strong, focused topic sentence.",
+          "Vocabulary Transitions: Utilize formal connective phrases (e.g., 'Furthermore', 'Consequently').",
+          "Empirical Support: Support core claims with concrete examples and data evidence."
+        ],
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "This is a sample essay about techno...",
+            "fixed": "Refined & corrected sentence structure with formal academic grammar.",
+            "why": "Corrected capitalization, academic syntax, and subject-verb agreement."
+          }
+        ]
+      },
+      "created_at": "2026-10-12T04:24:00.796Z"
+    },
+    {
+      "id": "esy_1791779855752_hioi4",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "Sample Essay",
+      "content": "This is a comprehensive academic essay discussing environmental protection, biodiversity conservation, sustainable resource management, and climate change mitigation. Protecting natural ecosystems requires proactive policies, public education, and modern green technology innovations for future generations.",
+      "language": "English",
+      "score": 72,
+      "feedback": {
+        "language": "English",
+        "overall": 72,
+        "grammar": 74,
+        "vocabulary": 68,
+        "coherence": 73,
+        "structure": 75,
+        "originality": 70,
+        "improvedVersion": "## 📄 Perfect Academic Rewrite (ఎలా సరైన పద్ధతిలో రాయాలి):\n\nThis is a comprehensive academic essay discussing environmental protection, biodiversity conservatio... \n\n**Refined & Structure-Enhanced Paragraph:**\nThis is a comprehensive academic essay discussing environmental protection, biodiversity conservation, sustainable resource management, and climate change mitigation. Protecting natural ecosystems requires proactive policies, public education, and modern green technology innovations for future generations.\n\n*Academic Polish:* The above submission has been refined with elevated vocabulary transitions, formal passive voice structures, and clear topic sentences to maximize argument coherence and academic impact.",
+        "keyTakeaways": [
+          "Structured Thesis: Ensure each paragraph begins with a strong, focused topic sentence.",
+          "Vocabulary Transitions: Utilize formal connective phrases (e.g., 'Furthermore', 'Consequently').",
+          "Empirical Support: Support core claims with concrete examples and data evidence."
+        ],
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "This is a comprehensive academic es...",
+            "fixed": "Refined & corrected sentence structure with formal academic grammar.",
+            "why": "Corrected capitalization, academic syntax, and subject-verb agreement."
+          }
+        ]
+      },
+      "created_at": "2026-10-12T04:37:35.752Z"
+    },
+    {
+      "id": "esy_1791793905562_j8op9",
+      "user_id": "usr_1790583725378_z7hhf",
+      "title": "The Transformative Power of Artificial Intelligence",
+      "content": "Artificial intelligence is transforming every sector of modern society, from healthcare diagnosis to automated transportation and educational tutoring systems. Machine learning algorithms analyze vast datasets to identify complex patterns, enabling adaptive platforms that tailor instruction to individual students. However, ethical considerations regarding algorithmic bias and data privacy remain critical challenges that require global collaboration and responsible regulatory governance.",
+      "language": "English",
+      "score": 73,
+      "feedback": {
+        "language": "English",
+        "overall": 73,
+        "grammar": 75,
+        "vocabulary": 69,
+        "coherence": 74,
+        "structure": 76,
+        "originality": 71,
+        "improvedVersion": "## 📄 Perfect Academic Rewrite (ఎలా సరైన పద్ధతిలో రాయాలి):\n\nArtificial intelligence is transforming every sector of modern society, from healthcare diagnosis to... \n\n**Refined & Structure-Enhanced Paragraph:**\nArtificial intelligence is transforming every sector of modern society, from healthcare diagnosis to automated transportation and educational tutoring systems. Machine learning algorithms analyze vast datasets to identify complex patterns, enabling adaptive platforms that tailor instruction to individual students. However, ethical considerations regarding algorithmic bias and data privacy remain critical challenges that require global collaboration and responsible regulatory governance.\n\n*Academic Polish:* The above submission has been refined with elevated vocabulary transitions, formal passive voice structures, and clear topic sentences to maximize argument coherence and academic impact.",
+        "keyTakeaways": [
+          "Structured Thesis: Ensure each paragraph begins with a strong, focused topic sentence.",
+          "Vocabulary Transitions: Utilize formal connective phrases (e.g., 'Furthermore', 'Consequently').",
+          "Empirical Support: Support core claims with concrete examples and data evidence."
+        ],
+        "strengths": [
+          "Clear thematic focus and structured paragraph progression",
+          "Good command over foundational topic concepts and argumentation"
+        ],
+        "improvements": [
+          "Incorporate more advanced vocabulary transitions between paragraphs",
+          "Vary sentence lengths to enhance narrative flow"
+        ],
+        "suggestions": [
+          "Include empirical examples to support key claims in the middle paragraphs.",
+          "Strengthen the concluding sentence with a powerful summary takeaway."
+        ],
+        "corrections": [
+          {
+            "original": "Artificial intelligence is transfor...",
+            "fixed": "Refined & corrected sentence structure with formal academic grammar.",
+            "why": "Corrected capitalization, academic syntax, and subject-verb agreement."
+          }
+        ]
+      },
+      "created_at": "2026-10-12T08:31:45.562Z"
     }
   ],
   "progress": [
@@ -627,6 +1387,254 @@
       "score": 72,
       "language": "English",
       "date": "2026-09-28T10:33:15.783Z"
+    },
+    {
+      "id": "prg_1790671463685",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Telugu",
+      "date": "2026-09-29T08:44:23.684Z"
+    },
+    {
+      "id": "prg_1790671544041",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 73,
+      "language": "English",
+      "date": "2026-09-29T08:45:44.041Z"
+    },
+    {
+      "id": "prg_1791008334279",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Telugu",
+      "date": "2026-10-03T06:18:54.279Z"
+    },
+    {
+      "id": "prg_1791010955878",
+      "user_id": "usr_1791010926632_pqhks",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Telugu",
+      "date": "2026-10-03T07:02:35.878Z"
+    },
+    {
+      "id": "prg_1791010963693",
+      "user_id": "usr_1791010926632_pqhks",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Telugu",
+      "date": "2026-10-03T07:02:43.693Z"
+    },
+    {
+      "id": "prg_1791011688764",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Telugu",
+      "date": "2026-10-03T07:14:48.764Z"
+    },
+    {
+      "id": "prg_1791011748374",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Telugu",
+      "date": "2026-10-03T07:15:48.374Z"
+    },
+    {
+      "id": "prg_1791011756793",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "English",
+      "date": "2026-10-03T07:15:56.793Z"
+    },
+    {
+      "id": "prg_1791012239403",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Telugu",
+      "date": "2026-10-03T07:23:59.403Z"
+    },
+    {
+      "id": "prg_1791012541488",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Telugu",
+      "date": "2026-10-03T07:29:01.488Z"
+    },
+    {
+      "id": "prg_1791012768510",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 72,
+      "language": "English",
+      "date": "2026-10-03T07:32:48.510Z"
+    },
+    {
+      "id": "prg_1791013472152",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Telugu",
+      "date": "2026-10-03T07:44:32.152Z"
+    },
+    {
+      "id": "prg_1791013503320",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General Knowledge",
+      "language": "Hindi",
+      "date": "2026-10-03T07:45:03.320Z"
+    },
+    {
+      "id": "prg_1791013546513",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 72,
+      "language": "English",
+      "date": "2026-10-03T07:45:46.513Z"
+    },
+    {
+      "id": "prg_1791017082757",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General",
+      "language": "Telugu",
+      "date": "2026-10-03T08:44:42.757Z"
+    },
+    {
+      "id": "prg_1791017268375",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General",
+      "language": "Telugu",
+      "date": "2026-10-03T08:47:48.375Z"
+    },
+    {
+      "id": "prg_1791017996265",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General",
+      "language": "Telugu",
+      "date": "2026-10-03T08:59:56.265Z"
+    },
+    {
+      "id": "prg_1791018604517",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 72,
+      "language": "English",
+      "date": "2026-10-03T09:10:04.517Z"
+    },
+    {
+      "id": "prg_1791096344698",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General",
+      "language": "Telugu",
+      "date": "2026-10-04T06:45:44.698Z"
+    },
+    {
+      "id": "prg_1791096361306",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General",
+      "language": "Telugu",
+      "date": "2026-10-04T06:46:01.306Z"
+    },
+    {
+      "id": "prg_1791779040741",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General",
+      "language": "Telugu",
+      "date": "2026-10-12T04:24:00.741Z"
+    },
+    {
+      "id": "prg_1791779040796",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 72,
+      "language": "English",
+      "date": "2026-10-12T04:24:00.796Z"
+    },
+    {
+      "id": "prg_1791779842037",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General",
+      "language": "Telugu",
+      "date": "2026-10-12T04:37:22.037Z"
+    },
+    {
+      "id": "prg_1791779855752",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 72,
+      "language": "English",
+      "date": "2026-10-12T04:37:35.752Z"
+    },
+    {
+      "id": "prg_q_1791780245232",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "quiz",
+      "subject": "Pythagoras & Geometry",
+      "score": 25,
+      "date": "2026-10-12T04:44:05.232Z"
+    },
+    {
+      "id": "prg_1791793795549",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "Science & Physics",
+      "language": "Telugu",
+      "date": "2026-10-12T08:29:55.549Z"
+    },
+    {
+      "id": "prg_1791793905562",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "essay",
+      "score": 73,
+      "language": "English",
+      "date": "2026-10-12T08:31:45.562Z"
+    },
+    {
+      "id": "prg_q_1791794179397",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "quiz",
+      "subject": "Artificial Intelligence & ML",
+      "score": 100,
+      "date": "2026-10-12T08:36:19.398Z"
+    },
+    {
+      "id": "prg_1791794624834",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General",
+      "language": "English",
+      "date": "2026-10-12T08:43:44.834Z"
+    },
+    {
+      "id": "prg_1791794628276",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General",
+      "language": "English",
+      "date": "2026-10-12T08:43:48.276Z"
+    },
+    {
+      "id": "prg_1791794634452",
+      "user_id": "usr_1790583725378_z7hhf",
+      "type": "tutor",
+      "subject": "General",
+      "language": "English",
+      "date": "2026-10-12T08:43:54.452Z"
     }
   ],
   "flashcards": [
@@ -637,7 +1645,53 @@
       "definition": "Process of converting light energy into chemical energy",
       "subject": "General Knowledge",
       "language": "Telugu",
-      "created_at": "2026-09-28T08:44:38.163Z"
+      "created_at": "2026-09-28T08:44:38.163Z",
+      "interval": 1,
+      "repetition": 1,
+      "efactor": 2.6,
+      "next_review": "2026-10-04T07:41:21.734Z",
+      "last_reviewed": "2026-10-03T07:41:21.735Z"
+    },
+    {
+      "id": "fc_1791794315224",
+      "user_id": "usr_1790583725378_z7hhf",
+      "term": "Photosynthesis",
+      "definition": "కిరణజన్య సంయోగ క్రియ (Kiranajanya Sanyoga Kriya) — Process by which green plants manufacture food using sunlight.",
+      "subject": "Academic Vocabulary",
+      "language": "Telugu",
+      "created_at": "2026-10-12T08:38:35.224Z"
+    },
+    {
+      "id": "fc_1791794596467",
+      "user_id": "usr_1790583725378_z7hhf",
+      "term": "sedrygjkl",
+      "definition": "drtfyuiop[oigfgfcghj",
+      "subject": "Mathematics",
+      "language": "English",
+      "created_at": "2026-10-12T08:43:16.467Z"
+    }
+  ],
+  "feedback": [
+    {
+      "id": "fb_1791527703043_x0va",
+      "user_id": "usr_1790583725378_z7hhf",
+      "conversation_id": null,
+      "message_index": 1,
+      "feedback_type": "regenerate",
+      "comment": "",
+      "user_message": "what is ai",
+      "assistant_message": "I couldn't get a response right now. AI is unavailable. Configure ANTHROPIC_API_KEY in backend/.env.",
+      "created_at": "2026-10-09T06:35:03.043Z"
+    },
+    {
+      "id": "fb_1791794628292",
+      "user_id": "usr_1790583725378_z7hhf",
+      "conversation_id": "conv_1791794624834_dj3qi",
+      "message_index": 1,
+      "feedback_type": "regenerate",
+      "user_message": "what is ai",
+      "assistant_message": "### 🤖 Comprehensive Guide to Artificial Intelligence (AI)\n\n**1. Core Concept & Definition:**\nArtificial Intelligence (AI) refers to the capability of computer systems to perform complex cognitive tasks that traditionally require human intelligence — such as learning, logical reasoning, problem-solving, and decision-making.\n\n**2. Key Pillars of Modern AI:**\n• **Machine Learning (ML):** Algorithms that analyze large datasets to recognize patterns and improve performance automatically without explicit programming.\n• **Neural Networks & Deep Learning:** Multi-layered computational models inspired by the human brain that excel at complex pattern recognition (e.g. image & speech recognition).\n• **Natural Language Processing (NLP):** Technology enabling computers to understand, translate, and generate human natural language (e.g., ChatGPT, Claude).\n• **Computer Vision:** Automated analysis of visual media for object detection and navigation.\n\n**3. Real-World Everyday Applications:**\n• **Virtual Assistants:** Apple Siri, Google Assistant, Amazon Alexa\n• **Recommendation Engines:** Netflix movie recommendations, Spotify playlists, Amazon product suggestions\n• **Autonomous Systems:** Self-driving cars, automated fraud detection in banking\n\n---\n**❓ Interactive Follow-Up Question:**\nWould you like to explore **Machine Learning algorithms**, see how **ChatGPT operates**, or take a **quick interactive quiz** to test your AI knowledge?",
+      "created_at": "2026-10-12T08:43:48.292Z"
     }
   ]
 }

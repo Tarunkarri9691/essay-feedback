@@ -14,7 +14,13 @@ llm = anthropic.AsyncAnthropic()
 MODEL = os.getenv("MODEL", "claude-sonnet-5")
 SECRET = os.getenv("JWT_SECRET", "dev")
 app = FastAPI(title="EduLinga AI")
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5174", "http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 bearer = HTTPBearer()
 
 def now(): return dt.datetime.utcnow()
