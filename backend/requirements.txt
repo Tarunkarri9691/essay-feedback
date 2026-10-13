@@ -1,8 +1,0 @@
-fastapi
-uvicorn[standard]
-motor
-pyjwt
-bcrypt
-anthropic
-python-dotenv
-python-multipart

@@ -15,6 +15,10 @@ build/
 .env.local
 .env.*.local
 
+# Data & Binaries
+edulinga_db.json
+*.traineddata
+
 # Logs
 *.log
 npm-debug.log*
