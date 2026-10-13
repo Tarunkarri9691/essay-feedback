@@ -768,7 +768,7 @@ function ChatGPTTutor({
 
   const { listening, speechError, toggleListen } = useSpeechInput(language, setText);
 
-  const loadHist = () => api("/tutor/conversations").then(setHist).catch(() => {});
+  const loadHist = () => api("/tutor/conversations").then(setHist).catch(() => { });
 
   useEffect(() => {
     loadHist();
@@ -1027,9 +1027,8 @@ function ChatGPTTutor({
     <div className="relative flex h-[calc(100vh-65px)] overflow-hidden bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
       {/* 1. LEFT SIDEBAR (260px, Collapsible, Grouped Chat History) */}
       <aside
-        className={`fixed inset-y-0 left-0 z-40 w-[260px] bg-slate-950 text-slate-200 flex flex-col transition-transform duration-300 ease-in-out md:static md:translate-x-0 ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed inset-y-0 left-0 z-40 w-[260px] bg-slate-950 text-slate-200 flex flex-col transition-transform duration-300 ease-in-out md:static md:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         {/* Top Sidebar Header */}
         <div className="p-3 border-b border-slate-800/80 flex items-center justify-between">
@@ -1064,9 +1063,8 @@ function ChatGPTTutor({
                   <div
                     key={h.id}
                     onClick={() => openConv(h.id)}
-                    className={`group relative flex items-center justify-between px-3 py-2 rounded-xl cursor-pointer transition text-xs font-medium truncate ${
-                      cid === h.id ? "bg-slate-800 text-white font-semibold" : "text-slate-300 hover:bg-slate-900"
-                    }`}
+                    className={`group relative flex items-center justify-between px-3 py-2 rounded-xl cursor-pointer transition text-xs font-medium truncate ${cid === h.id ? "bg-slate-800 text-white font-semibold" : "text-slate-300 hover:bg-slate-900"
+                      }`}
                   >
                     {editingCid === h.id ? (
                       <div className="flex items-center gap-1 w-full" onClick={(e) => e.stopPropagation()}>
@@ -1314,9 +1312,8 @@ function ChatGPTTutor({
                             <button
                               onClick={() => logFeedback(i, "thumbs_up", msgs[i - 1]?.content, m.content)}
                               title="Good response"
-                              className={`hover:text-teal-600 transition flex items-center gap-1 font-medium ${
-                                feedbackState[i] === "thumbs_up" ? "text-teal-600 font-bold" : ""
-                              }`}
+                              className={`hover:text-teal-600 transition flex items-center gap-1 font-medium ${feedbackState[i] === "thumbs_up" ? "text-teal-600 font-bold" : ""
+                                }`}
                             >
                               👍
                             </button>
@@ -1325,9 +1322,8 @@ function ChatGPTTutor({
                             <button
                               onClick={() => logFeedback(i, "thumbs_down", msgs[i - 1]?.content, m.content)}
                               title="Bad response"
-                              className={`hover:text-red-500 transition flex items-center gap-1 font-medium ${
-                                feedbackState[i] === "thumbs_down" ? "text-red-500 font-bold" : ""
-                              }`}
+                              className={`hover:text-red-500 transition flex items-center gap-1 font-medium ${feedbackState[i] === "thumbs_down" ? "text-red-500 font-bold" : ""
+                                }`}
                             >
                               👎
                             </button>
@@ -1345,9 +1341,8 @@ function ChatGPTTutor({
                             <button
                               onClick={() => handleAudioToggle(i, m.content, m.language || language)}
                               title={speakingIdx === i ? "Pause audio" : "Listen aloud"}
-                              className={`transition flex items-center gap-1 font-medium ${
-                                speakingIdx === i ? "text-teal-500 font-bold animate-pulse" : "hover:text-teal-600"
-                              }`}
+                              className={`transition flex items-center gap-1 font-medium ${speakingIdx === i ? "text-teal-500 font-bold animate-pulse" : "hover:text-teal-600"
+                                }`}
                             >
                               {speakingIdx === i ? "⏸️ Pause" : `🔊 Listen`}
                             </button>
@@ -1470,11 +1465,10 @@ function ChatGPTTutor({
                 {/* Right: Mic Button 🎤 (Pulsing while recording) */}
                 <button
                   onClick={() => toggleListen(text)}
-                  className={`p-2 rounded-full transition shrink-0 ${
-                    listening
-                      ? "bg-red-500 text-white animate-pulse shadow-lg shadow-red-500/40"
-                      : "text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700"
-                  }`}
+                  className={`p-2 rounded-full transition shrink-0 ${listening
+                    ? "bg-red-500 text-white animate-pulse shadow-lg shadow-red-500/40"
+                    : "text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700"
+                    }`}
                   title={listening ? "Recording... click to stop" : "Speech to Text"}
                 >
                   🎤
@@ -1577,7 +1571,7 @@ function Essay({ onXPUpdate }) {
       const vowels = (allChars.match(/[aeiou]/gi) || []).length;
       const vowelRatio = vowels / allChars.length;
       const tinyWords = words.filter((w) => w.length <= 2).length;
-      const COMMON = new Set(["the","a","an","is","are","was","were","have","has","and","but","or","i","you","he","she","it","we","they","me","not","in","on","to","of","by","with","from","at","this","that","do","can","will","for","my","be","if","so"]);
+      const COMMON = new Set(["the", "a", "an", "is", "are", "was", "were", "have", "has", "and", "but", "or", "i", "you", "he", "she", "it", "we", "they", "me", "not", "in", "on", "to", "of", "by", "with", "from", "at", "this", "that", "do", "can", "will", "for", "my", "be", "if", "so"]);
       const knownRatio = words.filter((w) => COMMON.has(w)).length / totalWords;
       const latinRatio = (allChars.match(/[a-zA-Z]/g) || []).length / allChars.length;
       if (vowelRatio < 0.12 || tinyWords / totalWords > 0.55 || (latinRatio > 0.7 && knownRatio < 0.08)) {
@@ -1616,9 +1610,8 @@ function Essay({ onXPUpdate }) {
           </div>
           <button
             onClick={() => toggleListen(content)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${
-              listening ? "bg-red-500 text-white animate-pulse" : "bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800"
-            }`}
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${listening ? "bg-red-500 text-white animate-pulse" : "bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800"
+              }`}
           >
             🎙️ {listening ? "Listening..." : "Dictate Essay"}
           </button>
@@ -1965,11 +1958,10 @@ function Quiz({ onXPUpdate, addToast }) {
                     setCustomTopic(t.title);
                     generate(t.title);
                   }}
-                  className={`p-4 rounded-2xl bg-white dark:bg-slate-800 border transition text-left space-y-2 group active:scale-95 flex flex-col justify-between ${
-                    isCurrentTopic
-                      ? "border-teal-500 ring-2 ring-teal-500/20 shadow-md shadow-teal-500/10"
-                      : "border-slate-200/80 dark:border-slate-700/80 hover:border-teal-400"
-                  } ${loading ? "opacity-75 cursor-wait" : ""}`}
+                  className={`p-4 rounded-2xl bg-white dark:bg-slate-800 border transition text-left space-y-2 group active:scale-95 flex flex-col justify-between ${isCurrentTopic
+                    ? "border-teal-500 ring-2 ring-teal-500/20 shadow-md shadow-teal-500/10"
+                    : "border-slate-200/80 dark:border-slate-700/80 hover:border-teal-400"
+                    } ${loading ? "opacity-75 cursor-wait" : ""}`}
                 >
                   <div>
                     <div className="text-2xl mb-1 flex items-center justify-between">
@@ -2126,11 +2118,10 @@ function Quiz({ onXPUpdate, addToast }) {
                     </span>
                   </div>
                   {submitted && (
-                    <span className={`text-[11px] font-bold px-2.5 py-1 rounded-md ${
-                      selectedAnswers[q.id] === q.answerIndex
-                        ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300"
-                        : "bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300"
-                    }`}>
+                    <span className={`text-[11px] font-bold px-2.5 py-1 rounded-md ${selectedAnswers[q.id] === q.answerIndex
+                      ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300"
+                      : "bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300"
+                      }`}>
                       {selectedAnswers[q.id] === q.answerIndex ? "✓ Correct" : "✕ Incorrect"}
                     </span>
                   )}
@@ -2146,15 +2137,14 @@ function Quiz({ onXPUpdate, addToast }) {
                       key={optIdx}
                       onClick={() => handleSelect(q.id, optIdx)}
                       disabled={submitted}
-                      className={`p-3 rounded-xl border text-left text-xs sm:text-sm transition ${
-                        submitted && q.answerIndex === optIdx
-                          ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-bold ring-1 ring-emerald-500/30"
-                          : submitted && selectedAnswers[q.id] === optIdx
+                      className={`p-3 rounded-xl border text-left text-xs sm:text-sm transition ${submitted && q.answerIndex === optIdx
+                        ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-bold ring-1 ring-emerald-500/30"
+                        : submitted && selectedAnswers[q.id] === optIdx
                           ? "border-red-500 bg-red-50 dark:bg-red-950/40 text-red-900 dark:text-red-200"
                           : selectedAnswers[q.id] === optIdx
-                          ? "border-teal-500 bg-teal-50 dark:bg-teal-950/40 font-bold text-teal-900 dark:text-teal-200 ring-2 ring-teal-500/20"
-                          : "border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 bg-white dark:bg-slate-850"
-                      }`}
+                            ? "border-teal-500 bg-teal-50 dark:bg-teal-950/40 font-bold text-teal-900 dark:text-teal-200 ring-2 ring-teal-500/20"
+                            : "border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 bg-white dark:bg-slate-850"
+                        }`}
                     >
                       <span className="inline-block w-5 font-bold opacity-60">
                         {String.fromCharCode(65 + optIdx)}.
@@ -2443,11 +2433,10 @@ ${vocabulary.map((v) => `• ${v.word} -> ${v.translation}: ${v.meaning || ""}`)
                     setSourceLang(l);
                     translate(text, l, targetLang);
                   }}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition ${
-                    sourceLang === l
-                      ? "bg-teal-600 text-white shadow-sm"
-                      : "bg-slate-100 dark:bg-slate-700/60 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
-                  }`}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition ${sourceLang === l
+                    ? "bg-teal-600 text-white shadow-sm"
+                    : "bg-slate-100 dark:bg-slate-700/60 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                    }`}
                 >
                   {l}
                 </button>
@@ -2476,11 +2465,10 @@ ${vocabulary.map((v) => `• ${v.word} -> ${v.translation}: ${v.meaning || ""}`)
                     setTargetLang(l);
                     translate(text, sourceLang, l);
                   }}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition ${
-                    targetLang === l
-                      ? "bg-teal-600 text-white shadow-sm"
-                      : "bg-slate-100 dark:bg-slate-700/60 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
-                  }`}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition ${targetLang === l
+                    ? "bg-teal-600 text-white shadow-sm"
+                    : "bg-slate-100 dark:bg-slate-700/60 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                    }`}
                 >
                   {l}
                 </button>
@@ -2536,11 +2524,10 @@ ${vocabulary.map((v) => `• ${v.word} -> ${v.translation}: ${v.meaning || ""}`)
             <div className="flex items-center gap-2">
               <button
                 onClick={() => toggleListen(text)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
-                  listening
-                    ? "bg-red-500 text-white animate-pulse"
-                    : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100"
-                }`}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${listening
+                  ? "bg-red-500 text-white animate-pulse"
+                  : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100"
+                  }`}
                 title="Dictate with microphone"
               >
                 <span>🎙️</span>
@@ -2552,11 +2539,10 @@ ${vocabulary.map((v) => `• ${v.word} -> ${v.translation}: ${v.meaning || ""}`)
             <div className="flex items-center gap-1.5">
               <button
                 onClick={() => handleSpeak(text, sourceLang, true)}
-                className={`p-2 rounded-xl text-xs font-bold transition flex items-center gap-1 ${
-                  speakingSource
-                    ? "bg-teal-500 text-white animate-pulse"
-                    : "text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
-                }`}
+                className={`p-2 rounded-xl text-xs font-bold transition flex items-center gap-1 ${speakingSource
+                  ? "bg-teal-500 text-white animate-pulse"
+                  : "text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                  }`}
                 title="Listen to original text"
               >
                 <span>🔊</span>
@@ -2619,11 +2605,10 @@ ${vocabulary.map((v) => `• ${v.word} -> ${v.translation}: ${v.meaning || ""}`)
               <button
                 onClick={() => handleSpeak(translatedText, targetLang, false)}
                 disabled={!translatedText}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
-                  speakingTarget
-                    ? "bg-teal-500 text-white animate-pulse"
-                    : "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 hover:bg-teal-100"
-                } ${!translatedText ? "opacity-50 cursor-not-allowed" : ""}`}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${speakingTarget
+                  ? "bg-teal-500 text-white animate-pulse"
+                  : "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 hover:bg-teal-100"
+                  } ${!translatedText ? "opacity-50 cursor-not-allowed" : ""}`}
                 title={`Listen in native ${targetLang} voice`}
               >
                 <span>🔊</span>
@@ -2635,9 +2620,8 @@ ${vocabulary.map((v) => `• ${v.word} -> ${v.translation}: ${v.meaning || ""}`)
               <button
                 onClick={() => copyToClipboard(translatedText, false)}
                 disabled={!translatedText}
-                className={`p-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition flex items-center gap-1 ${
-                  !translatedText ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+                className={`p-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition flex items-center gap-1 ${!translatedText ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 title="Copy translated text"
               >
                 <span>{copiedTarget ? "✓" : "📋"}</span>
@@ -2647,9 +2631,8 @@ ${vocabulary.map((v) => `• ${v.word} -> ${v.translation}: ${v.meaning || ""}`)
               <button
                 onClick={exportAsTextFile}
                 disabled={!translatedText}
-                className={`p-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition flex items-center gap-1 ${
-                  !translatedText ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+                className={`p-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition flex items-center gap-1 ${!translatedText ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 title="Download report (.txt)"
               >
                 <span>📄</span>
@@ -2696,9 +2679,8 @@ ${vocabulary.map((v) => `• ${v.word} -> ${v.translation}: ${v.meaning || ""}`)
                       </h4>
                       <button
                         onClick={() => handleSpeakWord(item.translation || item.word, targetLang)}
-                        className={`p-1 rounded-lg text-xs transition ${
-                          isSpeakingThis ? "bg-teal-500 text-white" : "hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500"
-                        }`}
+                        className={`p-1 rounded-lg text-xs transition ${isSpeakingThis ? "bg-teal-500 text-white" : "hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500"
+                          }`}
                         title="Listen to pronunciation"
                       >
                         🔊
@@ -2720,11 +2702,10 @@ ${vocabulary.map((v) => `• ${v.word} -> ${v.translation}: ${v.meaning || ""}`)
                     <button
                       onClick={() => saveVocabCard(item)}
                       disabled={isSaved}
-                      className={`w-full py-1.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 ${
-                        isSaved
-                          ? "bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800"
-                          : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-teal-400 hover:text-teal-600"
-                      }`}
+                      className={`w-full py-1.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 ${isSaved
+                        ? "bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800"
+                        : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-teal-400 hover:text-teal-600"
+                        }`}
                     >
                       <span>{isSaved ? "✓" : "🧠"}</span>
                       <span>{isSaved ? "Saved to Flashcards" : "Save to Flashcards"}</span>
@@ -2785,7 +2766,7 @@ function Flashcards({ onXPUpdate, addToast }) {
     setLoading(true);
     api("/flashcards")
       .then((data) => setCards(Array.isArray(data) ? data : []))
-      .catch(() => {})
+      .catch(() => { })
       .finally(() => setLoading(false));
   };
 
@@ -2835,7 +2816,7 @@ function Flashcards({ onXPUpdate, addToast }) {
     for (const s of samples) {
       try {
         await api("/flashcards", { method: "POST", body: s });
-      } catch (e) {}
+      } catch (e) { }
     }
     loadCards();
     if (addToast) addToast("Sample flashcards added!", "success");
@@ -2868,11 +2849,10 @@ function Flashcards({ onXPUpdate, addToast }) {
                 setStudyIndex(0);
                 setStudyRevealed(false);
               }}
-              className={`px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm ${
-                studyMode
-                  ? "bg-teal-600 text-white"
-                  : "bg-slate-900 dark:bg-slate-700 text-white hover:bg-slate-800"
-              }`}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm ${studyMode
+                ? "bg-teal-600 text-white"
+                : "bg-slate-900 dark:bg-slate-700 text-white hover:bg-slate-800"
+                }`}
             >
               {studyMode ? "✕ Exit Practice Mode" : "🎯 Start Study Mode"}
             </button>
@@ -3086,13 +3066,13 @@ function Progress({ userProfile, setTab }) {
   const trendData = (d?.trend && d.trend.length > 0)
     ? d.trend
     : (essays.slice(0, 8).reverse().map((e, idx) => ({
-        title: e.title?.substring(0, 10) || `Essay #${idx + 1}`,
-        score: e.score || 75,
-        grammar: e.feedback?.grammar || 78,
-        vocabulary: e.feedback?.vocabulary || 76,
-        coherence: e.feedback?.coherence || 77,
-        structure: e.feedback?.structure || 79
-      })));
+      title: e.title?.substring(0, 10) || `Essay #${idx + 1}`,
+      score: e.score || 75,
+      grammar: e.feedback?.grammar || 78,
+      vocabulary: e.feedback?.vocabulary || 76,
+      coherence: e.feedback?.coherence || 77,
+      structure: e.feedback?.structure || 79
+    })));
 
   return (
     <div className="max-w-6xl mx-auto py-6 px-4 space-y-6">
@@ -3262,13 +3242,12 @@ function ToastContainer({ toasts, removeToast }) {
       {toasts.map((t) => (
         <div
           key={t.id}
-          className={`pointer-events-auto flex items-center justify-between p-3.5 rounded-2xl shadow-xl border text-xs font-semibold animate-toast transition-all ${
-            t.type === "error"
-              ? "bg-slate-900 text-red-400 border-red-800/80 shadow-red-950/30"
-              : t.type === "success"
+          className={`pointer-events-auto flex items-center justify-between p-3.5 rounded-2xl shadow-xl border text-xs font-semibold animate-toast transition-all ${t.type === "error"
+            ? "bg-slate-900 text-red-400 border-red-800/80 shadow-red-950/30"
+            : t.type === "success"
               ? "bg-slate-900 text-teal-300 border-teal-800/80 shadow-teal-950/30"
               : "bg-slate-900 text-slate-200 border-slate-700 shadow-slate-950/30"
-          }`}
+            }`}
         >
           <div className="flex items-center gap-2">
             <span className="text-sm">{t.type === "error" ? "🚨" : t.type === "success" ? "✓" : "ℹ️"}</span>
@@ -3325,7 +3304,7 @@ export default function App() {
 
   const loadProfile = () => {
     if (tk()) {
-      api("/user/profile").then(setUserProfile).catch(() => {});
+      api("/user/profile").then(setUserProfile).catch(() => { });
     }
   };
 
