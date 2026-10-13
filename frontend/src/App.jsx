@@ -81,12 +81,44 @@ const SUBJECTS = [
   "Economics"
 ];
 
-const QUICK_PROMPTS = [
-  { text: "naku ai gurinchi full ga explain chei", subject: "General Knowledge", lang: "Telugu" },
-  { text: "Explain Photosynthesis step-by-step", subject: "Science & Physics", lang: "Telugu" },
-  { text: "How does Machine Learning work?", subject: "Computer Science", lang: "English" },
-  { text: "Explain Pythagoras Theorem with example", subject: "Mathematics", lang: "Hindi" }
-];
+const QUICK_PROMPTS_BY_LANG = {
+  Tamil: [
+    { text: "செயற்கை நுண்ணறிவு (AI) பற்றி எளிமையாக விளக்குங்கள்", subject: "Computer Science", lang: "Tamil" },
+    { text: "ஒளிச்சேர்க்கை (Photosynthesis) செயல்முறை என்ன?", subject: "Science & Physics", lang: "Tamil" },
+    { text: "பைதாகரஸ் தேற்றம் (Pythagoras Theorem) உதாரணத்துடன் விளக்கு", subject: "Mathematics", lang: "Tamil" },
+    { text: "இயந்திர கற்றல் (Machine Learning) எப்படி வேலை செய்கிறது?", subject: "Computer Science", lang: "Tamil" }
+  ],
+  Telugu: [
+    { text: "నాకు AI గురించి పూర్తి వివరాలతో వివరించండి", subject: "Computer Science", lang: "Telugu" },
+    { text: "కిరణజన్య సంయోగ క్రియ (Photosynthesis) దశలవారీగా వివరించు", subject: "Science & Physics", lang: "Telugu" },
+    { text: "పైథాగరస్ సిద్ధాంతం (Pythagoras Theorem) ఉదాహరణతో చెప్పు", subject: "Mathematics", lang: "Telugu" },
+    { text: "మెషిన్ లెర్నింగ్ (Machine Learning) ఎలా పనిచేస్తుంది?", subject: "Computer Science", lang: "Telugu" }
+  ],
+  Hindi: [
+    { text: "आर्टिफिशियल इंटेलिजेंस (AI) को विस्तार से समझाएं", subject: "Computer Science", lang: "Hindi" },
+    { text: "प्रकाश संश्लेषण (Photosynthesis) के चरण समझाएं", subject: "Science & Physics", lang: "Hindi" },
+    { text: "पाइथागोरस प्रमेय (Pythagoras Theorem) उदाहरण सहित समझाएं", subject: "Mathematics", lang: "Hindi" },
+    { text: "मशीन लर्निंग (Machine Learning) कैसे काम करता है?", subject: "Computer Science", lang: "Hindi" }
+  ],
+  Kannada: [
+    { text: "ಕೃತಕ ಬುದ್ಧಿಮತ್ತೆ (AI) ಬಗ್ಗೆ ಸರಳವಾಗಿ ವಿವರಿಸಿ", subject: "Computer Science", lang: "Kannada" },
+    { text: "ದ್ಯುತಿಸಂಶ್ಲೇಷಣೆ (Photosynthesis) ಹಂತಗಳನ್ನು ತಿಳಿಸಿ", subject: "Science & Physics", lang: "Kannada" },
+    { text: "ಪೈಥಾಗರಸ್ ಪ್ರಮೇಯವನ್ನು ಉದಾಹರಣೆಯೊಂದಿಗೆ ವಿವರಿಸಿ", subject: "Mathematics", lang: "Kannada" },
+    { text: "ಮೆಷಿನ್ ಲರ್ನಿಂಗ್ ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ?", subject: "Computer Science", lang: "Kannada" }
+  ],
+  Malayalam: [
+    { text: "നിർമ്മിത ബുദ്ധി (AI) ലളിതമായി വിശദീകരിക്കുക", subject: "Computer Science", lang: "Malayalam" },
+    { text: "പ്രകാശസംശ്ലേഷണം (Photosynthesis) ഘട്ടങ്ങൾ വിവരിക്കുക", subject: "Science & Physics", lang: "Malayalam" },
+    { text: "പൈതഗോറസ് സിദ്ധാന്തം ഉദാഹരണത്തോടെ വിശദീകരിക്കുക", subject: "Mathematics", lang: "Malayalam" },
+    { text: "മെഷീൻ ലേണിംഗ് എങ്ങനെ പ്രവർത്തിക്കുന്നു?", subject: "Computer Science", lang: "Malayalam" }
+  ],
+  English: [
+    { text: "Explain Artificial Intelligence with real-world examples", subject: "Computer Science", lang: "English" },
+    { text: "Explain Photosynthesis step-by-step", subject: "Science & Physics", lang: "English" },
+    { text: "Explain Pythagoras Theorem with practical example", subject: "Mathematics", lang: "English" },
+    { text: "How does Machine Learning work under the hood?", subject: "Computer Science", lang: "English" }
+  ]
+};
 
 const tk = () => localStorage.getItem("token");
 
@@ -450,7 +482,7 @@ function exportEssayPDF(essay) {
   const doc = new jsPDF();
   doc.setFontSize(22);
   doc.setTextColor(13, 148, 136); // Teal
-  doc.text("EduLinga AI - Essay Evaluation Report", 14, 20);
+  doc.text("StudyMate AI - Essay Evaluation Report", 14, 20);
 
   doc.setFontSize(14);
   doc.setTextColor(30, 41, 59);
@@ -484,7 +516,7 @@ function exportEssayPDF(essay) {
     y += lines.length * 6;
   });
 
-  doc.save(`EduLinga_Essay_Report.pdf`);
+  doc.save(`StudyMate_Essay_Report.pdf`);
 }
 
 // Icons
@@ -625,7 +657,7 @@ function Auth({ onAuth }) {
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-tr from-teal-500 to-emerald-400 text-white shadow-lg shadow-teal-500/30 mb-3">
             <IconSparkles />
           </div>
-          <h1 className="text-3xl font-black tracking-tight text-slate-900">EduLinga AI</h1>
+          <h1 className="text-3xl font-black tracking-tight text-slate-900">StudyMate AI</h1>
           <p className="mt-2 text-sm text-slate-500">
             Multilingual AI Educational Platform — ChatGPT Style Tutoring & Educational Suite
           </p>
@@ -670,7 +702,7 @@ function Auth({ onAuth }) {
           )}
 
           <Btn type="submit" variant="primary" className="w-full py-3 text-base" disabled={loading}>
-            {loading ? "Processing..." : mode === "login" ? "Sign In to EduLinga" : "Create Free Account"}
+            {loading ? "Processing..." : mode === "login" ? "Sign In to StudyMate" : "Create Free Account"}
           </Btn>
         </form>
 
@@ -698,6 +730,7 @@ function Auth({ onAuth }) {
 // 1. CHATGPT-STYLE AI TUTOR COMPONENT (with Real-time SSE Token Streaming, Thinking Cursor, Auto-Scroll, Icon Row, User Edits, File Attachments)
 function ChatGPTTutor({
   difficulty,
+  setDifficulty,
   language,
   setLanguage,
   onXPUpdate,
@@ -929,7 +962,7 @@ function ChatGPTTutor({
         return;
       }
       const message = e instanceof TypeError
-        ? "I couldn't connect to EduLinga. Please check that the backend is running and try again."
+        ? "I couldn't connect to StudyMate. Please check that the backend is running and try again."
         : `I couldn't get a response right now. ${e.message}`;
       setChatError(message);
       setMsgs((prev) => {
@@ -1159,21 +1192,20 @@ function ChatGPTTutor({
                   </p>
                 </div>
 
-                {/* 4 Suggestion Cards */}
+                {/* 4 Suggestion Cards Adaptive to User Language Preference */}
                 <div className="grid gap-3 sm:grid-cols-2 text-left max-w-2xl mx-auto pt-4">
-                  {QUICK_PROMPTS.map((qp, idx) => (
+                  {(QUICK_PROMPTS_BY_LANG[language] || QUICK_PROMPTS_BY_LANG.English).map((qp, idx) => (
                     <button
                       key={idx}
                       onClick={() => {
-                        setLanguage(qp.lang);
-                        send(qp.text, { language: qp.lang, subject: qp.subject });
+                        send(qp.text, { language: qp.lang || language, subject: qp.subject });
                       }}
                       className="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80 hover:border-teal-400 hover:shadow-md transition text-xs font-medium text-slate-800 dark:text-slate-200 group active:scale-95 space-y-1"
                     >
                       <div className="font-bold text-slate-900 dark:text-white group-hover:text-teal-600">
                         💡 {qp.text}
                       </div>
-                      <div className="text-[11px] text-slate-400">{qp.subject} • {qp.lang}</div>
+                      <div className="text-[11px] text-slate-400">{qp.subject} • {qp.lang || language}</div>
                     </button>
                   ))}
                 </div>
@@ -1255,7 +1287,7 @@ function ChatGPTTutor({
                         streaming && i === msgs.length - 1 && (
                           <div className="flex items-center gap-2 text-xs text-teal-600 dark:text-teal-400 font-semibold animate-pulse py-1">
                             <span className="w-2 h-2 rounded-full bg-teal-500 animate-ping" />
-                            EduLinga is thinking…
+                            StudyMate is thinking…
                           </div>
                         )
                       )}
@@ -1377,74 +1409,89 @@ function ChatGPTTutor({
             )}
 
             {/* Large Rounded Pill Input Container */}
-            <div className="flex items-end gap-2 rounded-[24px] bg-slate-100 dark:bg-slate-800/90 p-2.5 border border-slate-200 dark:border-slate-700/80 shadow-md focus-within:border-teal-500 focus-within:ring-2 focus-within:ring-teal-500/20 transition-all">
-              {/* Hidden File Upload Input */}
-              <input
-                type="file"
-                ref={fileInputRef}
-                onChange={handleFileUpload}
-                accept=".txt,text/plain"
-                className="hidden"
-              />
+            <div className="rounded-[24px] bg-slate-100 dark:bg-slate-800/90 p-3 border border-slate-200 dark:border-slate-700/80 shadow-md focus-within:border-teal-500 focus-within:ring-2 focus-within:ring-teal-500/20 transition-all">
+              {/* Preferences Toolbar directly inside the Chat Box */}
+              <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-200/60 dark:border-slate-700/60 px-1">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <Sel label="Difficulty" value={difficulty} set={setDifficulty} items={["Beginner", "Intermediate", "Advanced"]} />
+                  <Sel label="Language" value={language} set={setLanguage} items={LANGS} />
+                </div>
+                <div className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 hidden sm:flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+                  <span>{language} • {difficulty}</span>
+                </div>
+              </div>
 
-              {/* Left: Attach Button 📎 */}
-              <button
-                onClick={() => fileInputRef.current?.click()}
-                disabled={uploadingFile}
-                className="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-teal-600 transition shrink-0"
-                title="Attach a .txt document"
-              >
-                {uploadingFile ? (
-                  <span className="w-4 h-4 border-2 border-teal-500 border-t-transparent rounded-full animate-spin inline-block" />
-                ) : (
-                  <span className="text-base">📎</span>
-                )}
-              </button>
+              {/* Main Input & Action Buttons Row */}
+              <div className="flex items-end gap-2">
+                {/* Hidden File Upload Input */}
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={handleFileUpload}
+                  accept=".txt,text/plain"
+                  className="hidden"
+                />
 
-              {/* Center: Auto-growing Textarea (up to ~6 lines height) */}
-              <textarea
-                ref={textareaRef}
-                rows={1}
-                className="flex-1 bg-transparent border-none outline-none text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 resize-none py-1.5 px-1 max-h-[140px] overflow-y-auto leading-relaxed font-sans"
-                placeholder={CHAT_COPY[language]?.placeholder || CHAT_COPY.English.placeholder}
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                onInput={(e) => {
-                  e.target.style.height = "auto";
-                  e.target.style.height = Math.min(e.target.scrollHeight, 140) + "px";
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" && !e.shiftKey) {
-                    e.preventDefault();
-                    send();
-                  }
-                }}
-              />
+                {/* Left: Attach Button 📎 */}
+                <button
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={uploadingFile}
+                  className="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-teal-600 transition shrink-0"
+                  title="Attach a .txt document"
+                >
+                  {uploadingFile ? (
+                    <span className="w-4 h-4 border-2 border-teal-500 border-t-transparent rounded-full animate-spin inline-block" />
+                  ) : (
+                    <span className="text-base">📎</span>
+                  )}
+                </button>
 
-              {/* Right: Mic Button 🎤 (Pulsing while recording) */}
-              <button
-                onClick={() => toggleListen(text)}
-                className={`p-2 rounded-full transition shrink-0 ${
-                  listening
-                    ? "bg-red-500 text-white animate-pulse shadow-lg shadow-red-500/40"
-                    : "text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700"
-                }`}
-                title={listening ? "Recording... click to stop" : "Speech to Text"}
-              >
-                🎤
-              </button>
+                {/* Center: Auto-growing Textarea (up to ~6 lines height) */}
+                <textarea
+                  ref={textareaRef}
+                  rows={1}
+                  className="flex-1 bg-transparent border-none outline-none text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 resize-none py-1.5 px-1 max-h-[140px] overflow-y-auto leading-relaxed font-sans"
+                  placeholder={CHAT_COPY[language]?.placeholder || CHAT_COPY.English.placeholder}
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  onInput={(e) => {
+                    e.target.style.height = "auto";
+                    e.target.style.height = Math.min(e.target.scrollHeight, 140) + "px";
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !e.shiftKey) {
+                      e.preventDefault();
+                      send();
+                    }
+                  }}
+                />
 
-              {/* Right: Round Send Button ⬆️ */}
-              <button
-                onClick={() => send()}
-                disabled={(!text.trim() && !attachedFile) || streaming}
-                className="w-9 h-9 rounded-full bg-teal-600 hover:bg-teal-700 text-white flex items-center justify-center font-bold transition disabled:opacity-30 disabled:cursor-not-allowed shadow-md shadow-teal-600/20 shrink-0"
-                title="Send Message"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                </svg>
-              </button>
+                {/* Right: Mic Button 🎤 (Pulsing while recording) */}
+                <button
+                  onClick={() => toggleListen(text)}
+                  className={`p-2 rounded-full transition shrink-0 ${
+                    listening
+                      ? "bg-red-500 text-white animate-pulse shadow-lg shadow-red-500/40"
+                      : "text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700"
+                  }`}
+                  title={listening ? "Recording... click to stop" : "Speech to Text"}
+                >
+                  🎤
+                </button>
+
+                {/* Right: Round Send Button ⬆️ */}
+                <button
+                  onClick={() => send()}
+                  disabled={(!text.trim() && !attachedFile) || streaming}
+                  className="w-9 h-9 rounded-full bg-teal-600 hover:bg-teal-700 text-white flex items-center justify-center font-bold transition disabled:opacity-30 disabled:cursor-not-allowed shadow-md shadow-teal-600/20 shrink-0"
+                  title="Send Message"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                  </svg>
+                </button>
+              </div>
             </div>
 
             {(chatError || speechError) && (
@@ -1455,7 +1502,7 @@ function ChatGPTTutor({
 
             {/* Muted Footer Disclaimer Note */}
             <p className="text-[11px] text-center text-slate-400 dark:text-slate-500 font-medium pt-0.5">
-              EduLinga can make mistakes. Verify important information.
+              StudyMate can make mistakes. Verify important information.
             </p>
           </div>
         </div>
@@ -1520,8 +1567,27 @@ function Essay({ onXPUpdate }) {
 
   const go = async () => {
     setErr("");
-    setBusy(true);
     setRes(null);
+
+    // ── Client-side gibberish pre-check ─────────────────────────────────
+    const words = content.trim().toLowerCase().split(/\s+/);
+    const totalWords = words.length;
+    if (totalWords >= 30) {
+      const allChars = content.replace(/\s+/g, "");
+      const vowels = (allChars.match(/[aeiou]/gi) || []).length;
+      const vowelRatio = vowels / allChars.length;
+      const tinyWords = words.filter((w) => w.length <= 2).length;
+      const COMMON = new Set(["the","a","an","is","are","was","were","have","has","and","but","or","i","you","he","she","it","we","they","me","not","in","on","to","of","by","with","from","at","this","that","do","can","will","for","my","be","if","so"]);
+      const knownRatio = words.filter((w) => COMMON.has(w)).length / totalWords;
+      const latinRatio = (allChars.match(/[a-zA-Z]/g) || []).length / allChars.length;
+      if (vowelRatio < 0.12 || tinyWords / totalWords > 0.55 || (latinRatio > 0.7 && knownRatio < 0.08)) {
+        setErr("⚠️ The text looks like random characters. Please write a real essay or paragraph to get meaningful feedback.");
+        return;
+      }
+    }
+    // ────────────────────────────────────────────────────────────────────
+
+    setBusy(true);
     const fd = new FormData();
     fd.append("title", title || "Untitled Essay");
     fd.append("content", content);
@@ -1538,6 +1604,7 @@ function Essay({ onXPUpdate }) {
       setBusy(false);
     }
   };
+
 
   return (
     <div className="grid gap-6 md:grid-cols-2 max-w-6xl mx-auto py-4">
@@ -1698,6 +1765,7 @@ function Quiz({ onXPUpdate, addToast }) {
   const [customTopic, setCustomTopic] = useState("");
   const [difficulty, setDiff] = useState("Intermediate");
   const [language, setLang] = useState("Telugu");
+  const [questionCount, setQuestionCount] = useState(20);
   const [quiz, setQuiz] = useState(null);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -1711,19 +1779,37 @@ function Quiz({ onXPUpdate, addToast }) {
     { title: "Pythagoras & Geometry", category: "Mathematics", icon: "📐", desc: "Triangles, hypotenuse formulas, and spatial reasoning" }
   ];
 
-  const generate = async (overrideTopic = null) => {
-    const activeTopic = overrideTopic !== null ? overrideTopic : (customTopic.trim() || "General Knowledge");
+  const generate = async (overrideTopic = null, overrideDiff = null, overrideLang = null, forceNewSeed = false) => {
+    const activeTopic = overrideTopic !== null ? overrideTopic : (customTopic.trim() || quiz?.subject || "General Knowledge");
+    const activeDiff = overrideDiff !== null ? overrideDiff : difficulty;
+    const activeLang = overrideLang !== null ? overrideLang : language;
+    const seed = forceNewSeed ? (Date.now() + "_" + Math.random().toString(36).substring(2, 7)) : Date.now().toString();
+
     setLoading(true);
     setSubmitted(false);
     setSelectedAnswers({});
     setError("");
+
     try {
       const data = await api("/api/quiz", {
         method: "POST",
-        body: { topic: activeTopic, difficulty, language }
+        body: {
+          topic: activeTopic,
+          difficulty: activeDiff,
+          language: activeLang,
+          count: questionCount,
+          seed
+        }
       });
       setQuiz(data);
-      if (addToast) addToast(`Quiz generated for "${activeTopic}"!`, "success");
+      if (addToast) {
+        addToast(
+          forceNewSeed
+            ? `Fresh 20 questions loaded for "${activeTopic}" (${activeDiff})!`
+            : `20-question quiz generated for "${activeTopic}" (${activeDiff})!`,
+          "success"
+        );
+      }
     } catch (e) {
       setError(`Quiz generation failed. ${e.message}`);
       if (addToast) addToast(`Quiz generation failed: ${e.message}`, "error");
@@ -1732,9 +1818,28 @@ function Quiz({ onXPUpdate, addToast }) {
     }
   };
 
+  const handleDiffChange = (newDiff) => {
+    setDiff(newDiff);
+    if (quiz) {
+      // Level-wise regenerate questions immediately
+      generate(customTopic.trim() || quiz.subject, newDiff, language, true);
+    }
+  };
+
+  const handleLangChange = (newLang) => {
+    setLang(newLang);
+    if (quiz) {
+      generate(customTopic.trim() || quiz.subject, difficulty, newLang, true);
+    }
+  };
+
+  const handleRefresh = () => {
+    generate(customTopic.trim() || quiz?.subject || "General Knowledge", difficulty, language, true);
+  };
+
   const handleSelect = (qId, optionIdx) => {
     if (submitted) return;
-    setSelectedAnswers({ ...selectedAnswers, [qId]: optionIdx });
+    setSelectedAnswers((prev) => ({ ...prev, [qId]: optionIdx }));
   };
 
   const submitQuiz = async () => {
@@ -1759,172 +1864,355 @@ function Quiz({ onXPUpdate, addToast }) {
         }
       });
       if (onXPUpdate) onXPUpdate();
-      if (addToast) addToast("Quiz submitted! Score saved & XP awarded.", "success");
+      if (addToast) addToast(`Quiz submitted! Scored ${answersList.filter(a => a.isCorrect).length} / ${quiz.questions.length}. XP awarded!`, "success");
     } catch (e) {
       setError(`Your quiz score could not be saved. ${e.message}`);
     }
   };
 
+  const answeredCount = quiz ? quiz.questions.filter((q) => selectedAnswers[q.id] !== undefined).length : 0;
+  const totalCount = quiz ? quiz.questions.length : 20;
+  const progressPercent = Math.round((answeredCount / totalCount) * 100);
+
+  const getDiffBadgeColor = (diff) => {
+    const d = (diff || "").toLowerCase();
+    if (d.includes("beginner")) return "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-300 dark:border-emerald-700";
+    if (d.includes("advanced")) return "bg-purple-100 text-purple-800 dark:bg-purple-950/60 dark:text-purple-300 border-purple-300 dark:border-purple-700";
+    return "bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border-amber-300 dark:border-amber-700";
+  };
+
   return (
     <div className="max-w-5xl mx-auto py-6 space-y-6">
+      {/* Quiz Configuration Bar */}
       <div className="rounded-2xl bg-white dark:bg-slate-800 p-6 shadow-sm border border-slate-200/80 dark:border-slate-700/80 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h2 className="text-xl font-bold text-slate-800 dark:text-white">AI Multilingual Quiz Generator</h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400">Pick popular academic topics or type any custom concept to solve problems.</p>
+            <div className="flex items-center gap-2">
+              <h2 className="text-xl font-bold text-slate-800 dark:text-white">AI Multilingual Quiz Generator</h2>
+              <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-900/60 text-teal-800 dark:text-teal-200 border border-teal-300 dark:border-teal-700">
+                20 Questions
+              </span>
+            </div>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              Type any topic to practice 20 questions. Refresh anytime for brand new questions, and switch levels anytime!
+            </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            <Sel label="Difficulty" value={difficulty} set={setDiff} items={["Beginner", "Intermediate", "Advanced"]} />
-            <Sel label="Quiz Language" value={language} set={setLang} items={LANGS} />
+            <Sel label="Level" value={difficulty} set={handleDiffChange} items={["Beginner", "Intermediate", "Advanced"]} />
+            <Sel label="Language" value={language} set={handleLangChange} items={LANGS} />
+            <div className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800/80 px-2.5 py-1 rounded-full border border-slate-200 dark:border-slate-700">
+              <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Count:</span>
+              <select
+                value={questionCount}
+                onChange={(e) => setQuestionCount(Number(e.target.value))}
+                className="bg-transparent text-xs font-bold text-slate-800 dark:text-slate-100 border-none outline-none cursor-pointer pr-1"
+              >
+                <option value={20} className="bg-white dark:bg-slate-800">20 Questions</option>
+                <option value={10} className="bg-white dark:bg-slate-800">10 Questions</option>
+                <option value={5} className="bg-white dark:bg-slate-800">5 Questions</option>
+              </select>
+            </div>
           </div>
         </div>
 
+        {/* Input & Action buttons */}
         <div className="flex flex-col sm:flex-row gap-2 pt-2 border-t border-slate-100 dark:border-slate-700">
           <input
             type="text"
             className="flex-1 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-2.5 text-sm text-slate-800 dark:text-slate-100 shadow-sm focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/20"
-            placeholder="Type any custom topic..."
+            placeholder="Type any custom topic (e.g. Artificial Intelligence, Photosynthesis, Thermodynamics, Indian History)..."
             value={customTopic}
             onChange={(e) => setCustomTopic(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && generate()}
           />
-          <Btn onClick={() => generate()} disabled={loading}>
-            {loading ? "Generating Quiz..." : "⚡ Generate Quiz"}
+          <Btn onClick={() => generate()} disabled={loading} className="whitespace-nowrap">
+            {loading ? "Generating 20 Questions..." : "⚡ Generate Quiz"}
           </Btn>
+          {quiz && (
+            <button
+              onClick={handleRefresh}
+              disabled={loading}
+              title="Refresh with fresh questions on this topic"
+              className="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-100 hover:bg-teal-50 hover:border-teal-300 dark:hover:bg-slate-600 font-bold text-xs flex items-center gap-1.5 transition active:scale-95 whitespace-nowrap"
+            >
+              <span className={`text-sm ${loading ? "animate-spin" : ""}`}>🔄</span>
+              <span>Refresh Questions</span>
+            </button>
+          )}
         </div>
       </div>
 
       {error && <p role="alert" className="rounded-xl border border-red-200 bg-red-50 p-3 text-xs font-medium text-red-600">{error}</p>}
 
+      {/* Popular Topics Cards (Shown when no quiz is currently active) */}
       {!quiz && (
-        <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-4">
-          {POPULAR_TOPICS.map((t, idx) => {
-            const isCurrentTopic = customTopic === t.title;
-            return (
-              <button
-                key={idx}
-                disabled={loading}
-                onClick={() => {
-                  setCustomTopic(t.title);
-                  generate(t.title);
-                }}
-                className={`p-4 rounded-2xl bg-white dark:bg-slate-800 border transition text-left space-y-2 group active:scale-95 flex flex-col justify-between ${
-                  isCurrentTopic
-                    ? "border-teal-500 ring-2 ring-teal-500/20 shadow-md shadow-teal-500/10"
-                    : "border-slate-200/80 dark:border-slate-700/80 hover:border-teal-400"
-                } ${loading ? "opacity-75 cursor-wait" : ""}`}
-              >
-                <div>
-                  <div className="text-2xl mb-1 flex items-center justify-between">
-                    <span>{t.icon}</span>
-                    {loading && isCurrentTopic && (
-                      <span className="text-[10px] text-teal-600 font-bold animate-pulse">Loading...</span>
-                    )}
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+              Popular Academic Topics (or type above)
+            </span>
+            <span className="text-xs text-teal-600 dark:text-teal-400 font-medium">Click any topic to generate 20 questions</span>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-4">
+            {POPULAR_TOPICS.map((t, idx) => {
+              const isCurrentTopic = customTopic === t.title;
+              return (
+                <button
+                  key={idx}
+                  disabled={loading}
+                  onClick={() => {
+                    setCustomTopic(t.title);
+                    generate(t.title);
+                  }}
+                  className={`p-4 rounded-2xl bg-white dark:bg-slate-800 border transition text-left space-y-2 group active:scale-95 flex flex-col justify-between ${
+                    isCurrentTopic
+                      ? "border-teal-500 ring-2 ring-teal-500/20 shadow-md shadow-teal-500/10"
+                      : "border-slate-200/80 dark:border-slate-700/80 hover:border-teal-400"
+                  } ${loading ? "opacity-75 cursor-wait" : ""}`}
+                >
+                  <div>
+                    <div className="text-2xl mb-1 flex items-center justify-between">
+                      <span>{t.icon}</span>
+                      {loading && isCurrentTopic && (
+                        <span className="text-[10px] text-teal-600 font-bold animate-pulse">Generating...</span>
+                      )}
+                    </div>
+                    <h4 className="text-sm font-bold text-slate-800 dark:text-white group-hover:text-teal-600 transition">{t.title}</h4>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">{t.desc}</p>
                   </div>
-                  <h4 className="text-sm font-bold text-slate-800 dark:text-white group-hover:text-teal-600 transition">{t.title}</h4>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">{t.desc}</p>
-                </div>
-                <div className="pt-2 text-[11px] font-semibold text-teal-600 dark:text-teal-400 flex items-center gap-1 opacity-80 group-hover:opacity-100">
-                  <span>Start Practice Problems</span>
-                  <span>→</span>
-                </div>
-              </button>
-            );
-          })}
+                  <div className="pt-2 text-[11px] font-semibold text-teal-600 dark:text-teal-400 flex items-center gap-1 opacity-80 group-hover:opacity-100">
+                    <span>Solve 20 Problems</span>
+                    <span>→</span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
         </div>
       )}
 
+      {/* Active Practice Quiz Section */}
       {quiz && (
         <div className="space-y-4">
-          <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-800 text-white shadow-md">
-            <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-teal-300">Active Practice Quiz</span>
-              <h3 className="text-lg font-bold">{quiz.title}</h3>
-            </div>
-            <button
-              onClick={() => {
-                setQuiz(null);
-                setSubmitted(false);
-                setSelectedAnswers({});
-              }}
-              className="text-xs px-3 py-1.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold transition"
-            >
-              ← Change Topic
-            </button>
-          </div>
-
-          {quiz.questions.map((q, qIdx) => (
-            <div key={q.id} className="rounded-2xl bg-white dark:bg-slate-800 p-6 border border-slate-200/80 dark:border-slate-700/80 space-y-3 shadow-sm">
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider">
-                  Question {qIdx + 1} of {quiz.questions.length}
-                </span>
-                {submitted && (
-                  <span className={`text-[11px] font-bold px-2 py-0.5 rounded-md ${
-                    selectedAnswers[q.id] === q.answerIndex
-                      ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300"
-                      : "bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300"
-                  }`}>
-                    {selectedAnswers[q.id] === q.answerIndex ? "✓ Correct" : "✕ Incorrect"}
+          {/* Active Quiz Header Card */}
+          <div className="p-5 rounded-2xl bg-slate-900 text-white shadow-lg space-y-3 border border-slate-800">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-teal-400">
+                    Active Practice Quiz
                   </span>
-                )}
-              </div>
-              <h4 className="text-sm font-semibold text-slate-800 dark:text-white leading-relaxed">{q.question}</h4>
-              <div className="grid gap-2 sm:grid-cols-2 pt-1">
-                {q.options.map((opt, optIdx) => (
-                  <button
-                    key={optIdx}
-                    onClick={() => handleSelect(q.id, optIdx)}
-                    disabled={submitted}
-                    className={`p-3 rounded-xl border text-left text-xs transition ${
-                      submitted && q.answerIndex === optIdx
-                        ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-bold ring-1 ring-emerald-500/30"
-                        : submitted && selectedAnswers[q.id] === optIdx
-                        ? "border-red-500 bg-red-50 dark:bg-red-950/40 text-red-900 dark:text-red-200"
-                        : selectedAnswers[q.id] === optIdx
-                        ? "border-teal-500 bg-teal-50 dark:bg-teal-950/40 font-bold text-teal-900 dark:text-teal-200 ring-2 ring-teal-500/20"
-                        : "border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600"
-                    }`}
-                  >
-                    <span className="inline-block w-5 font-bold opacity-60">
-                      {String.fromCharCode(65 + optIdx)}.
-                    </span>
-                    {opt}
-                  </button>
-                ))}
-              </div>
-              {submitted && (
-                <div className="mt-2 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300">
-                  <span className="font-bold text-teal-600 dark:text-teal-400 block mb-0.5">💡 Explanation & Solution:</span>
-                  {q.explanation}
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${getDiffBadgeColor(quiz.difficulty || difficulty)}`}>
+                    Level: {quiz.difficulty || difficulty}
+                  </span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+                    {quiz.questions.length} Questions
+                  </span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-800 text-teal-300 border border-slate-700">
+                    {quiz.language || language}
+                  </span>
                 </div>
-              )}
-            </div>
-          ))}
-
-          {submitted ? (
-            <div className="rounded-2xl bg-gradient-to-r from-teal-600 to-emerald-600 p-6 text-center text-white space-y-2 shadow-lg shadow-teal-500/20">
-              <span className="text-xs uppercase font-bold tracking-wider opacity-90">Quiz Completed</span>
-              <div className="text-3xl font-black">
-                Score: {quiz.questions.filter((q) => selectedAnswers[q.id] === q.answerIndex).length} / {quiz.questions.length}
+                <h3 className="text-lg sm:text-xl font-bold mt-1 text-white">{quiz.title}</h3>
               </div>
-              <p className="text-xs opacity-90">Great job practicing problem solving in {language}!</p>
-              <div className="pt-2">
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleRefresh}
+                  disabled={loading}
+                  className="text-xs px-3.5 py-2 rounded-xl bg-teal-600/90 hover:bg-teal-500 text-white font-bold transition flex items-center gap-1.5 shadow-sm active:scale-95"
+                >
+                  <span className={loading ? "animate-spin" : ""}>🔄</span>
+                  <span>Refresh Questions</span>
+                </button>
                 <button
                   onClick={() => {
                     setQuiz(null);
                     setSubmitted(false);
                     setSelectedAnswers({});
                   }}
-                  className="px-4 py-2 rounded-xl bg-white text-teal-800 text-xs font-bold hover:bg-slate-100 transition shadow-sm"
+                  className="text-xs px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition active:scale-95"
                 >
-                  Solve More Problems / Try Another Topic
+                  ← Change Topic
+                </button>
+              </div>
+            </div>
+
+            {/* Progress & Jump Navigator */}
+            <div className="pt-2 border-t border-slate-800/80 space-y-2">
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-slate-400 font-medium">
+                  Progress: <strong className="text-teal-400">{answeredCount}</strong> of <strong className="text-white">{quiz.questions.length}</strong> answered
+                </span>
+                <span className="text-teal-400 font-bold">{progressPercent}% Completed</span>
+              </div>
+              <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div
+                  className="bg-gradient-to-r from-teal-500 to-emerald-400 h-2 rounded-full transition-all duration-300"
+                  style={{ width: `${progressPercent}%` }}
+                />
+              </div>
+
+              {/* Numbered Jump-to-Question Pills */}
+              <div className="pt-2">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5">
+                  Question Quick-Jump (Click to navigate):
+                </span>
+                <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto pr-1">
+                  {quiz.questions.map((q, idx) => {
+                    const isAnswered = selectedAnswers[q.id] !== undefined;
+                    const isCorrect = submitted && selectedAnswers[q.id] === q.answerIndex;
+                    const isWrong = submitted && isAnswered && !isCorrect;
+
+                    let pillClass = "bg-slate-800 text-slate-300 border-slate-700 hover:border-teal-500";
+                    if (submitted) {
+                      if (isCorrect) pillClass = "bg-emerald-600 text-white border-emerald-500 font-bold";
+                      else if (isWrong) pillClass = "bg-rose-600 text-white border-rose-500 font-bold";
+                      else pillClass = "bg-slate-800/50 text-slate-500 border-slate-800";
+                    } else if (isAnswered) {
+                      pillClass = "bg-teal-600 text-white border-teal-400 font-bold shadow-sm shadow-teal-500/20";
+                    }
+
+                    return (
+                      <button
+                        key={q.id}
+                        type="button"
+                        onClick={() => {
+                          const el = document.getElementById(`quiz-q-${q.id}`);
+                          if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+                        }}
+                        className={`w-7 h-7 rounded-lg text-[11px] font-semibold border flex items-center justify-center transition active:scale-95 ${pillClass}`}
+                        title={`Go to Question ${idx + 1}`}
+                      >
+                        {idx + 1}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Submit Prompt at Top if Partially or Fully Answered */}
+          {!submitted && answeredCount > 0 && (
+            <div className="flex items-center justify-between p-3 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 text-xs">
+              <span className="text-teal-800 dark:text-teal-200 font-medium">
+                You have answered <strong>{answeredCount}</strong> of <strong>{quiz.questions.length}</strong> questions. Ready to verify?
+              </span>
+              <button
+                onClick={submitQuiz}
+                className="px-3.5 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs transition shadow-sm active:scale-95"
+              >
+                Submit Answers Now
+              </button>
+            </div>
+          )}
+
+          {/* 20 Questions List */}
+          <div className="space-y-4">
+            {quiz.questions.map((q, qIdx) => (
+              <div
+                key={q.id}
+                id={`quiz-q-${q.id}`}
+                className="rounded-2xl bg-white dark:bg-slate-800 p-6 border border-slate-200/80 dark:border-slate-700/80 space-y-3 shadow-sm transition hover:border-slate-300 dark:hover:border-slate-600"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-extrabold text-teal-600 dark:text-teal-400 uppercase tracking-wider">
+                      Question {qIdx + 1} of {quiz.questions.length}
+                    </span>
+                    <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full border ${getDiffBadgeColor(quiz.difficulty || difficulty)}`}>
+                      {quiz.difficulty || difficulty}
+                    </span>
+                  </div>
+                  {submitted && (
+                    <span className={`text-[11px] font-bold px-2.5 py-1 rounded-md ${
+                      selectedAnswers[q.id] === q.answerIndex
+                        ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300"
+                        : "bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300"
+                    }`}>
+                      {selectedAnswers[q.id] === q.answerIndex ? "✓ Correct" : "✕ Incorrect"}
+                    </span>
+                  )}
+                </div>
+
+                <h4 className="text-sm sm:text-base font-semibold text-slate-800 dark:text-white leading-relaxed">
+                  {q.question}
+                </h4>
+
+                <div className="grid gap-2 sm:grid-cols-2 pt-1">
+                  {q.options.map((opt, optIdx) => (
+                    <button
+                      key={optIdx}
+                      onClick={() => handleSelect(q.id, optIdx)}
+                      disabled={submitted}
+                      className={`p-3 rounded-xl border text-left text-xs sm:text-sm transition ${
+                        submitted && q.answerIndex === optIdx
+                          ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-bold ring-1 ring-emerald-500/30"
+                          : submitted && selectedAnswers[q.id] === optIdx
+                          ? "border-red-500 bg-red-50 dark:bg-red-950/40 text-red-900 dark:text-red-200"
+                          : selectedAnswers[q.id] === optIdx
+                          ? "border-teal-500 bg-teal-50 dark:bg-teal-950/40 font-bold text-teal-900 dark:text-teal-200 ring-2 ring-teal-500/20"
+                          : "border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 bg-white dark:bg-slate-850"
+                      }`}
+                    >
+                      <span className="inline-block w-5 font-bold opacity-60">
+                        {String.fromCharCode(65 + optIdx)}.
+                      </span>
+                      {opt}
+                    </button>
+                  ))}
+                </div>
+
+                {submitted && (
+                  <div className="mt-2 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                    <span className="font-bold text-teal-600 dark:text-teal-400 block mb-0.5">💡 Solution & Explanation:</span>
+                    {q.explanation}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Submission and Results Footer */}
+          {submitted ? (
+            <div className="rounded-2xl bg-gradient-to-r from-teal-600 to-emerald-600 p-8 text-center text-white space-y-3 shadow-lg shadow-teal-500/20">
+              <span className="text-xs uppercase font-extrabold tracking-wider opacity-90">Quiz Completed</span>
+              <div className="text-4xl font-black">
+                Score: {quiz.questions.filter((q) => selectedAnswers[q.id] === q.answerIndex).length} / {quiz.questions.length}
+              </div>
+              <p className="text-sm opacity-90">
+                Great job solving 20 problems on "{quiz.subject}" in {quiz.language || language}!
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
+                <button
+                  onClick={handleRefresh}
+                  className="px-5 py-2.5 rounded-xl bg-white text-teal-800 text-xs font-bold hover:bg-slate-100 transition shadow-sm active:scale-95"
+                >
+                  🔄 Refresh & Try 20 New Questions
+                </button>
+                <button
+                  onClick={() => {
+                    setQuiz(null);
+                    setSubmitted(false);
+                    setSelectedAnswers({});
+                  }}
+                  className="px-5 py-2.5 rounded-xl bg-teal-800/80 hover:bg-teal-900 text-white text-xs font-bold transition shadow-sm active:scale-95"
+                >
+                  ⚡ Choose Another Topic
                 </button>
               </div>
             </div>
           ) : (
-            <Btn onClick={submitQuiz} className="w-full py-3 text-sm">Submit Quiz Answers</Btn>
+            <div className="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-3 shadow-sm">
+              <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                <span>Completed: <strong>{answeredCount}</strong> of <strong>{quiz.questions.length}</strong> questions</span>
+                <span>{quiz.questions.length - answeredCount} remaining</span>
+              </div>
+              <Btn onClick={submitQuiz} className="w-full py-3.5 text-sm font-bold shadow-md">
+                Submit All 20 Quiz Answers
+              </Btn>
+            </div>
           )}
         </div>
       )}
@@ -2081,7 +2369,7 @@ function Translator({ addToast }) {
 
   const exportAsTextFile = () => {
     if (!translatedText) return;
-    const content = `EduLinga AI — Academic Translation Document
+    const content = `StudyMate AI — Academic Translation Document
 ==========================================
 Date: ${new Date().toLocaleString()}
 Source (${sourceLang}):
@@ -2097,7 +2385,7 @@ ${vocabulary.map((v) => `• ${v.word} -> ${v.translation}: ${v.meaning || ""}`)
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `EduLinga_Translation_${sourceLang}_to_${targetLang}.txt`;
+    a.download = `StudyMate_Translation_${sourceLang}_to_${targetLang}.txt`;
     a.click();
     URL.revokeObjectURL(url);
     if (addToast) addToast("Translation downloaded as text file!", "success");
@@ -3089,20 +3377,13 @@ export default function App() {
             </svg>
           </button>
 
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => setTab("tutor")} aria-label="EduLinga AI Home">
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => setTab("tutor")} aria-label="StudyMate AI Home">
             <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-teal-500 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-teal-500/20">
               <IconSparkles />
             </div>
-            <span className="text-base font-black tracking-tight text-slate-900 dark:text-white">EduLinga AI</span>
+            <span className="text-base font-black tracking-tight text-slate-900 dark:text-white">StudyMate AI</span>
           </div>
 
-          {/* ChatGPT-style Pill Selectors for Difficulty & Answer Language */}
-          {tab === "tutor" && (
-            <div className="flex items-center gap-2 ml-4">
-              <Sel label="Difficulty" value={difficulty} set={setDiff} items={["Beginner", "Intermediate", "Advanced"]} />
-              <Sel label="Language" value={language} set={setLang} items={LANGS} />
-            </div>
-          )}
         </div>
 
         {/* Right Nav Tabs & Sign Out */}
@@ -3155,7 +3436,7 @@ export default function App() {
           <button
             onClick={signOut}
             className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-1.5 text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition whitespace-nowrap"
-            aria-label="Sign out of EduLinga AI account"
+            aria-label="Sign out of StudyMate AI account"
           >
             Sign Out
           </button>
@@ -3167,6 +3448,7 @@ export default function App() {
         {tab === "tutor" ? (
           <ChatGPTTutor
             difficulty={difficulty}
+            setDifficulty={setDiff}
             language={language}
             setLanguage={setLang}
             onXPUpdate={loadProfile}

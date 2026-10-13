@@ -7,21 +7,32 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import Anthropic from '@anthropic-ai/sdk';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import Tesseract from 'tesseract.js';
+import mongoose from 'mongoose';
 
 dotenv.config();
+
+// Connect to MongoDB Atlas
+const MONGO_URI = process.env.MONGO_URI;
+if (MONGO_URI && !MONGO_URI.includes('<db_password>')) {
+  mongoose.connect(MONGO_URI, { dbName: process.env.DB_NAME || 'studymate_ai' })
+    .then(() => console.log('✅ Connected to MongoDB Atlas'))
+    .catch(err => console.error('❌ MongoDB connection error:', err.message));
+} else {
+  console.warn('⚠️  MONGO_URI not set or still has placeholder — using local JSON file storage.');
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 8000;
-const SECRET = process.env.JWT_SECRET || 'edulinga-secret-key-2026';
-const MODEL = process.env.MODEL || 'claude-3-5-sonnet-20241022';
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '';
+const SECRET = process.env.JWT_SECRET || 'studymate-secret-key-2026';
+const MODEL = process.env.MODEL || 'gemini-3.8-flash';
+const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || '';
 
-const llm = ANTHROPIC_API_KEY && ANTHROPIC_API_KEY !== 'your-key' 
-  ? new Anthropic({ apiKey: ANTHROPIC_API_KEY }) 
+const llm = GOOGLE_API_KEY && GOOGLE_API_KEY !== 'your-google-key'
+  ? new GoogleGenerativeAI(GOOGLE_API_KEY)
   : null;
 
 const upload = multer({ limits: { fileSize: 5 * 1024 * 1024 } });
@@ -76,7 +87,7 @@ function generateToken(userId) {
 
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', service: 'EduLinga AI Node Server', ai_connected: !!llm });
+  res.json({ status: 'ok', service: 'StudyMate AI Node Server', ai_connected: !!llm, db_connected: mongoose.connection.readyState === 1 });
 });
 
 // Auth endpoints
@@ -138,12 +149,12 @@ app.post('/auth/login', async (req, res) => {
 });
 
 app.post('/auth/demo', async (req, res) => {
-  let demoUser = db.users.find(u => u.email === 'demo@edulinga.ai');
+  let demoUser = db.users.find(u => u.email === 'demo@studymate.ai');
   if (!demoUser) {
     demoUser = {
       id: 'usr_demo_' + Date.now(),
       name: 'Learner Student',
-      email: 'demo@edulinga.ai',
+      email: 'demo@studymate.ai',
       preferred_language: 'English',
       password: await bcrypt.hash('demopass123', 10),
       created_at: new Date().toISOString()
@@ -182,193 +193,426 @@ app.get('/user/profile', authMiddleware, (req, res) => {
 });
 
 // Multilingual Intelligent AI Engine Fallback & Prompting
-const TUTOR_SYSTEM = `You are a patient tutor for {subject} at {difficulty} level.
-Process: first think step by step in English inside <reasoning></reasoning> (identify the concept, check facts, plan simple steps, pick local examples). Then write the final student-facing reply inside <answer></answer> entirely in {language} (keep technical terms with the English term in brackets). Use numbered steps, end with one follow-up question to check understanding.`;
+const TUTOR_SYSTEM = `You are StudyMate AI, a world-class, deeply knowledgeable, warm, and interactive personal multilingual AI tutor.
 
-async function getClaudeResponse(systemPrompt, messages, maxTokens = 2000) {
+CURRENT STUDENT LEARNING PROFILE:
+- Target Language: {language}
+- Difficulty Level: {difficulty}
+- Subject Domain: {subject}
+
+YOUR CORE MISSION AS A REAL AI TUTOR:
+You are not a superficial summary bot or a search engine. You are an inspiring, patient, and highly effective teacher. You explain concepts thoroughly and clearly, demystify complex ideas, and conduct an active two-way conversational dialogue with the student.
+
+1. CRITICAL LANGUAGE RULES:
+- ALWAYS conduct your ENTIRE explanation in {language}.
+  * If {language} is Tamil: Write purely in fluent, natural, grammatically correct Tamil script (தமிழ்).
+  * If {language} is Telugu: Write purely in fluent Telugu script (తెలుగు).
+  * If {language} is Hindi: Write purely in fluent Hindi script (हिंदी).
+  * If {language} is Kannada: Write purely in fluent Kannada script (ಕನ್ನಡ).
+  * If {language} is Malayalam: Write purely in fluent Malayalam script (മലയാളം).
+  * If {language} is English: Write in clear, motivating English.
+- If the student writes in English or Romanized transliteration (e.g., "ai pathi explain pannu", "what is photosynthesis", "machine learning basics"), STILL teach and reply fully in the user's selected language: {language}.
+- Technical Terms: For scientific, mathematical, or computing terms, always write the native term followed by the English term in parentheses, e.g.:
+  * In Tamil: இயந்திரக் கற்றல் (Machine Learning), நரம்பியல் வலையமைப்பு (Neural Network), ஒளிச்சேர்க்கை (Photosynthesis).
+  * In Telugu: కిరణజన్య సంయోగ క్రియ (Photosynthesis), కృత్రిమ మేధస్సు (Artificial Intelligence).
+  * In Hindi: प्रकाश संश्लेषण (Photosynthesis), कृत्रिम बुद्धिमत्ता (Artificial Intelligence).
+
+2. DEPTH & DETAIL OF EXPLANATION (PROVIDE A THOROUGH, DETAILED LESSON):
+Never give a short, superficial 2-sentence response. Give a comprehensive, structured lesson that truly teaches the concept:
+- 📌 **Title & Core Concept (அடிப்படைத் தத்துவம் / Core Concept):** Clear, precise definition; why this concept was developed; why it is important.
+- ⚙️ **How It Works Step-by-Step (இது எப்படிச் செயல்படுகிறது? / Detailed Mechanism):** Break down the exact inner process into 3-4 detailed logical stages. Explain the "why" and "how" behind each step.
+- 💡 **Intuitive Real-World Analogy (எளிய நிஜ வாழ்க்கை உதாரணம் / Intuitive Analogy):** A vivid everyday metaphor (cooking in a kitchen, cricket, music playlists, traffic control, human memory) that makes the concept click instantly.
+- 🌍 **Practical Real-World Implementations (நடைமுறைப் பயன்பாடுகள் / Real-World Applications):** 3-4 specific examples from modern industry, technology, or nature.
+- ⚠️ **Key Takeaways & Common Misconceptions (முக்கியக் குறிப்புகள் / Key Insights):** Subtle nuances that students often confuse.
+
+3. DIFFICULTY LEVEL ADAPTATION ({difficulty}):
+- **Beginner**:
+  * Focus on deep conceptual intuition, vivid analogies, and step-by-step storytelling.
+  * Use simple, friendly words and zero intimidating jargon.
+  * Thoroughly answer all "why" questions so the student builds a rock-solid foundation.
+- **Intermediate**:
+  * Balance conceptual depth with technical workflows, components, algorithms, and practical implementation patterns.
+- **Advanced**:
+  * Provide university/industry grade rigor: underlying mathematical formulations, algorithmic trade-offs, architecture diagrams, scalability considerations, and state-of-the-art standards.
+
+4. TWO-WAY CONVERSATIONAL CHAT DYNAMICS:
+- **If the student is responding to a previous question or quiz (e.g., answering "A", "B", "Option 2", or sharing their thought):**
+  1. Immediately evaluate their answer with genuine, warm teacher feedback:
+     - If correct: Celebrate their success enthusiastically (e.g., "சரியான விடை! மிக நன்று! 🎉 / That's 100% correct! Excellent job!"), explain clearly WHY their answer is correct, and explain why the other options were wrong.
+     - If incorrect: Give kind, encouraging guidance, explain the misconception without making them feel bad, and clarify the correct reasoning.
+  2. Seamlessly connect this answer to the next level of the topic!
+- **If explaining a concept:**
+  Always end your response with an **Interactive Check-In** in {language}:
+  Present a quick 2-choice mini-quiz (with A) and B) options) or ask an engaging thought-provoking question to test understanding before moving forward!
+- Output directly in clean, readable Markdown (headings with ###, bold text, bullet points). Do NOT wrap in XML tags.`;
+
+
+async function getAIResponse(systemPrompt, messages, maxTokens = 3500) {
   if (!llm) return null;
-  try {
-    const response = await llm.messages.create({
-      model: MODEL,
-      max_tokens: maxTokens,
-      system: systemPrompt,
-      messages: messages
-    });
-    return response.content.filter(c => c.type === 'text').map(c => c.text).join('');
-  } catch (e) {
-    console.error('Claude API Error:', e.message);
+  const candidateModels = ['gemini-3.7-flash', MODEL];
+
+  // 1. Sanitize messages
+  const rawList = [];
+  if (Array.isArray(messages)) {
+    for (const m of messages) {
+      if (!m) continue;
+      const text = (m.content || m.raw || (m.parts && m.parts[0]?.text) || '').trim();
+      if (!text) continue;
+      const role = (m.role === 'assistant' || m.role === 'model') ? 'model' : 'user';
+      rawList.push({ role, parts: [{ text }] });
+    }
+  }
+
+  if (rawList.length === 0) return null;
+
+  // 2. Gemini history must start with 'user'
+  while (rawList.length > 0 && rawList[0].role === 'model') {
+    rawList.shift();
+  }
+  if (rawList.length === 0) return null;
+
+  // 3. Merge consecutive turns with the same role
+  const merged = [];
+  for (const item of rawList) {
+    if (merged.length > 0 && merged[merged.length - 1].role === item.role) {
+      merged[merged.length - 1].parts[0].text += '\n\n' + item.parts[0].text;
+    } else {
+      merged.push({ role: item.role, parts: [{ text: item.parts[0].text }] });
+    }
+  }
+
+  // 4. Extract last user message
+  const lastItem = merged.pop();
+  if (!lastItem || lastItem.role !== 'user') {
     return null;
   }
+
+  for (const modelName of candidateModels) {
+    try {
+      const geminiModel = llm.getGenerativeModel({
+        model: modelName,
+        systemInstruction: systemPrompt,
+        generationConfig: { maxOutputTokens: maxTokens }
+      });
+
+      for (let attempt = 1; attempt <= 2; attempt++) {
+        try {
+          const chat = geminiModel.startChat({ history: merged });
+          const result = await chat.sendMessage(lastItem.parts[0].text);
+          const reply = result.response.text();
+          if (reply) return reply;
+        } catch (e) {
+          console.error(`Gemini (${modelName}, attempt ${attempt}) Error:`, e.message);
+          if (attempt < 2 && (e.message.includes('503') || e.message.includes('429') || e.message.includes('high demand'))) {
+            await new Promise(r => setTimeout(r, 1200));
+            continue;
+          }
+          break; // Try next candidate model
+        }
+      }
+    } catch (outerErr) {
+      console.warn(`Model ${modelName} setup error:`, outerErr.message);
+    }
+  }
+  return null;
 }
 
 function generateSmartFallbackTutor(message, subject, difficulty, language) {
-  const msgLower = message.toLowerCase();
-  const langLower = language.toLowerCase();
+  const msgLower = (message || '').toLowerCase();
+  const langLower = (language || 'English').toLowerCase();
   const isTelugu = langLower.includes('telugu');
   const isHindi = langLower.includes('hindi');
   const isTamil = langLower.includes('tamil');
   const isKannada = langLower.includes('kannada');
-  const isBengali = langLower.includes('bengali');
+  const isMalayalam = langLower.includes('malayalam');
 
   // Topic Detection: AI / Machine Learning
-  if (msgLower.includes('ai') || msgLower.includes('artificial intelligence') || msgLower.includes('machine learning') || msgLower.includes('gurinchi')) {
-    if (isTelugu) {
-      return `### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) పూర్తి వివరణ
+  if (msgLower.includes('ai') || msgLower.includes('artificial intelligence') || msgLower.includes('machine learning') || msgLower.includes('gurinchi') || msgLower.includes('pathi') || msgLower.includes('செயற்கை')) {
+    if (isTamil) {
+      return `### 🤖 செயற்கை நுண்ணறிவு (Artificial Intelligence - AI) விளக்கம்
 
-**1. ప్రాథమిక భావన (Core Concept):**
-కృత్రిమ మేధస్సు (AI) అనేది మానవ మేధస్సు అవసరమయ్యే ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు మరియు యంత్రాలు స్వయంచాలకంగా నిర్వహించేలా చేసే ఒక అత్యాధునిక సాంకేతికత.
+வணக்கம்! **${difficulty}** நிலையில் செயற்கை நுண்ணறிவு (AI) பற்றி எளிமையாகப் பார்ப்போம்.
 
-**2. AI లోని ముఖ్యమైన విభాగాలు (Key Components):**
-• **Machine Learning (ML):** డేటా నుండి కంప్యూటర్లు స్వయంచాలకంగా నేర్చుకునేలా చేసే ప్రక్రియ.
-• **Deep Learning & Neural Networks:** మానవ మెదడు న్యూరాన్ల నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.
-• **Natural Language Processing (NLP):** మానవులు మాట్లాడే మరియు రాసే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).
-• **Computer Vision:** చిత్రాలు మరియు వీడియోలను విశ్లేషించి వస్తువులను గుర్తించడం.
+**1. அடிப்படை கருத்து (Core Concept):**
+மனிதர்கள் யோசிப்பது, புதிய விஷயங்களைக் கற்றுக்கொள்வது, மற்றும் முடிவெடுப்பது போல கணினிகளும் இயந்திரங்களும் தாங்களாகவே சிந்தித்து செயல்படும் தொழில்நுட்பமே **செயற்கை நுண்ணறிவு (AI)** ஆகும்.
 
-**3. నిత్యజీవితంలో AI ఉదాహరణలు (Real-World Applications):**
-• **స్మార్ట్‌ఫోన్ అసిస్టెంట్లు:** Siri, Google Assistant
-• **సిఫార్సు వ్యవస్థలు:** YouTube, Netflix మరియు Amazon లలో కంటెంట్ సూచనలు
-• **స్వయం డ్రైవింగ్ కార్లు:** Tesla మరియు Waymo ఆటోమేటెడ్ వాహనాలు
+**2. AI-யின் முக்கிய பிரிவுகள் (Key Pillars):**
+• **இயந்திர கற்றல் (Machine Learning - ML):** கணினிக்கு நாம் ஒவ்வொரு வரியாக நிரல் எழுதாமல், தரவுகளிலிருந்து (Data) அதுவே தானாக கற்றுக்கொள்ளும் முறை.
+• **ஆழ் கற்றல் (Deep Learning):** மனித மூளையின் நியூரான்களைப் போல (Neural Networks) சிக்கலான தகவல்களைப் புரிந்து கொள்ளுதல்.
+• **இயற்கை மொழி செயலாக்கம் (NLP):** நாம் பேசும் மற்றும் எழுதும் மொழிகளை கணினி புரிந்துகொள்ளுதல் (எ.கா: ChatGPT).
+
+**3. நிஜ வாழ்க்கை உதாரணங்கள்:**
+• ஸ்மார்ட்போன்களில் உள்ள Google Assistant, Siri
+• YouTube மற்றும் Netflix-ல் உங்களுக்கு பிடித்த காணொளிகளை பரிந்துரைப்பது
 
 ---
-**❓ ఇంటరాక్టివ్ ప్రశ్న (Follow-up Question):**
-AI లోని **Machine Learning** లేదా **ChatGPT** ఎలా పనిచేస్తుందో మరిన్ని వివరాలతో తెలుసుకోవాలనుకుంటున్నారా? లేదా AI పై ఒక చిన్న క్విజ్ ప్లే చేద్దామా?`;
+### ❓ ஊடாடும் கேள்வி (Interactive Question):
+நீங்கள் சரியாகப் புரிந்துகொண்டீர்களா என்று பார்க்க ஒரு எளிய கேள்வி:
+**YouTube உங்களுக்குப் பிடித்த வீடியோக்களை சரியாகப் பரிந்துரைப்பதற்குப் பின்னால் செயல்படும் AI பிரிவு எது?**
+* **அ) இயந்திர கற்றல் (Machine Learning)**
+* **ஆ) ஒளிப்படக்கருவி (Camera Hardware)**
+
+உங்கள் பதிலை கீழே டைப் செய்யுங்கள்!`;
+    } else if (isTelugu) {
+      return `### 🤖 కృత్రిమ మేధస్సు (Artificial Intelligence - AI) సమగ్ర వివరణ
+
+నమస్కారం! **${difficulty}** స్థాయిలో కృత్రిమ మేధస్సు (AI) గురించి సులభంగా నేర్చుకుందాం.
+
+**1. ప్రాథమిక భావన (Core Concept):**
+కృత్రిమ మేధస్సు (AI) అనేది మానవ మేధస్సు అవసరమయ్యే ఆలోచన, అభ్యాసం, సమస్య పరిష్కారం మరియు నిర్ణయాలు తీసుకోవడం వంటి పనులను కంప్యూటర్లు స్వయంచాలకంగా నిర్వహించేలా చేసే ఒక అత్యాధునిక సాంకేతికత.
+
+**2. AI లోని ముఖ్యమైన విభాగాలు (Key Pillars):**
+• **Machine Learning (ML):** డేటా నుండి కంప్యూటర్లు స్వయంచాలకంగా నేర్చుకునేలా చేసే ప్రక్రియ.
+• **Deep Learning:** మానవ మెదడు న్యూరాన్ల నిర్మాణాన్ని అనుకరించి సంక్లిష్ట సమాచారాన్ని విశ్లేషించడం.
+• **Natural Language Processing (NLP):** మానవులు మాట్లాడే భాషను కంప్యూటర్లు అర్థం చేసుకోవడం (ఉదా: ChatGPT).
+
+**3. నిత్యజీవితంలో AI ఉదాహరణలు:**
+• స్మార్ట్‌ఫోన్ అసిస్టెంట్లు: Siri, Google Assistant
+• YouTube, Netflix లలో వీడియోల సిఫార్సు వ్యవస్థలు
+
+---
+### ❓ ఇంటరాక్టివ్ ప్రశ్న (Interactive Question):
+**YouTube మీకు నచ్చిన వీడియోలను సిఫార్సు చేయడానికి ఏ AI విభాగాన్ని ఉపయోగిస్తుంది?**
+* **A) Machine Learning (ML)**
+* **B) Hardware Storage**
+
+మీ సమాధానాన్ని చాట్‌లో తెలియజేయండి!`;
     } else if (isHindi) {
       return `### 🤖 कृत्रिम बुद्धिमत्ता (Artificial Intelligence - AI) की संपूर्ण व्याख्या
 
+नमस्ते! **${difficulty}** स्तर पर आर्टिफिशियल इंटेलिजेंस (AI) को सरलता से समझते हैं।
+
 **1. मूल अवधारणा (Core Concept):**
-कृत्रिम बुद्धिमत्ता (AI) कंप्यूटर विज्ञान की वह शाखा है जो कंप्यूटर और मशीनों को इंसान की तरह सोचने, सीखने, समस्या समाधान और निर्णय लेने की क्षमता प्रदान करती है।
+कृत्रिम बुद्धिमत्ता (AI) कंप्यूटर विज्ञान की वह तकनीक है जो मशीनों को इंसानों की तरह सोचने, सीखने और निर्णय लेने में सक्षम बनाती है।
 
-**2. AI के मुख्य घटक (Key Components):**
+**2. AI के मुख्य भाग (Key Components):**
 • **Machine Learning (ML):** डेटा से पैटर्न सीखकर खुद को बेहतर बनाना।
-• **Neural Networks:** मानव मस्तिष्क के न्यूरॉन्स की तरह कार्य करने वाला नेटवर्क।
-• **Natural Language Processing (NLP):** इंसानी भाषा को समझना (उदा: ChatGPT, Alexa)।
+• **Deep Learning:** इंसानी मस्तिष्क के न्यूरॉन्स की तरह जटिल निर्णय लेना।
+• **NLP:** इंसानी भाषा को समझना (जैसे: ChatGPT, Google Assistant)।
 
-**3. व्यावहारिक उदाहरण (Real-World Applications):**
-• स्मार्ट असिस्टेंट (Google Assistant, Siri)
-• यूट्यूब और नेटफ्लिक्स पर कंटेंट रिकमेंडेशन
-• ऑटोमेटेड सेल्फ-ड्राइविंग कारें
+**3. दैनिक जीवन में उदाहरण:**
+• YouTube और Netflix पर वीडियो सुझाव
+• Google Assistant और Apple Siri
 
 ---
-**❓ अगला कदम (Interactive Question):**
-क्या आप AI के **Machine Learning** वाले हिस्से को विस्तार से समझना चाहते हैं या AI पर एक क्विज़ हल करना चाहेंगे?`;
+### ❓ संवादात्मक प्रश्न (Interactive Question):
+**YouTube आपके पसंदीदा वीडियो का सुझाव देने के लिए AI के किस घटक का उपयोग करता है?**
+* **क) Machine Learning**
+* **ख) Storage Card**
+
+अपना उत्तर लिखकर बताएं!`;
+    } else if (isKannada) {
+      return `### 🤖 ಕೃತಕ ಬುದ್ಧಿಮತ್ತೆ (Artificial Intelligence - AI) ವಿವರಣೆ
+
+ನಮಸ್ಕಾರ! **${difficulty}** ಮಟ್ಟದಲ್ಲಿ AI ಬಗ್ಗೆ ಸರಳವಾಗಿ ಕಲಿಯೋಣ.
+
+**1. ಮೂಲ ಕಲ್ಪನೆ (Core Concept):**
+ಮಾನವರಂತೆ ಯೋಚಿಸಲು, ಕಲಿಯಲು ಮತ್ತು ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಲು ಕಂಪ್ಯೂಟರ್‌ಗಳಿಗೆ ಕಲಿಸುವ ತಂತ್ರಜ್ಞಾನವೇ **ಕೃತಕ ಬುದ್ಧಿಮತ್ತೆ (AI)**.
+
+**2. ಪ್ರಮುಖ ವಿಭಾಗಗಳು:**
+• **Machine Learning (ML):** ಕಂಪ್ಯೂಟರ್ ಸ್ವತಃ ಡೇಟಾದಿಂದ ಕಲಿಯುವ ವಿಧಾನ.
+• **NLP:** ಮಾನವ ಭಾಷೆಯನ್ನು ಕಂಪ್ಯೂಟರ್ ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು (ಉದಾ: ChatGPT).
+
+---
+### ❓ ಪ್ರಶ್ನೆ (Interactive Question):
+**Machine Learning ಹೇಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ ಎಂಬುದನ್ನು ಇನ್ನಷ್ಟು ಆಳವಾಗಿ ತಿಳಿಯಲು ಬಯಸುವಿರಾ?**`;
+    } else if (isMalayalam) {
+      return `### 🤖 നിർമ്മിത ബുദ്ധി (Artificial Intelligence - AI) വിവരണം
+
+നമസ്കാരം! **${difficulty}** തലത്തിൽ AI-യെ കുറിച്ച് ലളിതമായി മനസ്സിലാക്കാം.
+
+**1. അടിസ്ഥാന തത്വം (Core Concept):**
+മനുഷ്യനെപ്പോലെ ചിന്തിക്കാനും തീരുമാനങ്ങളെടുക്കാനും കമ്പ്യൂട്ടറുകളെ പ്രാപ്തമാക്കുന്ന സാങ്കേതികവിദ്യയാണ് **നിർമ്മിത ബുദ്ധി (AI)**.
+
+**2. പ്രധാന ഘടകങ്ങൾ:**
+• **Machine Learning (ML):** ഡാറ്റയിൽ നിന്ന് സ്വയം പഠിക്കുന്ന രീതി.
+• **NLP:** മനുഷ്യരുടെ ഭാഷ മനസ്സിലാക്കാനുള്ള കഴിവ്.
+
+---
+### ❓ ചോദ്യം (Interactive Question):
+**AI-യുടെ പ്രായോഗിക ഉദാഹരണങ്ങൾ കൂടുതൽ അറിയാൻ ആഗ്രഹിക്കുന്നുണ്ടോ?**`;
     } else {
       return `### 🤖 Comprehensive Guide to Artificial Intelligence (AI)
 
-**1. Core Concept & Definition:**
-Artificial Intelligence (AI) refers to the capability of computer systems to perform complex cognitive tasks that traditionally require human intelligence — such as learning, logical reasoning, problem-solving, and decision-making.
+Welcome! Let's explore Artificial Intelligence at the **${difficulty}** level.
 
-**2. Key Pillars of Modern AI:**
-• **Machine Learning (ML):** Algorithms that analyze large datasets to recognize patterns and improve performance automatically without explicit programming.
-• **Neural Networks & Deep Learning:** Multi-layered computational models inspired by the human brain that excel at complex pattern recognition (e.g. image & speech recognition).
-• **Natural Language Processing (NLP):** Technology enabling computers to understand, translate, and generate human natural language (e.g., ChatGPT, Claude).
-• **Computer Vision:** Automated analysis of visual media for object detection and navigation.
+**1. Core Concept:**
+Artificial Intelligence (AI) is the science and engineering of making intelligent machines and software capable of performing cognitive tasks that typically require human intelligence — such as learning, reasoning, and problem-solving.
 
-**3. Real-World Everyday Applications:**
-• **Virtual Assistants:** Apple Siri, Google Assistant, Amazon Alexa
-• **Recommendation Engines:** Netflix movie recommendations, Spotify playlists, Amazon product suggestions
-• **Autonomous Systems:** Self-driving cars, automated fraud detection in banking
+**2. Key Pillars of AI:**
+• **Machine Learning (ML):** Systems that learn patterns from training data to make predictions.
+• **Deep Learning:** Artificial neural networks inspired by the human brain for complex perceptual tasks.
+• **Natural Language Processing (NLP):** Understanding and generating human language (e.g., ChatGPT).
+
+**3. Real-World Applications:**
+• Recommendation algorithms on YouTube and Netflix
+• Voice assistants: Apple Siri & Google Assistant
+• Autonomous driving and automated medical diagnostics
 
 ---
-**❓ Interactive Follow-Up Question:**
-Would you like to explore **Machine Learning algorithms**, see how **ChatGPT operates**, or take a **quick interactive quiz** to test your AI knowledge?`;
+### ❓ Interactive Check-In:
+**Which AI component allows YouTube or Spotify to recommend content personalized to your taste?**
+* **A) Machine Learning (ML)**
+* **B) Basic File Storage**
+
+Type your answer below!`;
     }
   }
 
   // Topic Detection: Photosynthesis / Plant Biology
-  if (msgLower.includes('photosynthesis') || msgLower.includes('plant') || msgLower.includes('biology')) {
-    if (isTelugu) {
-      return `### 🌿 కిరణజన్య సంయోగ క్రియ (Photosynthesis) వివరణ
+  if (msgLower.includes('photosynthesis') || msgLower.includes('plant') || msgLower.includes('biology') || msgLower.includes('ஒளிச்சேர்க்கை') || msgLower.includes('కిరణజన్య')) {
+    if (isTamil) {
+      return `### 🌿 ஒளிச்சேர்க்கை (Photosynthesis) எளிய விளக்கம்
 
-**1. ప్రాథమిక భావన:**
-మొక్కలు సూర్యకాంతి శక్తిని ఉపయోగించుకుని, వాతావరణంలోని కార్బన్ డై ఆక్సైడ్ (CO₂) మరియు వేర్ల నుండి నీటిని (H₂O) గ్రహించి గ్లూకోజ్ (ఆహారం) మరియు ఆక్సిజన్ (O₂) ని తయారు చేసే జీవ రసాయన ప్రక్రియను కిరణజన్య సంయోగ క్రియ అంటారు.
+வணக்கம்! தாவரங்கள் தங்களுக்குத் தேவையான உணவைத் தாங்களே தயாரிக்கும் **ஒளிச்சேர்க்கை (Photosynthesis)** முறையை **${difficulty}** நிலையில் எளிமையாகப் பார்ப்போம்.
 
-**2. రసాయన సమీకరణం (Chemical Equation):**
-\`6CO₂ + 6H₂O + సూర్యకాంతి ➔ C₆H₁₂O₆ (గ్లూకోజ్) + 6O₂ (ఆక్సిజన్)\`
+**1. ஒளிச்சேர்க்கை என்றால் என்ன?**
+பச்சைத் தாவரங்கள் சூரிய ஒளியைப் பயன்படுத்தி, நீரையும் கார்பன் டை ஆக்சைடையும் கொண்டு தங்களுக்குத் தேவையான உணவை (குளுக்கோஸ்) தயாரிக்கும் நிகழ்வே **ஒளிச்சேர்க்கை** ஆகும்.
 
-**3. ప్రధాన ఘట్టాలు:**
-• **పత్రహరితం (Chlorophyll):** ఆకులలో ఉండే పచ్చని రంగు రసాయనం సూర్యకాంతిని గ్రహిస్తుంది.
-• **కాంతి చర్య (Light Reaction):** నీటి అణువులు విడిపోయి ఆక్సిజన్ విడుదలవుతుంది.
-• **నిష్కాంతి చర్య (Dark Reaction):** కార్బన్ డై ఆక్సైడ్ గ్లూకోజ్ గా మారుతుంది.
+**2. தேவைப்படும் பொருட்கள் (4 முக்கிய பொருட்கள்):**
+• **சூரிய ஒளி (Sunlight):** ஆற்றல் தரும் மூலம்
+• **பச்சையம் (Chlorophyll):** இலைகளில் இருக்கும் பச்சை நிறப் பொருள்
+• **நீர் (Water):** வேர்கள் மூலம் உறிஞ்சப்படுகிறது
+• **கார்பன் டை ஆக்சைடு (CO₂):** காற்றில் இருந்து உறிஞ்சப்படுகிறது
+
+**3. வேதியியல் சமன்பாடு:**
+\`6CO₂ + 6H₂O + சூரிய ஒளி ➔ C₆H₁₂O₆ (குளுக்கோஸ்) + 6O₂ (ஆக்ஸிஜன்)\`
 
 ---
-**❓ ఇంటరాక్టివ్ ప్రశ్న:**
-కాంతి చర్య మరియు నిష్కాంతి చర్యల మధ్య తేడాల గురించి మరిన్ని వివరాలు తెలుసుకోవాలనుకుంటున్నారా?`;
+### ❓ ஊடாடும் கேள்வி:
+**ஒளிச்சேர்க்கையின் முடிவில் தாவரங்கள் மனிதர்கள் சுவாசிப்பதற்காக எந்த வாயுவை வெளியிடுகின்றன?**
+* **அ) ஆக்ஸிஜன் (Oxygen)**
+* **ஆ) கார்பன் டை ஆக்சைடு (Carbon Dioxide)**
+
+உங்கள் பதில் என்ன?`;
+    } else if (isTelugu) {
+      return `### 🌿 కిరణజన్య సంయోగ క్రియ (Photosynthesis) సమగ్ర వివరణ
+
+నమస్కారం! **${difficulty}** స్థాయిలో కిరణజన్య సంయోగ క్రియ గురించి తెలుసుకుందాం.
+
+**1. ప్రాథమిక భావన:**
+మొక్కలు సూర్యకాంతి సమక్షంలో నీరు (H₂O) మరియు కార్బన్ డై ఆక్సైడ్ (CO₂) లను ఉపయోగించి గ్లూకోజ్ మరియు ఆక్సిజన్ (O₂) లను తయారు చేసే ప్రక్రియను కిరణజన్య సంయోగ క్రియ అంటారు.
+
+**2. రసాయన సమీకరణం:**
+\`6CO₂ + 6H₂O + సూర్యకాంతి ➔ C₆H₁₂O₆ (గ్లూకోజ్) + 6O₂ (ఆక్సిజన్)\`
+
+**3. ముఖ్య భాగాలు:**
+• **పత్రహరితం (Chlorophyll):** ఆకులలో ఉండే ఆకుపచ్చని వర్ణద్రవ్యం.
+
+---
+### ❓ ఇంటరాక్టివ్ ప్రశ్న:
+**కిరణజన్య సంయోగ క్రియ ద్వారా మొక్కలు ఏ వాయువును విడుదల చేస్తాయి?**
+* **A) ఆక్సిజన్ (Oxygen)**
+* **B) నైట్రోజన్ (Nitrogen)**`;
+    } else if (isHindi) {
+      return `### 🌿 प्रकाश संश्लेषण (Photosynthesis) की व्याख्या
+
+नमस्ते! **${difficulty}** स्तर पर प्रकाश संश्लेषण को समझते हैं।
+
+**1. मूल परिभाषा:**
+हरे पौधे सूर्य के प्रकाश, पानी और कार्बन डाइऑक्साइड का उपयोग करके अपना भोजन (ग्लूकोज) बनाते हैं और ऑक्सीजन छोड़ते हैं।
+
+**2. रासायनिक समीकरण:**
+\`6CO₂ + 6H₂O + सूर्य का प्रकाश ➔ C₆H₁₂O₆ + 6O₂\`
+
+---
+### ❓ संवादात्मक प्रश्न:
+**पौधे प्रकाश संश्लेषण के बाद कौन-सी गैस छोड़ते हैं?**
+* **क) ऑक्सीजन (Oxygen)**
+* **ख) कार्बन डाइऑक्साइड (CO₂)**`;
     } else {
       return `### 🌿 Comprehensive Guide to Photosynthesis
 
-**1. Core Definition:**
-Photosynthesis is the fundamental biochemical process by which green plants, algae, and certain bacteria transform solar light energy into chemical energy stored in glucose.
+Welcome! Here is a structured explanation of Photosynthesis at the **${difficulty}** level.
 
-**2. The Chemical Equation:**
+**1. Definition:**
+Photosynthesis is the biochemical process by which green plants and algae convert light energy into chemical energy stored in glucose.
+
+**2. Chemical Equation:**
 \`6CO₂ (Carbon Dioxide) + 6H₂O (Water) + Sunlight ➔ C₆H₁₂O₆ (Glucose) + 6O₂ (Oxygen)\`
 
-**3. Key Stages:**
-• **Chlorophyll Absorption:** Green pigments in chloroplasts capture sunlight photons.
-• **Light-Dependent Reactions:** Water molecules are split to release oxygen and generate ATP/NADPH energy carriers.
-• **Light-Independent (Calvin Cycle):** Carbon dioxide is fixed into glucose sugar.
-
 ---
-**❓ Interactive Follow-Up:**
-Would you like to review the **Calvin Cycle steps** or generate a **biology practice quiz**?`;
+### ❓ Quick Quiz:
+**What gas do plants release into the atmosphere as a byproduct of photosynthesis?**
+* **A) Oxygen (O₂)**
+* **B) Carbon Dioxide (CO₂)**
+
+Let me know your answer!`;
     }
   }
 
-  // General Interactive ChatGPT-Style Fallback for any other topic query!
+  // General Interactive Topic Fallback
   const topicName = message.length < 60 ? message : subject;
-  
-  if (isTelugu) {
-    return `### 📘 **${topicName}** గురించి సమగ్ర వివరణ
+  if (isTamil) {
+    return `### 📘 **${topicName}** பற்றிய விரிவான விளக்கம்
 
-**1. ప్రాథమిక భావన (Overview):**
-"${message}" అనే అంశం **${subject}** రంగానికి చెందినది. ఈ అంశం యొక్క ప్రాథమిక సూత్రాలు మరియు విశేషాలను కింద వివరంగా తెలుసుకుందాం.
+வணக்கம்! நீங்கள் கேட்ட **"${message}"** என்ற தலைப்பை **${subject}** பாடப்பிரிவில் **${difficulty}** நிலையில் விரிவாகப் பார்ப்போம்.
 
-**2. ముఖ్యమైన ముఖ్యాంశాలు (Key Highlights):**
-• **ప్రధాన సూత్రం (Core Principle):** లోతైన తార్కిక ఆలోచన మరియు అంచనాల ఆధారంగా అధ్యయనం చేయడం.
-• **ప్రయోగాత్మక అప్లికేషన్:** ఈ అంశాన్ని నిత్యజీవితంలో మరియు సాంకేతిక రంగాలలో విస్తృతంగా ఉపయోగిస్తారు.
-• **విశ్లేషణాత్మక నైపుణ్యం:** సమస్యలను దశలవారీగా అర్థం చేసుకుని పరిష్కారాన్ని కనుగొనడం.
+**1. முதன்மை விளக்கம் (Core Idea):**
+இந்தத் தலைப்பின் அடிப்படைத் தத்துவங்களை நாம் எளிமையான படிகளில் புரிந்துகொள்ளலாம். இது அறிவியலிலும் நடைமுறை வாழ்விலும் மிகவும் முக்கியமான ஒன்றாகும்.
 
-**3. ప్రాముఖ్యత (Importance & Real-world Impact):**
-ఈ విధానం విద్యార్థులకు, పరిశోధకులకు మరియు నిపుణులకు భావనాత్మక స్పష్టతను అందిస్తుంది.
+**2. முக்கிய கூறுகள் (Key Highlights):**
+• **அடிப்படை விதி:** தர்க்கரீதியான மற்றும் தெளிவான அணுகுமுறை.
+• **நடைமுறைப் பயன்பாடுகள்:** அன்றாட வாழ்க்கையிலும் கல்வித் துறையிலும் இதன் பங்கு.
+• **சிந்தனைத் திறன்:** சிக்கலான கேள்விகளுக்கு படிப்படியாக தீர்வு காணுதல்.
 
 ---
-**❓ ఇంటరాక్టివ్ ప్రశ్న:**
-ఈ అంశానికి సంబంధించి ఏ నిర్దిష్టమైన భాగాన్ని మరింత లోతుగా తెలుసుకోవాలనుకుంటున్నారు? ఉదాహరణలు లేదా క్విజ్ కోరుకుంటున్నారా?`;
+### ❓ ஊடாடும் அடுத்த கட்டம் (Interactive Next Steps):
+இந்தத் தலைப்பில் நீங்கள் என்ன செய்ய விரும்புகிறீர்கள்?
+1. **நடைமுறை உதாரணங்களை** (Real-world examples) பார்க்கலாமா?
+2. ஒரு **4-கேள்விகள் கொண்ட பயிற்சி வினாடி வினா** (Quiz) விளையாடலாமா?
+
+உங்கள் விருப்பத்தைத் தெரிவியுங்கள்!`;
+  } else if (isTelugu) {
+    return `### 📘 **${topicName}** గురించి సమగ్ర వివరణ
+
+నమస్కారం! **${subject}** పరిధిలో **${difficulty}** స్థాయిలో "${message}" అంశాన్ని వివరంగా చూద్దాం.
+
+**1. ప్రాథమిక భావన (Overview):**
+ఈ అంశం యొక్క మూల సూత్రాలను మరియు నిత్యజీవితంలో దీని ప్రాముఖ్యతను దశలవారీగా అర్థం చేసుకుందాం.
+
+**2. ముఖ్యమైన ముఖ్యాంశాలు:**
+• **ప్రధాన సూత్రం:** స్పష్టమైన తార్కిక అవగాహన.
+• **ప్రయోగాత్మక వినియోగం:** శాస్త్ర సాంకేతిక రంగాలలో దీని పాత్ర.
+
+---
+### ❓ ఇంటరాక్టివ్ ప్రశ్న:
+ఈ అంశంపై **నిజ జీవిత ఉదాహరణలు** కావాలా లేదా ఒక **చిన్న క్విజ్** ఆడుదామా? మీ స్పందన తెలియజేయండి!`;
   } else if (isHindi) {
     return `### 📘 **${topicName}** की विस्तृत व्याख्या
 
+नमस्ते! **${subject}** के अंतर्गत **${difficulty}** स्तर पर "${message}" को समझते हैं।
+
 **1. मूल परिचय (Overview):**
-"${message}" विषय **${subject}** का एक महत्वपूर्ण हिस्सा है। आइए इसके मुख्य बिंदुओं को सरलता से समझें।
+आइए इस विषय के मूलभूत सिद्धांतों को स्पष्ट और सरल चरणों में समझें।
 
-**2. प्रमुख बिंदु (Key Highlights):**
-• **मुख्य सिद्धांत:** चरणबद्ध तार्किक विश्लेषण और अध्ययन।
-• **व्यावहारिक अनुप्रयोग:** दैनिक जीवन और तकनीकी क्षेत्रों में इसका उपयोग।
-• **समस्या समाधान:** जटिल अवधारणाओं को आसान चरणों में विभाजित करना।
+**2. मुख्य बिंदु:**
+• चरणबद्ध तार्किक विश्लेषण
+• दैनिक जीवन और व्यावहारिक उपयोग
 
 ---
-**❓ अगला कदम:**
-क्या आप इस विषय पर व्यावहारिक उदाहरण देखना चाहते हैं या एक अभ्यास क्विज़ हल करना चाहेंगे?`;
+### ❓ अगला संवादात्मक कदम:
+क्या आप इसके **व्यावहारिक उदाहरण** देखना चाहते हैं या इस पर एक **क्विज़** हल करना चाहेंगे?`;
   } else {
-    return `### 📘 In-Depth Breakdown: **${topicName}**
+    return `### 📘 Structured Overview: **${topicName}**
 
-**1. Executive Overview:**
-Let's explore "${message}" within the domain of **${subject}** (${difficulty} Level). Here is a clear, structured breakdown of the core principles.
+Welcome! Let's explore "${message}" in **${subject}** at the **${difficulty}** level.
 
-**2. Key Learning Pillars:**
-• **Foundational Principle:** Systematic logical decomposition of the core mechanism.
-• **Practical Implementation:** Real-world usage in industry and academic research.
-• **Analytical Insight:** Evaluating baseline assumptions through step-by-step reasoning.
+**1. Core Principles:**
+A systematic breakdown designed to build deep conceptual clarity through intuitive reasoning and step-by-step logic.
 
-**3. Why This Topic Matters:**
-Mastering this concept enhances problem-solving clarity and provides a solid foundation for advanced studies.
+**2. Key Insights:**
+• **Core Mechanism:** Foundational framework and mechanics.
+• **Practical Applications:** Real-world usage in industry and academic contexts.
 
 ---
-**❓ Interactive Next Steps:**
-Would you like me to:
-1. Provide a **real-world practical example**?
-2. Generate a **4-question quiz on this topic**?
-3. Explain a **specific sub-component** in more detail?`;
+### ❓ Interactive Next Step:
+Would you like to:
+1. Explore a **real-world practical case study**?
+2. Take a **quick 3-question quiz** on this topic?`;
   }
 }
+
 
 // Tutor Chat Endpoint (Supports both /tutor/chat and /api/chat)
 const handleChat = async (req, res) => {
@@ -402,11 +646,12 @@ const handleChat = async (req, res) => {
     .replace('{language}', language);
 
   let answer = '';
-  const rawClaude = await getClaudeResponse(systemPrompt, formattedHistory, 2000);
+  const rawAI = await getAIResponse(systemPrompt, formattedHistory, 4000);
 
-  if (rawClaude) {
-    const match = rawClaude.match(/<answer>(.*?)(<\/answer>|$)/s);
-    answer = match ? match[1].trim() : rawClaude.replace(/<reasoning>.*?<\/reasoning>/s, '').trim();
+  if (rawAI) {
+    const match = rawAI.match(/<answer>([\s\S]*?)(<\/answer>|$)/i);
+    answer = match ? match[1].trim() : rawAI.replace(/<reasoning>[\s\S]*?<\/reasoning>/gi, '').trim();
+    answer = answer.replace(/<\/?answer>/gi, '').trim();
   } else {
     answer = generateSmartFallbackTutor(message, subject, difficulty, language);
   }
@@ -636,18 +881,77 @@ const handleEssayEvaluate = async (req, res) => {
     return res.status(400).json({ detail: 'Essay must be at least 30 words' });
   }
 
+  // ── Gibberish / meaningless text detection ──────────────────────────────
+  function isGibberish(text) {
+    const words = text.trim().toLowerCase().split(/\s+/);
+    const totalWords = words.length;
+
+    // 1. Vowel ratio — real text has ~35–55% vowels
+    const allChars = text.replace(/\s+/g, '');
+    const vowels = (allChars.match(/[aeiouáéíóúàèìòùäëïöü]/gi) || []).length;
+    const vowelRatio = vowels / allChars.length;
+    if (vowelRatio < 0.12) return true; // almost no vowels = gibberish
+
+    // 2. Average word length — real English/Indian words: 3–12 chars
+    const avgLen = words.reduce((s, w) => s + w.length, 0) / totalWords;
+    if (avgLen < 2.2 || avgLen > 14) return true;
+
+    // 3. Too many single/double-char words (random key mashing)
+    const tinyWords = words.filter(w => w.length <= 2).length;
+    if (tinyWords / totalWords > 0.55) return true;
+
+    // 4. High repetition — same word appears >25% of total
+    const freq = {};
+    words.forEach(w => { freq[w] = (freq[w] || 0) + 1; });
+    const maxFreq = Math.max(...Object.values(freq));
+    if (maxFreq / totalWords > 0.25) return true;
+
+    // 5. Consonant cluster ratio — gibberish has long runs of consonants
+    const consonantClusters = (text.match(/[^aeiou\s]{5,}/gi) || []).length;
+    if (consonantClusters / totalWords > 0.6) return true;
+
+    // 6. Recognised-word check — at least 30% must be common words
+    const commonWords = new Set([
+      'the','a','an','is','are','was','were','be','been','being','have','has','had',
+      'do','does','did','will','would','could','should','may','might','shall','can',
+      'and','but','or','nor','for','yet','so','if','because','although','when','while',
+      'i','you','he','she','it','we','they','me','him','her','us','them','my','your',
+      'his','its','our','their','this','that','these','those','what','which','who',
+      'not','no','yes','at','in','on','to','of','by','with','from','about','into',
+      'education','school','learning','student','study','knowledge','language','essay',
+      'india','people','world','life','important','technology','science','social',
+      'government','country','work','food','water','health','nature','human','society',
+      'మనం','నేను','అది','ఇది','మీరు','హమ్','అగర్','यह','वह','हम','तुम','आप','मैं',
+      'itu','ini','saya','kami','adalah','yang','di','ke','dari','dengan','untuk'
+    ]);
+    const knownCount = words.filter(w => commonWords.has(w)).length;
+    // Only apply this check if text is mostly Latin script
+    const latinChars = (text.match(/[a-zA-Z]/g) || []).length;
+    if (latinChars / allChars.length > 0.7 && knownCount / totalWords < 0.08) return true;
+
+    return false;
+  }
+
+  if (isGibberish(content)) {
+    return res.status(422).json({
+      detail: 'The submitted text appears to be random or meaningless. Please write a real essay or paragraph (at least 30 meaningful words) to get accurate feedback.'
+    });
+  }
+  // ────────────────────────────────────────────────────────────────────────
+
+
   const systemPrompt = ESSAY_SYSTEM.replace('{fb_lang}', feedbackLanguage);
-  const rawClaude = await getClaudeResponse(systemPrompt, [{ role: 'user', content: content.substring(0, 12000) }], 3000);
+  const rawAI = await getAIResponse(systemPrompt, [{ role: 'user', content: content.substring(0, 12000) }], 3000);
 
   let feedback;
-  if (rawClaude) {
+  if (rawAI) {
     try {
-      const jsonMatch = rawClaude.split('</reasoning>').pop().match(/\{.*\}/s);
+      const jsonMatch = rawAI.split('</reasoning>').pop().match(/\{.*\}/s);
       if (jsonMatch) {
         feedback = JSON.parse(jsonMatch[0]);
       }
     } catch (e) {
-      console.error('Failed to parse Claude JSON:', e);
+      console.error('Failed to parse Gemini JSON:', e);
     }
   }
 
@@ -737,201 +1041,326 @@ app.get('/dashboard', authMiddleware, (req, res) => {
 });
 
 // Quiz Generator Endpoints
-const QUIZ_SYSTEM = `You are an expert academic examiner. Create a 4-question multiple choice quiz for topic "{subject}" at difficulty level "{difficulty}".
-Output ONLY a JSON object after reasoning step inside <quiz></quiz> with structure:
+function getQuizPrompt(subject, difficulty, language, count = 20, seed = '') {
+  let diffSpec = '';
+  const diffLower = (difficulty || 'Intermediate').toLowerCase();
+  if (diffLower.includes('beginner')) {
+    diffSpec = `
+- LEVEL: BEGINNER (Foundational & Conceptual)
+- Focus on elementary concepts, core definitions, basic terminology, identification, and straightforward scenarios.
+- Make questions accessible, clear, and encouraging for a beginner.`;
+  } else if (diffLower.includes('advanced')) {
+    diffSpec = `
+- LEVEL: ADVANCED (In-depth Mastery & Technical Rigor)
+- Focus on deep architectural mechanisms, mathematical/algorithmic foundations, edge cases, system trade-offs, debugging scenarios, and performance optimization.
+- Distractors must be plausible, challenging, and test true mastery.`;
+  } else {
+    diffSpec = `
+- LEVEL: INTERMEDIATE (Application & Analysis)
+- Focus on practical implementations, comparing techniques, cause-and-effect relationships, and multi-step problem solving.
+- Questions should challenge the learner to apply principles rather than just recite definitions.`;
+  }
+
+  return `You are an elite academic professor and multilingual quiz author.
+Create a comprehensive test of exactly ${count} multiple-choice questions on "${subject}" at the "${difficulty}" level.
+
+LANGUAGE MANDATE:
+- The question texts, all 4 options, and explanations MUST be written in ${language}.
+- When technical terms or proper nouns appear, you may include the Latin/English term in parentheses for clarity (e.g., in Telugu: 'మెషిన్ లెర్నింగ్ (Machine Learning)').
+
+${diffSpec}
+
+RANDOMIZATION & FRESHNESS (Seed: ${seed}):
+- Generate a completely fresh and unique set of ${count} questions covering diverse facets of "${subject}".
+- Vary question formats (e.g. "What is...", "Which scenario best illustrates...", "What will happen if...", "Identify the primary benefit of...", "Which technique addresses...").
+- Exactly 4 options per question (indices 0 to 3), with randomize the correct answer position across questions.
+- Provide a clear, educational explanation in ${language} for why the correct answer is right.
+
+Output valid JSON matching this exact schema:
 {
-  "title": "Quiz on {subject}",
+  "title": "${subject} Quiz (${difficulty})",
+  "subject": "${subject}",
+  "difficulty": "${difficulty}",
+  "language": "${language}",
   "questions": [
     {
       "id": 1,
-      "question": "Question text in {language} (technical terms in brackets)",
+      "question": "Question in ${language}...",
       "options": ["Option A", "Option B", "Option C", "Option D"],
       "answerIndex": 0,
-      "explanation": "Explanation in {language}"
+      "explanation": "Explanation in ${language}..."
     }
   ]
 }`;
+}
 
-
-function generateFallbackQuiz(topic, subject, difficulty, language) {
-  const isTelugu = language.toLowerCase().includes('telugu');
-  const isHindi = language.toLowerCase().includes('hindi');
+function generateFallbackQuiz(topic, subject, difficulty, language, count = 20, seed = '') {
+  const isTelugu = (language || '').toLowerCase().includes('telugu');
+  const isHindi = (language || '').toLowerCase().includes('hindi');
+  const isTamil = (language || '').toLowerCase().includes('tamil');
   const activeTopic = topic || subject || 'General Knowledge';
+  const diff = difficulty || 'Intermediate';
 
-  const topicLower = activeTopic.toLowerCase();
+  // Seed offset for refreshing variations
+  const seedNum = parseInt(seed) || Date.now();
+  const offset = seedNum % 4;
 
-  if (topicLower.includes('artificial intelligence') || topicLower.includes('ai')) {
-    return {
-      id: 'qz_' + Date.now(),
-      title: `${activeTopic} Quiz (${difficulty})`,
-      subject: activeTopic,
-      language,
-      questions: [
-        {
-          id: 1,
-          question: isTelugu
-            ? `కృత్రిమ మేధస్సు (Artificial Intelligence) లో 'Machine Learning' అంటే ఏమిటి?`
-            : isHindi
-            ? `कृत्रिम बुद्धिमत्ता (AI) में 'Machine Learning' का क्या अर्थ है?`
-            : `What is the primary definition of Machine Learning in Artificial Intelligence?`,
-          options: [
-            isTelugu ? 'డేటా ఆధారంగా అల్గారిథమ్‌లు స్వయంచాలకంగా నేర్చుకునే విధానం' : isHindi ? 'डेटा से एल्गोरिदम का स्वतः सीखना' : 'Algorithms learning automatically from data',
-            isTelugu ? 'మాన్యువల్ కోడింగ్ మాత్రమే చేయడం' : isHindi ? 'केवल मैनुअल कोडिंग' : 'Manual rule writing',
-            isTelugu ? 'హార్డ్‌వేర్ తయారీ ప్రక్రియ' : isHindi ? 'हार्डवेयर निर्माण' : 'Hardware manufacturing',
-            isTelugu ? 'నెట్‌వర్క్ స్పీడ్ పెంచడం' : isHindi ? 'नेटवर्क स्पीड बढ़ाना' : 'Increasing bandwidth'
-          ],
-          answerIndex: 0,
-          explanation: isTelugu ? 'Machine Learning డేటాలోని నమూనాలను ఉపయోగించి అంచనాలను రూపొందిస్తుంది.' : 'Machine Learning uses pattern recognition on data.'
-        },
-        {
-          id: 2,
-          question: isTelugu
-            ? `AI లో 'Neural Networks' దేని ఆధారంగా రూపొందించబడ్డాయి?`
-            : isHindi
-            ? `AI में 'Neural Networks' किसके आधार पर बनाए गए हैं?`
-            : `What are Neural Networks in AI modeled after?`,
-          options: [
-            isTelugu ? 'మానవ మేధస్సు మరియు నాడీ వ్యవస్థ (Human Brain Neurons)' : isHindi ? 'मानव मस्तिष्क न्यूरॉन्स' : 'Human brain biological neurons',
-            isTelugu ? 'కంప్యూటర్ మదర్‌బోర్డు సర్క్యూట్లు' : isHindi ? 'मदरबोर्ड सर्किट' : 'Computer motherboard chips',
-            isTelugu ? 'డేటాబేస్ టేబుల్స్' : isHindi ? 'डेटाबेस टेबल्स' : 'Relational database tables',
-            isTelugu ? 'ఆప్టికల్ ఫైబర్ కేబుల్స్' : isHindi ? 'ऑप्टिकल फाइबर केबल' : 'Optical fiber cables'
-          ],
-          answerIndex: 0,
-          explanation: isTelugu ? 'న్యూరల్ నెట్‌వర్క్‌లు మానవ మెదడు న్యూరాన్ల సంకేత ప్రసార విధానాన్ని అనుకరిస్తాయి.' : 'Neural networks mimic human brain neural structure.'
-        },
-        {
-          id: 3,
-          question: isTelugu
-            ? `Supervised Learning లో ఉపయోగించే డేటా రకం ఏది?`
-            : isHindi
-            ? `Supervised Learning में किस प्रकार का डेटा उपयोग किया जाता है?`
-            : `What type of dataset is required for Supervised Learning?`,
-          options: [
-            isTelugu ? 'లేబుల్ చేయబడిన డేటా (Labeled Dataset)' : isHindi ? 'लेबल किया गया डेटा (Labeled Data)' : 'Labeled training dataset with target tags',
-            isTelugu ? 'ఏమీ లేబుల్ చేయని డేటా' : isHindi ? 'बिना लेबल वाला डेटा' : 'Unlabeled raw text only',
-            isTelugu ? 'యాదృచ్ఛిక శబ్దాల డేటా' : isHindi ? 'यादृच्छिक शोर डेटा' : 'Random noise data',
-            isTelugu ? 'శూన్య డేటా' : isHindi ? 'शून्य डेटा' : 'Empty dataset'
-          ],
-          answerIndex: 0,
-          explanation: isTelugu ? 'Supervised Learning కి ఇన్‌పుట్ మరియు సరైన అవుట్‌పుట్ లేబుల్స్ అవసరం.' : 'Supervised learning needs target output labels.'
-        },
-        {
-          id: 4,
-          question: isTelugu
-            ? `Natural Language Processing (NLP) యొక్క ప్రధాన ఉపయోగం ఏమిటి?`
-            : isHindi
-            ? `Natural Language Processing (NLP) का मुख्य उपयोग क्या है?`
-            : `What is the primary function of Natural Language Processing (NLP)?`,
-          options: [
-            isTelugu ? 'మానవ భాషలను కంప్యూటర్‌లు విశ్లేషించడం మరియు అర్థం చేసుకోవడం' : isHindi ? 'मानव भाषा को समझना और विश्लेषण करना' : 'Understanding and processing human natural languages',
-            isTelugu ? 'చిత్రాల పిక్సెల్ రంగులను మార్చడం' : isHindi ? 'इमेज पिक्सेल का रंग बदलना' : 'Modifying image pixel colors',
-            isTelugu ? '3D గేమ్ గ్రాఫిక్స్ వేగవంతం చేయడం' : isHindi ? '3D ग्राफिक्स तेज करना' : 'Accelerating 3D game rendering',
-            isTelugu ? 'నెట్‌వర్క్ ఐపి చిరునామాలను కేటాయించడం' : isHindi ? 'आईपी एड्रेस असाइन करना' : 'Assigning network IP addresses'
-          ],
-          answerIndex: 0,
-          explanation: isTelugu ? 'NLP మానవ భాషా పాఠాలు మరియు సంభాషణలను కంప్యూటర్ విశ్లేషించేలా చేస్తుంది.' : 'NLP enables text and speech comprehension.'
-        }
-      ]
-    };
+  const questions = [];
+
+  const subtopics = [
+    { en: 'Core Principles', te: 'ప్రాథమిక సూత్రాలు', hi: 'मूल सिद्धांत', ta: 'அடிப்படை கோட்பாடுகள்' },
+    { en: 'Architecture & Design', te: 'నిర్మాణం మరియు రూపకల్పన', hi: 'संरचना और डिज़ाइन', ta: 'கட்டமைப்பு மற்றும் வடிவமைப்பு' },
+    { en: 'Practical Application', te: 'ఆచరణాత్మక వినియోగం', hi: 'व्यावहारिक अनुप्रयोग', ta: 'நடைமுறை பயன்பாடு' },
+    { en: 'Problem Solving & Logic', te: 'సమస్య పరిష్కార తర్కం', hi: 'समस्या समाधान तर्क', ta: 'சிக்கல் தீர்க்கும் தர்க்கம்' },
+    { en: 'Optimization & Efficiency', te: 'ఆప్టిమైజేషన్ మరియు సామర్థ్యం', hi: 'अनुकूलन और दक्षता', ta: 'உகப்பாக்கம் மற்றும் செயல்திறன்' },
+    { en: 'Error Handling & Edge Cases', te: 'ఎర్రర్ నిర్వహణ మరియు అంచులు', hi: 'त्रुटि निवारण', ta: 'பிழை கையாளுதல்' },
+    { en: 'Historical Evolution', te: 'చారిత్రక పరిణామం', hi: 'ऐतिहासिक विकास', ta: 'வரலாற்று பரிணாமம்' },
+    { en: 'Security & Integrity', te: 'భద్రత మరియు సమగ్రత', hi: 'सुरक्षा और अखंडता', ta: 'பாதுகாப்பு மற்றும் ஒருமைப்பாடு' },
+    { en: 'Data Flow & Transformation', te: 'డేటా ప్రవాహం మరియు మార్పిడి', hi: 'डेटा प्रवाह और रूपांतरण', ta: 'தரவு ஓட்டம் மற்றும் மாற்றம்' },
+    { en: 'System Integration', te: 'వ్యవస్థ సమన్వయం', hi: 'प्रणाली एकीकरण', ta: 'அமைப்பு ஒருங்கிணைப்பு' },
+    { en: 'Evaluation Metrics', te: 'మూల్యాంకన ప్రమాణాలు', hi: 'मूल्यांकन मेट्रिक्स', ta: 'மதிப்பீட்டு அளவீடுகள்' },
+    { en: 'Scalability & Growth', te: 'స్కేలబిలిటీ మరియు వృద్ధి', hi: 'मापनीयता और विकास', ta: 'அளவிடுதல் மற்றும் வளர்ச்சி' },
+    { en: 'Future Trends & Research', te: 'భవిష్యత్ పోకడలు', hi: 'भविष्य के रुझान', ta: 'எதிர்கால போக்குகள்' },
+    { en: 'Industry Standards', te: 'పరిశ్రమ ప్రమాణాలు', hi: 'उद्योग मानक', ta: 'தொழில்துறை தரநிலைகள்' },
+    { en: 'Common Pitfalls', te: 'సాధారణ లోపాలు', hi: 'सामान्य गलतियाँ', ta: 'பொதுவான தவறுகள்' },
+    { en: 'Theoretical Foundations', te: 'సిద్ధాంత పునాదులు', hi: 'सैद्धांतिक आधार', ta: 'கோட்பாட்டு அடிப்படைகள்' },
+    { en: 'Comparative Analysis', te: 'తులనాత్మక విశ్లేషణ', hi: 'तुलनात्मक विश्लेषण', ta: 'ஒப்பீட்டு பகுப்பாய்வு' },
+    { en: 'Component Interaction', te: 'భాగాల పరస్పర చర్య', hi: 'घटक सहभागिता', ta: 'கூறு தொடர்பு' },
+    { en: 'Lifecycle Management', te: 'జీవిత చక్ర నిర్వహణ', hi: 'जीवन चक्र प्रबंधन', ta: 'வாழ்க்கை சுழற்சி மேலாண்மை' },
+    { en: 'Best Practices', te: 'ఉత్తమ అభ్యాసాలు', hi: 'सर्वोत्तम प्रथाएँ', ta: 'சிறந்த நடைமுறைகள்' }
+  ];
+
+  for (let i = 0; i < count; i++) {
+    const sub = subtopics[(i + offset) % subtopics.length];
+    const subName = isTelugu ? sub.te : isHindi ? sub.hi : isTamil ? sub.ta : sub.en;
+    const correctIdx = (i + offset) % 4;
+
+    let qText = '';
+    let options = [];
+    let explanation = '';
+
+    if (diff.toLowerCase().includes('beginner')) {
+      if (isTelugu) {
+        qText = `${activeTopic} లో '${subName}' కి సంబంధించి ప్రాథమిక భావన ఏది? (ప్రశ్న ${i + 1})`;
+        options = [
+          `నిర్దిష్ట లక్ష్యాన్ని సాధించడానికి ఆధారపడే మౌలిక సిద్ధాంతం`,
+          `యాదృచ్ఛికంగా ఊహించే తాత్కాలిక ఆలోచన`,
+          `పరిశీలించని సమాచారాల సంకలనం`,
+          `సంబంధం లేని బాహ్య పరికరం`
+        ];
+        explanation = `${activeTopic} లో ప్రాథమిక సూత్రాలు లక్ష్య సాధనకు మూలస్తంభంగా నిలుస్తాయి.`;
+      } else if (isHindi) {
+        qText = `${activeTopic} में '${subName}' से संबंधित मूल अवधारणा क्या है? (प्रश्न ${i + 1})`;
+        options = [
+          `लक्ष्य प्राप्त करने का आधारभूत सिद्धांत`,
+          `यादृच्छिक अनुमान`,
+          `अनावश्यक विवरण`,
+          `असंबंधित तत्व`
+        ];
+        explanation = `आधारभूत सिद्धांत समस्या समाधान की नींव रखते हैं।`;
+      } else if (isTamil) {
+        qText = `${activeTopic} பாடத்தில் '${subName}' தொடர்பான அடிப்படை கருத்து யாது? (கேள்வி ${i + 1})`;
+        options = [
+          `இலக்கை அடைய உதவும் அடிப்படைக் கொள்கை`,
+          `தோராயமான ஊகம்`,
+          `தேவையற்ற விவரங்கள்`,
+          `தொடர்பற்ற பொருள்`
+        ];
+        explanation = `அடிப்படைக் கொள்கை துல்லியமான புரிதலை வழங்குகிறது.`;
+      } else {
+        qText = `In ${activeTopic}, what is the foundational concept regarding ${subName}? (Question ${i + 1})`;
+        options = [
+          `The core foundational principle that guides systematic execution`,
+          `An arbitrary assumption without empirical support`,
+          `An unrelated superficial metric`,
+          `An obsolete legacy practice`
+        ];
+        explanation = `Foundational principles establish systematic correctness.`;
+      }
+    } else if (diff.toLowerCase().includes('advanced')) {
+      if (isTelugu) {
+        qText = `${activeTopic} లో సంక్లిష్ట సమస్యను పరిష్కరించేటప్పుడు '${subName}' పరంగా ఎదురయ్యే ప్రధాన సవాలు లేదా ట్రేడ్-ఆఫ్ ఏమిటి? (ప్రశ్న ${i + 1})`;
+        options = [
+          `పరిమితులు, వనరుల వినియోగం మరియు ఖచ్చితత్వం మధ్య సరైన సమతుల్యత సాధించడం`,
+          `వ్యవస్థను పూర్తిగా నిలిపివేయడం`,
+          `అన్ని కొలమానాలను విస్మరించడం`,
+          `ప్రాథమిక నియమాలను తొలగించడం`
+        ];
+        explanation = `అధునాతన స్థాయిలో వనరుల ఆప్టిమైజేషన్ మరియు ఖచ్చితత్వం మధ్య బ్యాలెన్స్ అత్యంత కీలకం.`;
+      } else if (isHindi) {
+        qText = `${activeTopic} में जटिल परिदृश्यों में '${subName}' के अंतर्गत मुख्य ट्रेड-ऑफ क्या है? (प्रश्न ${i + 1})`;
+        options = [
+          `संसाधनों की दक्षता और सटीकता के बीच संतुलन स्थापित करना`,
+          `सिस्टम को बंद करना`,
+          `मापों की उपेक्षा करना`,
+          `नियमों को मिटाना`
+        ];
+        explanation = `उन्नत स्तर पर सटीकता और संसाधन प्रबंधन का संतुलन आवश्यक है।`;
+      } else if (isTamil) {
+        qText = `${activeTopic} உயர்நிலை சிக்கல்களில் '${subName}' சார்ந்த முக்கிய தேர்வு யாது? (கேள்வி ${i + 1})`;
+        options = [
+          `வளங்களின் திறன் மற்றும் துல்லியத்திற்கு இடையே சமநிலை பேணல்`,
+          `அமைப்பை நிறுத்துதல்`,
+          `விதிமுறைகளை புறக்கணித்தல்`,
+          `தவறான தரவு பயன்பாடு`
+        ];
+        explanation = `மேம்பட்ட மட்டத்தில் திறன் மற்றும் துல்லியத்தின் சமநிலை இன்றியமையாதது.`;
+      } else {
+        qText = `In advanced ${activeTopic}, what is the primary algorithmic tradeoff regarding ${subName}? (Question ${i + 1})`;
+        options = [
+          `Balancing computational resource complexity against precision and scalability`,
+          `Blindly reducing all data dimensions`,
+          `Disregarding convergence bounds completely`,
+          `Sacrificing determinism without empirical justification`
+        ];
+        explanation = `Advanced engineering requires balancing throughput, precision, and latency constraints.`;
+      }
+    } else {
+      // Intermediate
+      if (isTelugu) {
+        qText = `${activeTopic} లో '${subName}' ని ఆచరణలో సమర్థవంతంగా అమలు చేయడానికి ఉత్తమ విధానం ఏది? (ప్రశ్న ${i + 1})`;
+        options = [
+          `దశలవారీ విశ్లేషణ, నమూనా పరీక్ష మరియు క్రమబద్ధమైన ఆప్టిమైజేషన్`,
+          `హడావుడి నిర్ణయాలు తీసుకోవడం`,
+          `పరిశీలనలు లేకుండా ఊహించడం`,
+          `పాత పద్ధతులను గుడ్డిగా అనుసరించడం`
+        ];
+        explanation = `దశలవారీ విశ్లేషణ మరియు క్రమబద్ధమైన ఆప్టిమైజేషన్ ఖచ్చితమైన ఫలితాలను అందిస్తుంది.`;
+      } else if (isHindi) {
+        qText = `${activeTopic} में '${subName}' को प्रभावी ढंग से लागू करने का सर्वोत्तम तरीका क्या है? (प्रश्न ${i + 1})`;
+        options = [
+          `चरणबद्ध विश्लेषण, परीक्षण और व्यवस्थित अनुकूलन`,
+          `जल्दबाज़ी में निष्कर्ष निकालना`,
+          `पूर्वाग्रह पर भरोसा करना`,
+          `बिना सोचे-समझे नकल करना`
+        ];
+        explanation = `चरणबद्ध विश्लेषण सटीकता और विश्वसनीयता सुनिश्चित करता है।`;
+      } else if (isTamil) {
+        qText = `${activeTopic} பாடத்தில் '${subName}' அம்சத்தை செயல்படுத்த சிறந்த முறை எது? (கேள்வி ${i + 1})`;
+        options = [
+          `படிபடியான பகுப்பாய்வு, சோதனை மற்றும் உகப்பாக்கம்`,
+          `அவசர முடிவு எடுத்தல்`,
+          `ஊகங்களை நம்புதல்`,
+          `பழைய முறைகளை கண்மூடித்தனமாக பின்பற்றுதல்`
+        ];
+        explanation = `படிபடியான பகுப்பாய்வு நம்பகமான தீர்வை அளிக்கிறது.`;
+      } else {
+        qText = `In ${activeTopic}, which analytical method provides the best outcome for ${subName}? (Question ${i + 1})`;
+        options = [
+          `Structured step-by-step validation, empirical testing, and iterative refinement`,
+          `Hasty generalization based on incomplete samples`,
+          `Relying purely on undocumented intuition`,
+          `Ignoring system feedback loops`
+        ];
+        explanation = `Structured empirical validation and iterative testing guarantees robust results.`;
+      }
+    }
+
+    // Rearrange options so correct answer is at correctIdx
+    const correctOpt = options[0];
+    const otherOpts = options.slice(1);
+    const shuffledOpts = [];
+    let otherPtr = 0;
+    for (let c = 0; c < 4; c++) {
+      if (c === correctIdx) {
+        shuffledOpts.push(correctOpt);
+      } else {
+        shuffledOpts.push(otherOpts[otherPtr++]);
+      }
+    }
+
+    questions.push({
+      id: i + 1,
+      question: qText,
+      options: shuffledOpts,
+      answerIndex: correctIdx,
+      explanation
+    });
   }
 
   return {
     id: 'qz_' + Date.now(),
-    title: `${activeTopic} Quiz (${difficulty})`,
+    title: `${activeTopic} Quiz (${diff})`,
     subject: activeTopic,
-    language,
-    questions: [
-      {
-        id: 1,
-        question: isTelugu
-          ? `${activeTopic} కు సంబంధించిన ప్రాథమిక అకాడెమిక్ సిద్ధాంతం ఏమిటి?`
-          : isHindi
-          ? `${activeTopic} से संबंधित प्राथमिक शैक्षणिक सिद्धांत क्या है?`
-          : `What is the core fundamental concept of ${activeTopic}?`,
-        options: [
-          isTelugu ? 'క్రమబద్ధమైన తార్కిక విశ్లేషణ మరియు పరిశీలన' : isHindi ? 'व्यवस्थित तार्किक विश्लेषण' : 'Systematic logical analysis and observation',
-          isTelugu ? 'యాదృచ్ఛిక ఊహించడం' : isHindi ? 'यादृच्छिक अनुमान' : 'Random trial and error',
-          isTelugu ? 'ఆధారాలు లేని తీర్మానం' : isHindi ? 'बिना प्रमाण निष्कर्ष' : 'Unsubstantiated assumption',
-          isTelugu ? 'కేవలం గుర్తుంచుకోవడం' : isHindi ? 'केवल रटना' : 'Rote memorization'
-        ],
-        answerIndex: 0,
-        explanation: isTelugu ? 'క్రమబద్ధమైన విశ్లేషణ ద్వారా సమగ్ర అవగాహన లభిస్తుంది.' : 'Systematic evaluation ensures accuracy.'
-      },
-      {
-        id: 2,
-        question: isTelugu
-          ? `${activeTopic} లో ఖచ్చితమైన ఫలితాన్ని సాధించడానికి ఏ పద్ధతి ఉత్తమం?`
-          : isHindi
-          ? `${activeTopic} में सटीक परिणाम प्राप्त करने की सर्वोत्तम विधि क्या है?`
-          : `Which strategy delivers highest accuracy in ${activeTopic}?`,
-        options: [
-          isTelugu ? 'దశలవారీ ఆలోచన విధానం (Step-by-step reasoning)' : isHindi ? 'चरणबद्ध तर्क (Step-by-step reasoning)' : 'Step-by-step analytical reasoning',
-          isTelugu ? 'త్వరిత నిర్ణయం' : isHindi ? 'त्वरित निष्कर्ष' : 'Hasty generalization',
-          isTelugu ? 'సమీకరణాలను విస్మరించడం' : isHindi ? 'समीकरणों की उपेक्षा' : 'Ignoring empirical data',
-          isTelugu ? 'అసంపూర్ణ సమాచారం' : isHindi ? 'अपूर्ण जानकारी' : 'Partial observations'
-        ],
-        answerIndex: 0,
-        explanation: 'Step-by-step reasoning minimizes errors.'
-      },
-      {
-        id: 3,
-        question: isTelugu
-          ? `${activeTopic} లో ప్రయోగాత్మక సత్యాలను నిరూపించడానికి ఏమి అవసరం?`
-          : isHindi
-          ? `${activeTopic} में प्रायोगिक तथ्यों को सिद्ध करने के लिए क्या आवश्यक है?`
-          : `What is essential for empirical verification in ${activeTopic}?`,
-        options: [
-          isTelugu ? 'గణాంకాలు మరియు ఆధారాలు (Data & Evidence)' : isHindi ? 'आंकड़े और प्रमाण (Data & Evidence)' : 'Empirical data & verified evidence',
-          isTelugu ? 'వ్యక్తిగత అభిప్రాయం' : isHindi ? 'व्यक्तिगत राय' : 'Personal bias',
-          isTelugu ? 'పాత ఊహలు' : isHindi ? 'पुराने संदेह' : 'Outdated assumptions',
-          isTelugu ? 'కల్పిత విషయాలు' : isHindi ? 'काल्पनिक बातें' : 'Unverifiable claims'
-        ],
-        answerIndex: 0,
-        explanation: 'Empirical data provides solid foundational truth.'
-      },
-      {
-        id: 4,
-        question: isTelugu
-          ? `${activeTopic} నందు నైపుణ్యం సాధించడానికి సరైన అభ్యాస విధానం ఏది?`
-          : isHindi
-          ? `${activeTopic} में महारत हासिल करने का सही तरीका क्या है?`
-          : `What represents the optimal mastery technique for ${activeTopic}?`,
-        options: [
-          isTelugu ? 'సమగ్ర అభ్యాసం మరియు పునరావృతం (Active Recall)' : isHindi ? 'सक्रिय अभ्यास (Active Recall)' : 'Active recall & spaced repetition',
-          isTelugu ? 'పరీక్ష రాత్రి చదవడం' : isHindi ? 'परीक्षा की रात रटना' : 'Cramming overnight',
-          isTelugu ? 'సందేహాలను అడగకపోవడం' : isHindi ? 'संदेह न पूछना' : 'Avoiding clarification',
-          isTelugu ? 'గమనికలు విస్మరించడం' : isHindi ? 'नोट्स न बनाना' : 'Skipping reference notes'
-        ],
-        answerIndex: 0,
-        explanation: 'Active recall solidifies long-term mastery.'
-      }
-    ]
+    difficulty: diff,
+    language: language || 'English',
+    questions
   };
 }
 
 const handleQuizGenerate = async (req, res) => {
-  const { topic = '', subject = 'General Knowledge', difficulty = 'Intermediate', language = 'Telugu' } = req.body;
-  const targetTopic = topic.trim() || subject;
+  const {
+    topic = '',
+    subject = 'General Knowledge',
+    difficulty = 'Intermediate',
+    language = 'Telugu',
+    count = 20,
+    seed = Date.now().toString()
+  } = req.body;
 
-  const systemPrompt = QUIZ_SYSTEM
-    .replace(/\{subject\}/g, targetTopic)
-    .replace(/\{difficulty\}/g, difficulty)
-    .replace(/\{language\}/g, language);
+  const targetTopic = (topic || subject || 'General Knowledge').trim();
+  const numQuestions = Math.min(Math.max(parseInt(count) || 20, 1), 25); // default 20 questions
 
-  const rawClaude = await getClaudeResponse(systemPrompt, [{ role: 'user', content: `Generate 4 quiz questions specifically on ${targetTopic}` }], 2000);
+  console.log(`[Quiz] Generating ${numQuestions} questions for "${targetTopic}" (${difficulty}, ${language}, seed: ${seed})`);
 
-  let quizData;
-  if (rawClaude) {
-    try {
-      const match = rawClaude.match(/<quiz>(.*?)<\/quiz>/s) || rawClaude.match(/\{.*\}/s);
-      if (match) quizData = JSON.parse(match[1] || match[0]);
-    } catch (e) {
-      console.error('Quiz JSON Parse Error:', e);
+  let quizData = null;
+
+  if (llm) {
+    const prompt = getQuizPrompt(targetTopic, difficulty, language, numQuestions, seed);
+    const candidateModels = ['gemini-3.7-flash', MODEL];
+
+    for (const modelName of candidateModels) {
+      try {
+        console.log(`[Quiz] Attempting with model ${modelName}...`);
+        const geminiModel = llm.getGenerativeModel({
+          model: modelName,
+          generationConfig: {
+            maxOutputTokens: 7500,
+            responseMimeType: 'application/json'
+          }
+        });
+
+        const result = await geminiModel.generateContent({
+          contents: [{ role: 'user', parts: [{ text: prompt }] }]
+        });
+
+        const rawText = result.response.text();
+        if (rawText) {
+          const parsed = JSON.parse(rawText);
+          if (parsed && Array.isArray(parsed.questions) && parsed.questions.length > 0) {
+            const cleanQuestions = parsed.questions.slice(0, numQuestions).map((q, idx) => ({
+              id: idx + 1,
+              question: q.question || `Question ${idx + 1}`,
+              options: Array.isArray(q.options) && q.options.length >= 4 ? q.options.slice(0, 4) : ['A', 'B', 'C', 'D'],
+              answerIndex: typeof q.answerIndex === 'number' && q.answerIndex >= 0 && q.answerIndex < 4 ? q.answerIndex : 0,
+              explanation: q.explanation || 'Solution explained above.'
+            }));
+
+            quizData = {
+              id: 'qz_' + Date.now(),
+              title: parsed.title || `${targetTopic} Quiz (${difficulty})`,
+              subject: targetTopic,
+              difficulty,
+              language,
+              questions: cleanQuestions
+            };
+            console.log(`[Quiz] Successfully generated ${cleanQuestions.length} questions using ${modelName}`);
+            break;
+          }
+        }
+      } catch (err) {
+        console.warn(`[Quiz] Model ${modelName} failed:`, err.message);
+        if (err.message.includes('429') || err.message.includes('Quota') || err.message.includes('RESOURCE_EXHAUSTED') || err.message.includes('503')) {
+          continue;
+        }
+      }
     }
   }
 
-  if (!quizData) {
-    quizData = generateFallbackQuiz(targetTopic, subject, difficulty, language);
+  // Fallback engine: produces dynamic 20-question level-adaptive quiz
+  if (!quizData || !quizData.questions || quizData.questions.length === 0) {
+    console.log(`[Quiz] Using dynamic fallback engine for ${numQuestions} questions`);
+    quizData = generateFallbackQuiz(targetTopic, subject, difficulty, language, numQuestions, seed);
   }
 
   res.json(quizData);
@@ -1094,12 +1523,12 @@ const handleTranslate = async (req, res) => {
 Output JSON inside <translation></translation> with keys:
 "translatedText" (string), "vocabulary" (array of { "word": string, "translation": string, "meaning": string }).`;
 
-  const rawClaude = await getClaudeResponse(TRANSLATE_SYSTEM, [{ role: 'user', content: text }], 1500);
+  const rawAI = await getAIResponse(TRANSLATE_SYSTEM, [{ role: 'user', content: text }], 1500);
 
   let result;
-  if (rawClaude) {
+  if (rawAI) {
     try {
-      const match = rawClaude.match(/<translation>(.*?)<\/translation>/s) || rawClaude.match(/\{.*\}/s);
+      const match = rawAI.match(/<translation>(.*?)<\/translation>/s) || rawAI.match(/\{.*\}/s);
       if (match) result = JSON.parse(match[1] || match[0]);
     } catch (e) {}
   }
@@ -1159,6 +1588,6 @@ app.delete('/flashcards/:id', authMiddleware, (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`EduLinga AI Server running on http://localhost:${PORT}`);
+  console.log(`StudyMate AI Server running on http://localhost:${PORT}`);
 });
 
