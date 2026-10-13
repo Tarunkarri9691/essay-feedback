@@ -61,6 +61,14 @@
       "preferred_language": "Telugu",
       "password": "$2a$10$2kSqOJpnS6DlaCgS7nKhi.ZpuDrTaDG/kiFfQPOW5RfGyk5yxf0pi",
       "created_at": "2026-10-13T06:15:40.311Z"
+    },
+    {
+      "id": "usr_1791874099175_6c70m",
+      "name": "andrew",
+      "email": "andrew@gmail.com",
+      "preferred_language": "English",
+      "password": "$2a$10$qkxqaZgXN18BVRfqsMUaKOq6ya/HlEYUXRhM86L6z.BHBe6jbIh5i",
+      "created_at": "2026-10-13T06:48:19.175Z"
     }
   ],
   "conversations": [
@@ -2264,6 +2272,194 @@
         ]
       },
       "created_at": "2026-10-13T04:58:33.297Z"
+    },
+    {
+      "id": "esy_1791873703025_a8z2u",
+      "user_id": "usr_demo_1791866237989",
+      "title": "Untitled Essay",
+      "content": "my name is maxius decius meridius .father to a killed son. husband to a murdered wife . and i have vagance to my life. i can survive even a hundreds of people were stand against me. ",
+      "language": "English",
+      "score": 24,
+      "feedback": {
+        "language": "English",
+        "overall": 24,
+        "grammar": 20,
+        "vocabulary": 25,
+        "coherence": 32,
+        "structure": 20,
+        "originality": 15,
+        "improvedVersion": "My name is Maximus Decimus Meridius: father to a murdered son, husband to a slain wife, and a man bound to vengeance. Neither the passage of time nor the fury of fate can extinguish my resolve. Even should hundreds stand arrayed against me, I will endure, steadfast in my pursuit of retribution and honor.",
+        "keyTakeaways": [
+          "The text borrows heavily from the iconic monologue in the film 'Gladiator' without proper attribution or development.",
+          "Fundamental mechanical issues, including improper spacing, lack of capitalization, and sentence fragments, heavily degrade readability.",
+          "Major grammatical and lexical errors ('vagance', 'a hundreds of people were stand') undermine the intended dramatic tone."
+        ],
+        "strengths": [
+          "Conveys an intense, dramatic sentiment inspired by classic epic cinema.",
+          "Shows an attempt to use parallel phrasing ('father to...', 'husband to...')."
+        ],
+        "improvements": [
+          "Master basic punctuation rules, such as placing spaces after periods rather than before them.",
+          "Apply standard capitalization to proper nouns and sentence beginnings.",
+          "Eliminate severe grammatical faults in noun phrases ('a hundreds') and verb tenses ('were stand').",
+          "Develop original ideas rather than transcribing fragmented cinematic dialogue."
+        ],
+        "suggestions": [
+          "Review English verb forms and conditional clauses (e.g., 'even if hundreds of people stand against me').",
+          "Practice using a spellchecker to catch non-words like 'vagance'.",
+          "If writing a monologue or personal reflection, expand on the narrative context and internal motivations to build a complete piece."
+        ],
+        "corrections": [
+          {
+            "original": "my name is maxius decius meridius .",
+            "fixed": "My name is Maximus Decimus Meridius,",
+            "why": "Capitalize the initial letter of the sentence and all proper names. Remove the errant space before the punctuation mark."
+          },
+          {
+            "original": ".father to a killed son. husband to a murdered wife .",
+            "fixed": "father to a murdered son, husband to a slain wife,",
+            "why": "These clauses are descriptive appositives modifying the subject and should be separated by commas rather than broken into sentence fragments."
+          },
+          {
+            "original": "and i have vagance to my life.",
+            "fixed": "and I have dedicated my life to vengeance.",
+            "why": "'i' must always be capitalized when used as a pronoun. 'vagance' is a misspelling of 'vengeance', and the phrasing requires proper prepositional framing."
+          },
+          {
+            "original": "a hundreds of people",
+            "fixed": "hundreds of people",
+            "why": "Do not combine the singular indefinite article 'a' with the plural noun 'hundreds'."
+          },
+          {
+            "original": "were stand against me",
+            "fixed": "stood against me (or: stand against me)",
+            "why": "The construction 'were stand' is ungrammatical. Use either simple past ('stood'), present ('stand'), or past continuous ('were standing')."
+          }
+        ]
+      },
+      "created_at": "2026-10-13T06:41:43.025Z"
+    },
+    {
+      "id": "esy_1791873783416_tzqoj",
+      "user_id": "usr_demo_1791866237989",
+      "title": "Untitled Essay",
+      "content": "my name is maxius decius meridius .father to a killed son. husband to a murdered wife . and i have vagance to my life. i can survive even a hundreds of people were stand against me. ",
+      "language": "English",
+      "score": 28,
+      "feedback": {
+        "language": "English",
+        "overall": 28,
+        "grammar": 25,
+        "vocabulary": 30,
+        "coherence": 35,
+        "structure": 20,
+        "originality": 25,
+        "improvedVersion": "My name is Maximus Decimus Meridius, commander of the Armies of the North, General of the Felix Legions, and loyal servant to the true emperor. I am a father to a murdered son, a husband to a murdered wife, and my remaining existence is fueled solely by vengeance. Stripped of my honor, family, and freedom, I fear neither death nor defeat. Even if hundreds stand against me in the arena, my spirit will endure until justice is served in this life or the next.",
+        "keyTakeaways": [
+          "यह रचना प्रसिद्ध फिल्म 'ग्लैडीएटर' के संवाद पर आधारित एक बहुत छोटा अंश है, जिसे निबंध का रूप नहीं दिया गया है।",
+          "व्याकरण, वर्तनी (spelling) और विराम चिह्नों (punctuation) में कई गंभीर त्रुटियां हैं।",
+          "विचारों को विस्तार देने और उचित पैराग्राफ संरचना का पूरी तरह अभाव है।"
+        ],
+        "strengths": [
+          "लेखक ने एक शक्तिशाली और भावनात्मक विषय (प्रतिशोध और अदम्य साहस) को व्यक्त करने का प्रयास किया है।",
+          "मुख्य संदेश और चरित्र का दृढ़ संकल्प संक्षेप में समझ में आ जाता है।"
+        ],
+        "improvements": [
+          "वाक्य संरचना को सुधारें; अधूरे वाक्यों (sentence fragments) के स्थान पर पूर्ण और सुसंगत वाक्य लिखें।",
+          "नामों और वाक्यों की शुरुआत में बड़े अक्षरों (capitalization) का अनिवार्य रूप से प्रयोग करें।",
+          "शब्दावली में सुधार करें; 'vagance' जैसे गलत शब्दों के स्थान पर सही स्पेलिंग 'vengeance' का प्रयोग करें।",
+          "इसे केवल एक-दो पंक्तियों के बजाय एक पूर्ण निबंध या व्यवस्थित पैराग्राफ के रूप में विकसित करें।"
+        ],
+        "suggestions": [
+          "लिखने के बाद प्रूफरीडिंग (पुनः अवलोकन) अवश्य करें ताकि वर्तनी की गलतियों को सुधारा जा सके।",
+          "पूर्ण विराम (full stop) से पहले स्पेस न दें, और विराम चिह्न के बाद उचित स्पेसिंग का ध्यान रखें।",
+          "सशक्त विचार को प्रमाणित करने के लिए पृष्ठभूमि, संघर्ष और उद्देश्य को विस्तार से समझाएं।"
+        ],
+        "corrections": [
+          {
+            "original": "my name is maxius decius meridius",
+            "fixed": "My name is Maximus Decimus Meridius",
+            "why": "वाक्य का पहला अक्षर और किसी व्यक्ति का नाम हमेशा कैपिटल (Capital letter) में लिखा जाता है।"
+          },
+          {
+            "original": ".father to a killed son. husband to a murdered wife .",
+            "fixed": ", father to a murdered son, husband to a murdered wife,",
+            "why": "यह स्वतंत्र वाक्य नहीं हैं, बल्कि मुख्य विषय के विशेषण खंड हैं; इसलिए इन्हें कॉमा (comma) से जोड़ना चाहिए।"
+          },
+          {
+            "original": "and i have vagance to my life.",
+            "fixed": "and I seek vengeance in my life.",
+            "why": "'vagance' गलत शब्द है, सही शब्द 'vengeance' (प्रतिशोध) है। साथ ही सर्वनाम 'I' हमेशा कैपिटल लिखा जाता है।"
+          },
+          {
+            "original": "i can survive even a hundreds of people were stand against me.",
+            "fixed": "I can survive even if hundreds of people stand against me.",
+            "why": "'even a hundreds of people were stand' व्याकरण की दृष्टि से अशुद्ध है; सशर्त वाक्य के लिए 'even if hundreds of people stand' सही रूप है।"
+          }
+        ]
+      },
+      "created_at": "2026-10-13T06:43:03.416Z"
+    },
+    {
+      "id": "esy_1791873799447_lrx9w",
+      "user_id": "usr_demo_1791866237989",
+      "title": "Untitled Essay",
+      "content": "my name is maxius decius meridius .father to a killed son. husband to a murdered wife . and i have vagance to my life. i can survive even a hundreds of people were stand against me. ",
+      "language": "English",
+      "score": 28,
+      "feedback": {
+        "language": "English",
+        "overall": 28,
+        "grammar": 25,
+        "vocabulary": 30,
+        "coherence": 35,
+        "structure": 20,
+        "originality": 20,
+        "improvedVersion": "My name is Maximus Decimus Meridius, father to a murdered son, husband to a murdered wife, and I will have my vengeance, in this life or the next. No matter the odds, even if hundreds stand against me, my resolve will not falter.",
+        "keyTakeaways": [
+          "ఇది ప్రసిద్ధ 'గ్లాడియేటర్' (Gladiator) చిత్రంలోని సంభాషణను పోలి ఉన్న చిన్న పేరా, పూర్తి వ్యాసం కాదు.",
+          "అక్షరదోషాలు, విరామ చిహ్నాల (punctuation) పొరపాట్లు మరియు వ్యాకరణ లోపాలు ఎక్కువగా ఉన్నాయి.",
+          "వాక్యాల నిర్మాణం మరియు సమగ్రతపై ప్రత్యేక శ్రద్ధ పెట్టాలి."
+        ],
+        "strengths": [
+          "వ్యక్తీకరించాలనుకున్న భావంలో తీవ్రత మరియు నాటకీయత ఉన్నాయి.",
+          "పాత్ర యొక్క లక్ష్యాన్ని సంక్షిప్తంగా వివరించడానికి ప్రయత్నించారు."
+        ],
+        "improvements": [
+          "పేర్లు మరియు వాక్యాల ప్రారంభంలో క్యాపిటల్ అక్షరాలను (Capitalization) సరిగ్గా ఉపయోగించాలి.",
+          "'vagance' వంటి తీవ్రమైన అక్షరదోషాలను సరిదిద్దాలి (సరైన పదం: 'vengeance').",
+          "విరామ చిహ్నాలకు ముందు అనవసరమైన ఖాళీలు (spaces) ఇవ్వకూడదు.",
+          "అసంపూర్ణ వాక్య భాగాలు (Sentence fragments) కాకుండా పూర్తి అర్థవంతమైన వాక్యాలను నిర్మించాలి."
+        ],
+        "suggestions": [
+          "ఆంగ్లంలో ప్రాథమిక వ్యాకరణ నియమాలు మరియు వాక్య నిర్మాణాలను అభ్యసించండి.",
+          "సినిమా సంభాషణలను ఉన్నది ఉన్నట్లు రాయడం కాకుండా, మీ స్వంత ఆలోచనలతో ఒక పూర్తి వ్యాసాన్ని రాయడానికి ప్రయత్నించండి.",
+          "రాయడం పూర్తయిన తర్వాత స్పెల్లింగ్ మరియు వ్యాకరణ తనిఖీ (Proofreading) చేసుకోవడం అలవాటు చేసుకోండి."
+        ],
+        "corrections": [
+          {
+            "original": "my name is maxius decius meridius",
+            "fixed": "My name is Maximus Decimus Meridius",
+            "why": "వాక్యం మొదటి అక్షరం మరియు పేర్లలోని మొదటి అక్షరాలు ఎల్లప్పుడూ క్యాపిటల్ లెటర్స్‌తో ప్రారంభం కావాలి; పేరు స్పెల్లింగ్ కూడా సరిదిద్దబడింది."
+          },
+          {
+            "original": ".father to a killed son. husband to a murdered wife .",
+            "fixed": ", father to a murdered son, husband to a murdered wife,",
+            "why": "ఇవి స్వతంత్ర వాక్యాలు కావు, ప్రధాన వాక్యానికి అనుబంధాలు (appositives); కాబట్టి ఫుల్‌స్టాప్‌లకు బదులుగా కామాలు వాడాలి."
+          },
+          {
+            "original": "and i have vagance to my life.",
+            "fixed": "and I seek vengeance in my life.",
+            "why": "'vagance' అనేది తప్పు స్పెల్లింగ్ (సరైనది 'vengeance'), 'i' ఎల్లప్పుడూ క్యాపిటల్ 'I' గా ఉండాలి, మరియు ప్రిపొజిషన్ 'in' వాడాలి."
+          },
+          {
+            "original": "even a hundreds of people were stand against me.",
+            "fixed": "even if hundreds of people stand against me.",
+            "why": "'a hundreds' అనేది వ్యాకరణపరంగా తప్పు; అలాగే 'were stand' తప్పు ప్రయోగం, షరతును సూచించడానికి 'even if ... stand' అని రాయాలి."
+          }
+        ]
+      },
+      "created_at": "2026-10-13T06:43:19.447Z"
     }
   ],
   "progress": [
@@ -2954,6 +3150,38 @@
       "subject": "General",
       "language": "English",
       "date": "2026-10-13T05:50:29.809Z"
+    },
+    {
+      "id": "prg_1791873703025",
+      "user_id": "usr_demo_1791866237989",
+      "type": "essay",
+      "score": 24,
+      "language": "English",
+      "date": "2026-10-13T06:41:43.025Z"
+    },
+    {
+      "id": "prg_1791873783416",
+      "user_id": "usr_demo_1791866237989",
+      "type": "essay",
+      "score": 28,
+      "language": "English",
+      "date": "2026-10-13T06:43:03.416Z"
+    },
+    {
+      "id": "prg_1791873799447",
+      "user_id": "usr_demo_1791866237989",
+      "type": "essay",
+      "score": 28,
+      "language": "English",
+      "date": "2026-10-13T06:43:19.447Z"
+    },
+    {
+      "id": "prg_q_1791873967213",
+      "user_id": "usr_demo_1791866237989",
+      "type": "quiz",
+      "subject": "ai",
+      "score": 5,
+      "date": "2026-10-13T06:46:07.213Z"
     }
   ],
   "flashcards": [
