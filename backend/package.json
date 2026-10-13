@@ -5,6 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
+    "build": "echo \"Backend build completed successfully\"",
     "start": "node server.js",
     "dev": "node --watch server.js"
   },
